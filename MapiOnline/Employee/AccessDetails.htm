@@ -1,0 +1,149 @@
+﻿<div id="content" class="main-content">
+    <div class="unit size3of4 infoAccountCont gaTag gaPopUp" gaprops="{logic:'Mi_Cuenta/Datos_de_Acceso'}">
+        <!-- <div class="line mod">
+            <div class="unit size1of1">
+                <div class="section">
+                    <h3 class="titleSection">
+                        تغییر ایمیل:
+                    </h3>
+                    <p>
+                        اگر میخواهید ایمیل حساب خود را تغییر دهید،لطفا فیلد های زیر را پرکنید.برای تغییر
+                        ایمیل رمزعبور اجباری است</p>
+                    <p id="userEmail">
+                    </p>
+                    <form id="formChangeEmail" class="ajaxForm gaTag gaFormResult gaModal">
+                    <ul class="formControls">
+                        <li class="formControl">
+                            <label class="labelLeft" for="logonPasswordOld">
+                                رمزعبور اصلی <em class="required">*</em>
+                            </label>
+                            <input class="inputText required msgPos:'msgPos1' gaTag gaVirtualPage gaFormField gaModal"
+                                id="txt_s_CurrentPassword" gaprops="{events:'change', data:'Password_Actual'}"
+                                name="logonPasswordOld" type="password" maxlength="60" />
+                            <span class="inputTip tipHelp">لطفا رمزعبور اصلی خود را وارد کنید </span><span class="inputTip tipWarn"
+                                id="msgPos1">
+                                <img src="https://static.zara.net/wcsstore/ZaraStorefrontAssetStore/images/tip_warn.png"
+                                    alt="warning" /></span> <span class="inputTip tipOk">
+                                        <img src="https://static.zara.net/wcsstore/ZaraStorefrontAssetStore/images/tip_ok.png"
+                                            alt="ok" /></span> </li>
+                        <li class="formControl">
+                            <label class="labelLeft" for="email_1" id="newEmailLabel">
+                                نام کاربری جدید: <em class="required">*</em>
+                            </label>
+                            <input class="inputText required validate-email msgPos:'msgPos2' gaTag gaVirtualPage gaFormField gaModal"
+                                gaprops="{events:'change', data:'Email_Nuevo'}" id="txt_s_NewUserName" name="email_1"
+                                maxlength="60" />
+                            <span class="inputTip tipHelp">لطفا نام کاربری جدید را وارد کنید </span><span class="inputTip tipWarn"
+                                id="msgPos2">
+                                <img src="https://static.zara.net/wcsstore/ZaraStorefrontAssetStore/images/tip_warn.png"
+                                    alt="warning" /></span> <span class="inputTip tipOk">
+                                        <img src="https://static.zara.net/wcsstore/ZaraStorefrontAssetStore/images/tip_ok.png"
+                                            alt="ok" /></span> </li>
+                        <li class="formControl">
+                            <label class="labelLeft" for="email_2" id="emailConfirmLabel">
+                                تکرار نام کاربری جدید: <em class="required">*</em>
+                            </label>
+                            <input class="inputText required validate-email validate-match matchInput:'newEmail' msgPos:'msgPos3' gaTag gaVirtualPage gaFormField gaModal"
+                                gaprops="{events:'change', data:'Email_Nuevo_Repetir'}" id="txt_s_UserNameConfirm"
+                                name="email_2" maxlength="60" />
+                            <span class="inputTip tipHelp">لطفا نام کاربری را دوباره وارد کنید </span><span class="inputTip tipWarn"
+                                id="msgPos3">
+                                <img src="https://static.zara.net/wcsstore/ZaraStorefrontAssetStore/images/tip_warn.png"
+                                    alt="warning" /></span> <span class="inputTip tipOk">
+                                        <img src="https://static.zara.net/wcsstore/ZaraStorefrontAssetStore/images/tip_ok.png"
+                                            alt="ok" /></span> </li>
+                    </ul>
+                    <div class="requiredLegend">
+                         <em class="required">*</em> فیلد های ضروری
+                    </div>
+                    <div class="actions">
+                        <button id="btn_ChangeEmail" type="button" class="button butBlack actionButton">
+                            <span>تغییر ایمیل</span>
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+        <div class="line" id="div_pass">
+            <div class="unit size1of1">
+                <div class="section">
+                    <h4 class="titleSection">
+                  chengePassword</h4>
+                    <h4>ifYouWantToChangeYourPersonalAccountPasswordPleaseFillTheseInformation
+                    </h4>
+                    <ul class="formControls">
+                        <li class="formControl">
+                            <label class="labelLeft" for="logonPasswordOld">
+                                mainPassword <em class="required">*</em>
+                            </label>
+                            <input type="password" class="inputText inputW136 required" id="txt_s_OldPassword"
+                                 maxlength="60" />
+                            <span class="inputTip tipOk "><span class="tips ui-icon ui-icon-check"></span></span>
+                            <span class="inputTip tipWarn"><span class="tips ui-icon ui-icon-notice"></span><span
+                                class="advice required" style="display: none;"></span></span></li>
+                        <li class="formControl">
+                            <label class="labelLeft" for="newPassword" id="logonPassword">
+                                newPassword <em class="required">*</em>
+                            </label>
+                            <input type="password" class="inputText inputW136 required validate" id="txt_s_NewPassword"
+                                name="password" maxlength="60" />
+                            <span class="inputTip tipOk LongString"><span class="tips ui-icon ui-icon-check"></span>
+                            </span><span class="inputTip tipWarn LongString"><span class="tips ui-icon ui-icon-notice">
+                            </span><span class="advice required" style="display: none;">requiredField</span>
+                            </span></li>
+                        <li class="formControl">
+                            <label class="labelLeft" for="logonPasswordVerify" id="passwordConfirmLabel">
+                                confirmNewPassword <em class="required">*</em>
+                            </label>
+                            <input type="password" class="inputText inputW136 required validate" id="txt_s_PasswordConfirm"
+                                name="passwordConfirm" maxlength="60" />
+                            <span class="inputTip tipOk LongString"><span class="tips ui-icon ui-icon-check"></span>
+                            </span><span class="inputTip tipWarn LongString"><span class="tips ui-icon ui-icon-notice">
+                            </span><span class="advice required" style="display: none;">requiredField</span>
+                            </span></li>
+                    </ul>
+                    <div class="requiredLegend">
+                         <em class="required">*</em> <span>requiredFields</span>
+                    </div>
+                    <div class="frog">
+                        <button id="btn_changePassword" style="width: 130px">
+                           chengePassword
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line" id="div_email">
+            <div class="unit size1of1">
+                <div class="section">
+                    <h4 class="titleSection">
+                        changeEmail</h4>
+                    <h4>ifYouWantToChangeYourEmailPleaseFillTheseInformation
+                    </h4>
+                    <ul class="formControls">
+                        <li class="formControl">
+                            <label for="empname" class="labelLeft ">
+                                email <em class="required">*</em></label>
+                            <input type="text" class=" inputText inputW136 required validate" name="Email" maxlength="50"
+                                id="text_empemailEdit" />
+                            <span class="inputTip tipOk Email "><span class="tips ui-icon ui-icon-check"></span>
+                            </span><span class="inputTip tipWarn Email"><span class="tips ui-icon ui-icon-notice">
+                            </span><span class="advice required" style="display: none;"></span><span class="advice validate"
+                                style="display: none;">pleaseEnterAValidEmail</span></span></li>
+                    </ul>
+                    <div class="frog">
+                        <button id="btn_editEmail" style="width: 130px">
+                           changeEmail
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit size1of6 blue">
+                <input type="checkbox" id="cb_userStatus" value="isactive" /><label for="cb_userStatus">isactive</label>
+            </div>
+            <br class="clearer">
+        </div>
+    </div>
+</div>

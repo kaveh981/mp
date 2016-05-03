@@ -1,0 +1,249 @@
+﻿@model MapiOnline.Models.RegisterModel
+@{
+    ViewBag.Title = "اطلاعات من";
+    Layout = "~/Views/Shared/_FirstLayoutNew2.cshtml";
+}
+<link href="../../Content/template/assets/css/BootstrapValidator.css" rel="stylesheet"
+    type="text/css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" />
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a> </li>
+                <li><a href="@Url.Action("MyAccount", "Account")">My Account</a> </li>
+                <li class="active">My information </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-7">
+            <h1 class="section-title-inner">
+                <span><i class="glyphicon glyphicon-user"></i>My personal information  </span>
+            </h1>
+            <div class="row userInfo">
+                <div class="col-lg-12">
+                    <h2 class="block-title-2">
+                        Please be sure to update your personal information if it has changed. 
+                    </h2>
+                    <p class="required">
+                        <sup>*</sup> * Required field</p>
+                </div>
+                @using (Html.BeginForm("UserInfo", "Account", new
+            {
+                categoryId = Request["CategoryId"],
+                name = Request["Category"],
+                isNew = Request["isNew"],
+                isOffer = Request["isOffer"],
+                isSale = Request["isSale"]
+            }, FormMethod.Post, new { @id = "personalInfo" }))
+                {
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group required">
+                            <label for="InputName">
+                                First Name <sup>*</sup>
+                            </label>
+                            <input value="@Model.Name" name="Name" required  type="text" class="form-control" id="InputName" placeholder="First Name">
+                            <span class="help-block" id="firstNameMessage"></span>
+                        </div>
+                        <div class="form-group required">
+                            <label for="InputLastName">
+                                Last Name <sup>*</sup>
+                            </label>
+                            <input value="@Model.Family" name="Family" required type="text" class="form-control" id="InputLastName" placeholder="Last Name">
+                        </div>
+                        <div class="form-group required">
+                            <label for="Gender">
+                                Gender
+                            </label>
+                            @Html.DropDownList("Gender", null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group required">
+                            <label for="Phone">
+                                Phone No
+                            </label>
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group required">
+                            <label for="Mobile">
+                                Mobile No
+                            </label>
+                            @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control" })
+                        </div>
+                      
+                        <div class="form-group">
+                            <label>
+                                Date of Birth</label>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                 @Html.DropDownList("BirthDay", null, new { @class = "form-control" })
+                                    
+                                </div>
+                                <div class="col-xs-4">
+                                 @Html.DropDownList("BirthMonth", null, new { @class = "form-control" })
+                                    
+                                </div>
+                                <div class="col-xs-4">
+                                 @Html.DropDownList("BirthYear", null, new { @class = "form-control" })
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <div class="form-group">
+                            <label for="Email">
+                                Email <sup>*</sup></label>
+                            <input value="@Model.email" name="Email" type="email" class="form-control" id="email" placeholder="gtanim@gmail.com">
+                        </div>
+                        <div class="form-group required">
+                            <label for="InputPasswordCurrent">
+                                Password <sup>* </sup>
+                            </label>
+                            <input type="password" name="Password" class="form-control" id="InputPasswordCurrent">
+                            <span class="help-block" id="firstNameMessage"></span>
+                        </div>
+                        <div class="form-group required">
+                            <label for="InputPasswordnew">
+                                New Password
+                            </label>
+                            <input type="password" name="InputPasswordnew" class="form-control" id="InputPasswordnew">
+                        </div>
+                        <div class="form-group required">
+                            <label for="InputPasswordnewConfirm">
+                                Confirm Password
+                            </label>
+                            <input type="password" name="ConfirmPassword" class="form-control" id="InputPasswordnewConfirm">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group ">
+                            <p class=" clearfix">
+                                <input type="checkbox" value="1" name="newsletter" id="newsletter">
+                                <label for="newsletter">
+                                    Sign up for our newsletter!</label>
+                            </p>
+                            @*<p class="clearfix">
+                <input type="checkbox"  value="1" id="optin" name="optin">
+                <label for="optin">Receive special offers from our partners!</label>
+              </p>*@
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <button type="submit" class="btn   btn-primary">
+                            <i class="fa fa-save"></i>&nbsp; Save
+                        </button>
+                    </div>
+                }
+                <div class="col-lg-12 clearfix">
+                    <ul class="pager">
+                        <li class="previous pull-right"><a href="index.html"><i class="fa fa-home"></i>&nbsp;
+                            Go to shop&nbsp;</a></li>
+                        <li class="next pull-left"><a href="account.html">&larr; Back to my account</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--/row end-->
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5">
+        </div>
+    </div>
+    <!--/row-->
+    <div style="clear: both">
+    </div>
+    <script src="../../Content/template/assets/js/bootstrapValidator.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#personalInfo').bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    Family: {
+                        feedbackIcons: true,
+                        validators: {
+                            notEmpty: {
+                                message: 'نام خانوادگی ضروری است'
+                            }
+                        }
+                    },
+                    email: {
+                        feedbackIcons: false,
+                        validators: {
+                            notEmpty: {
+                                message: 'پست الکترونیک ضروروی می باشد'
+                            }
+                        }
+                    },
+                    Name: {
+                        feedbackIcons: true,
+                        validators: {
+                            notEmpty: {
+                                message: 'The phone number is required and cannot be empty'
+                            },
+                            Name: {
+                                country: 'US',
+                                message: 'The phone number is not valid'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    @*<script>
+
+    (function (exports) {
+        function valOrFunction(val, ctx, args) {
+            if (typeof val == "function") {
+                return val.apply(ctx, args);
+            } else {
+                return val;
+            }
+        }
+
+        function InvalidInputHelper(input, options) {
+            input.setCustomValidity(valOrFunction(options.defaultText, window, [input]));
+
+            function changeOrInput() {
+                if (input.value == "") {
+                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function invalid() {
+                if (input.value == "") {
+                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
+                } else {
+                    console.log("INVALID!"); input.setCustomValidity(valOrFunction(options.invalidText, window, [input]));
+                }
+            }
+
+            input.addEventListener("change", changeOrInput);
+            input.addEventListener("input", changeOrInput);
+            input.addEventListener("invalid", invalid);
+        }
+        exports.InvalidInputHelper = InvalidInputHelper;
+    })(window);
+
+//    InvalidInputHelper(document.getElementsByName("email"), {
+//        defaultText: "Please enter an email addresssssss!",
+//        emptyText: "Please enter an email addressssssdddd!",
+//        invalidText: function (input) {
+//            return 'The email address "' + input.value + '" is invalid!';
+//        }
+//    });
+
+    InvalidInputHelper(document.getElementById("InputName"), {
+        defaultText: "لطفا نام را وارد کنید!",
+        emptyText: "لطفا نام را وارد کنید ضروری!",
+        invalidText: function (input) {
+            return 'The email address "' + input.value + '" is invalid!';
+        }
+    });
+</script>*@
+</div>

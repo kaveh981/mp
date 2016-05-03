@@ -1,0 +1,67 @@
+﻿<div id="content" class="main-content">
+    <input type="hidden" id="barcodeid" />
+    <br />
+    <br />
+    <br />
+    <button id="btn_new">
+       newKey</button>
+    <br />
+    <br />
+    <div id="accordion">
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <button id="btn_newBottom">
+        newKey</button>
+    <br />
+    <br />
+    <div id="accordionBottom">
+    </div>
+    <div class="invisible" id="dialogAddMenu" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl ">
+                <label class="labelLeft">
+                    nameMenu <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 required validate" name="LongString"
+                    maxlength="300" id="txtMenuName" />
+            </li>
+            <li class="formControl">
+                <label for="ShowOnline" class="labelLeft">
+                    show  <em class="required">*</em></label>
+                <input type="checkbox" id="ddl_m_Show" />
+            </li>
+            <li class="formControl">
+                <label for="ShowOnline" class="labelLeft">
+                    menuLocation  <em class="required">*</em></label>
+                <select class=" selectMedium required validate" name="Combo" id="ddl_m_MenuLocation">
+                    <option value="side">side</option>
+                    <option value="bottom">bottom</option>
+                </select>
+            </li>
+            <li class="formControl">
+                <label for="ShowOnline" class="labelLeft">
+                    newPage  <em class="required">*</em></label>
+                <input type="checkbox" id="ddl_m_newPage" />
+            </li>
+            <li class="formControl">
+                <label for="ShowOnline" class="labelLeft">
+                    isLink  <em class="required">*</em></label>
+                <input type="checkbox" id="ddl_m_IsLink" />
+            </li>
+            <li id="liTxtLinkTo" class="formControl hidden">
+                <label class="labelLeft">
+                    linkTo <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 validate" name="LongString" maxlength="500"
+                    id="txtLinkTo" />
+            </li>
+            <li class="formControl unit size1of2">
+                <label class="labelLeft ">
+                    &nbsp;</label>
+                <button id="btn_save">
+                    save</button>
+            </li>
+        </ul>
+    </div>
+</div>

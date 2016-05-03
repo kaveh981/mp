@@ -1,0 +1,193 @@
+﻿<div id="content" class="main-content">
+    <input type="hidden" id="hd_d_IsClient" />
+    <input type="hidden" id="hd_d_PersonId" />
+    <div class="report-filter">
+        <div id="divBasic">
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            fromDate</label>
+                        <div class="form-field">
+                            <!--<input type="text" id="txt_s_InvoiceDateStart" />-->
+                            <select id="txt_s_InvoiceDayStart" style="width: 30%">
+                            </select>
+                            <select id="txt_s_InvoiceMonthStart" style="width: 30%">
+                            </select>
+                            <select id="txt_s_InvoiceYearStart" style="width: 35%">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            toDate</label>
+                        <div class="form-field">
+                            <!--<input type="text" id="txt_s_InvoiceDateEnd" />-->
+                            <select id="txt_s_InvoiceDayEnd" style="width: 30%">
+                            </select>
+                            <select id="txt_s_InvoiceMonthEnd" style="width: 30%">
+                            </select>
+                            <select id="txt_s_InvoiceYearEnd" style="width: 35%">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of8">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            selectPeriod
+                        </label>
+                        <div class="form-field">
+                            <select id="ddl_d_GroupBy">
+                                <option value="Day">daily</option>
+                                <option value="Week">weekly </option>
+                                <option value="Month">monthly</option>
+                                <option value="Season">seasonal</option>
+                                <option value="Year">annual</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="unit size1of8">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            searchBy
+                        </label>
+                        <div class="form-field">
+                            <select id="ddl_d_DisplayBy">
+                            <option value="0">choose</option>
+                                <option value="Count"> itemQuantity</option>
+                                <option value="Amount">itemAmount</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sunny unit size1of2">
+                <div id="Check">
+                <br />
+                    <input type="checkbox" id="Checkbox1" /><label for="Checkbox1" style="width: 100px;
+                        margin-left: 5px;">order</label>
+                    <input type="checkbox" id="Checkbox2" /><label for="Checkbox2" style="width: 100px;
+                        margin-left: 5px;">returnFromSell</label>
+                    <input type="checkbox" id="Checkbox3" /><label for="Checkbox3" style="width: 100px;
+                        margin-left: 5px;">preOrder</label>
+                    <input type="checkbox" id="Checkbox4" /><label for="Checkbox4" style="width: 100px;
+                        margin-left: 5px;">demolishedItem</label>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <div id="moreFilter" style="display: block;">
+            <br class="clearer">
+            <br class="clearer">
+            <div class="unit size1of3">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            searchBy
+                        </label>
+                        <div class="form-field">
+                            <select id="ddl_d_SearchBy2">
+                                <option value="">searchBy</option>
+                                <option value="InvoiceId">invoiceNumber</option>
+                                <option value="ProductId">itemCode</option>
+                                <option value="ProductName">itemName</option>
+                                <option value="Barcode">itemBarcode</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           value
+                        </label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="txtSearch2" placeholder="searchph" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of3">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           amountFrom</label>
+                        <div class="form-field">
+                            <input type="text" id="txt_s_PriceFrom" />
+                        </div>
+                    </div>
+                </div>
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            to</label>
+                        <div class="form-field">
+                            <input type="text" id="txt_s_PriceTo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of3">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            subCategory
+                        </label>
+                        <div class="form-field">
+                            <div id="hr_s_Category">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit size1of3">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            searchBy
+                        </label>
+                        <div class="form-field">
+                            <select id="ddl_d_SearchBy1">
+                                <option value="">searchBy</option>
+                                <option value="Code">customerCode</option>
+                                <option value="Name"> customerNameFamily</option>
+                                <option value="EmployeeId">employeeCode</option>
+                                <option value="EmployeeName">employeeNamefamily</option>
+                                <option value="Shop">branch</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           value
+                        </label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="txtSearch1" placeholder="searchph" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <button  mll="search" id="btnSearch" style="width: 100px;" class="unitleft" ></button>
+        <br />
+        <br />
+        <a class="toggle-more-filters" mll="moreFilter" href="#">moreFilter</a>
+    </div>
+    <br class="clearer">
+    <div style="width: 99%; height: 400px;" id="Div_SaleChart" >
+    </div>
+</div>

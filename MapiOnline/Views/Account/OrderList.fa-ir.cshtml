@@ -1,0 +1,202 @@
+﻿@model IEnumerable<MapiOnline.Models.ac_OrderHeader>
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_FirstLayoutNew2.fa-ir.cshtml";
+}
+<link href="../../Content/template/assets/css/footable-0.1-rtl.css" rel="stylesheet"
+    type="text/css" />
+<link href="../../Content/template/assets/css/footable.sortable-0.1-rtl.css" rel="stylesheet"
+    type="text/css" />
+<script src="../../Content/template/assets/js/footable.js" type="text/javascript"></script>
+<script src="../../Content/template/assets/js/footable.sortable.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //        $("[name=onlineOrderDetail]").unbind().bind("click", function () {
+        //            getOnlineOrderDetails(this);
+        //        });
+    });
+    $(function () {
+        $('.footable').footable({ footable_row_expanded: function () { alert("expand") } });
+    });
+</script>
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">خانه</a> </li>
+                <li><a href="@Url.Action("MyAccount", "Account")">حساب من</a> </li>
+                <li class="active">سفارشات من </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-7">
+            <h1 class="section-title-inner">
+                <span><i class="fa fa-list-alt"></i>&nbsp;سفارشات من&nbsp; </span>
+            </h1>
+            <div class="row userInfo">
+                <div class="col-lg-12">
+                    <h2 class="block-title-2">
+                        لیست سفارشات شما
+                    </h2>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <table class="footable">
+                        <thead>
+                            <tr>
+                                <th data-class="expand" data-sort-initial="true">
+                                    <span title="table sorted by this column on load">شماره سفارش</span>
+                                </th>
+                                <th data-hide="phone,tablet" data-sort-ignore="true">
+                                </th>
+                                <th data-hide="phone,tablet" data-sort-ignore="true">
+                                </th>
+                                <th data-hide="phone,tablet">
+                                </th>
+                                <th data-hide="default">
+                                    مبلغ( تومان)
+                                </th>
+                                <th data-hide="default" data-type="numeric">
+                                    ناریخ
+                                </th>
+                                <th data-hide="phone" data-type="numeric">
+                                    وضعیت
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr name="onlineOrderDetail" id="@item.InvoiceNO">
+                                    <td>
+                                        #@item.InvoiceNO
+                                    </td>
+                                    <td>
+                                        @if (item.ac_ReceiverDetails != null)
+                                        {
+                                            <div class="col-xs-12 col-sm-12">
+                                                <div class="w100 row">
+                                                    <div class="form-group col-lg-4 col-sm-4 col-md-4 -col-xs-12">
+                                                        <strong>آدرس ارسال:</strong> <span>@(item.ac_ReceiverDetails.Address)
+                                                            <strong>کد پستی: </strong>@( item.ac_ReceiverDetails.PostalCode)<strong> تلفن: </strong>@(item.ac_ReceiverDetails.CellPhone + " - " + item.ac_ReceiverDetails.Phone)
+                                                        </span>
+                                                    </div>
+                                                    <div class="form-group col-lg-4 col-sm-4 col-md-4 -col-xs-12">
+                                                        <strong>تحویل گیردنه:</strong> <span>@(item.ac_ReceiverDetails.Name + " " + item.ac_ReceiverDetails.Family)
+                                                        </span>
+                                                    </div>
+                                                    <div class="form-group col-lg-4 col-sm-4 col-md-4 -col-xs-12">
+                                                        <strong>توضیحات:</strong> <span>@(item.Description)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12">
+                                                <div class="w100 row">
+                                                    <div class="form-group col-lg-3 col-sm-3 col-md-3 -col-xs-12">
+                                                        <strong>تاریخ ارسال:</strong> <span>@utility.GetstrDateCulture(item.ac_ReceiverDetails.SendDate.Value)
+                                                        </span>
+                                                    </div>
+                                                    <div class="form-group col-lg-3 col-sm-3 col-md-3 -col-xs-12">
+                                                        <strong>زمان ارسال:</strong> <span>@item.ac_ReceiverDetails.SendTime </span>
+                                                    </div>
+                                                    <div class="form-group col-lg-3 col-sm-3 col-md-3 -col-xs-12">
+                                                        <strong>روش ارسال:</strong> <span>@(item.ac_ReceiverDetails.SendType == 1 ? "ارسال با پیک " : item.ac_ReceiverDetails.SendType == 2 ? " ارسال از طریق پست پیشتاز " : " ارسال از طریق پست تیپاکس ")</span>
+                                                    </div>
+                                                    <div class="form-group col-lg-3 col-sm-3 col-md-3 -col-xs-12">
+                                                        <strong>روش پرداخت:</strong> <span>@(item.ac_ReceiverDetails.PaymentType == null ? "پرداخت نشده است! " : item.ac_ReceiverDetails.PaymentType == 1 ? "پرداخت آنلاین " : item.ac_ReceiverDetails.PaymentType == 2 ? "پرداخت به شماره کارت " : "پرداخت به پیک همزمان با تحویل کالا ")
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.ac_ReceiverDetails != null)
+                                        {
+                                            <div class="form-group col-lg-12 col-sm-12 col-md-12 -col-xs-12">
+                                                <a target="_blank"><strong>متن هدیه:</strong> <span>@item.ac_ReceiverDetails.GiftNote
+                                                </span></a>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="col-xs-12 col-sm-12">
+                                            <table class="footable">
+                                                <tbody id="orderDetail">
+                                                    @foreach (var detail in item.ac_AccountDetail.Where(a => a.ac_OrderDetail != null))
+                                                    {
+                                                        var itemDetail = detail.ac_OrderDetail.ac_AccountDetail.ac_Account.inv_ItemDetail;
+                                                        <tr class="miniCartProduct">
+                                                            <td style="width: 20%;" class="miniCartProductThumb">
+                                                                <div>
+                                                                    <a href="@Url.Action("ProductDetails", "Home", new { productId = detail.ac_Account.inv_ItemDetail.inv_Barcode.BarcodeId })">
+                                                                        <img src='@("../../../Data/" + (System.Configuration.ConfigurationManager.AppSettings["appName"] == "/" ? "" : System.Configuration.ConfigurationManager.AppSettings["appName"]) + "Photos/" + itemDetail.inv_Barcode.Barcode + "/tiny_1.jpg")' alt='  @(itemDetail.inv_Barcode.Name)'   title='  @(itemDetail.inv_Barcode.Name)' >
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 40%;">
+                                                                <div class="miniCartDescription">
+                                                                    <h4>
+                                                                        <a href="@Url.Action("ProductDetails", "Home", new { productId = detail.ac_Account.inv_ItemDetail.inv_Barcode.BarcodeId })">@itemDetail.inv_Barcode.Barcode</a>
+                                                                    </h4>
+                                                                    <span class="size">@((itemDetail.inv_Size.Count() > 0 ? itemDetail.inv_Size.FirstOrDefault().Size : "") + (itemDetail.inv_Color.Count() > 0 ? ((itemDetail.inv_Size.Count() > 0) ? " / " : "") + itemDetail.inv_Color.FirstOrDefault().Color : ""))
+                                                                    </span>
+                                                                    <div class="price">
+                                                                        <span>@detail.ac_OrderDetail.Serial </span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 10%;" class="miniCartQuantity">
+                                                                <a>X @Convert.ToInt32(detail.ac_OrderDetail.Quantity)</a>
+                                                            </td>
+                                                            <td style="width: 15%;" class="miniCartSubtotal">
+                                                                <span>@Convert.ToInt32(detail.ac_OrderDetail.Quantity * Math.Abs(detail.ac_OrderDetail.ac_AccountDetail1.Amount.Value))
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        T @item.Amount
+                                    </td>
+                                    <td data-value="78025368997">@(utility.GetstrDateCulture(item.Date))
+                                    </td>
+                                    <td data-value="3">
+                                        @if (item.ac_ReceiverDetails != null && item.ac_ReceiverDetails.PaymentType == null)
+                                        {
+                                            <a  href="@Url.Action("endOrder", "Tshop", new { orderId = @item.OrderHeaderId })" class="btn btn-warning">
+                                                اتمام پرداخت</a>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-info">@(item.ac_ReceiverDetails != null ? (item.ac_ReceiverDetails.PaymentType == null ? "پرداخت نشده است! " : item.ac_ReceiverDetails.PaymentType == 1 ? "پرداخت آنلاین " : (item.ac_ReceiverDetails.PaymentType == 2 ? "پرداخت به شماره کارت " : "پرداخت به پیک همزمان با تحویل کالا ")) : "")</button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12 clearfix">
+                    <ul class="pager">
+                        <li class="previous pull-right"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home">
+                        </i>&nbsp;رفتن به فروشگاه&nbsp;</a></li>
+                        <li class="next pull-left"><a href="@Url.Action("MyAccount", "Account")">&larr; بازگشت
+                            به حساب کاریری</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--/row end-->
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5">
+        </div>
+    </div>
+    <!--/row-->
+    <div style="clear: both">
+    </div>
+</div>

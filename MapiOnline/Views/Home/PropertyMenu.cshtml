@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Property>
+<li class="dropdown megamenu-80width "><a data-toggle="dropdown" class="dropdown-toggle"
+    href="#">@Model.Where(p => p.ParentId == null).FirstOrDefault().Property <b class="caret">
+    </b></a>
+    <ul class="dropdown-menu">
+        <li class="megamenu-content">
+            <!-- megamenu-content -->
+            @{
+                var prop=Model.Where(p => p.ParentId == null).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value);
+                int pc= Convert.ToInt32( 12/prop.Count());
+            foreach (var item in prop.OrderBy(o => o.Priority))
+            {         
+                <ul class="col-lg-@pc  col-sm-@pc col-md-@pc  unstyled noMarginLeft">
+                    <li>
+                        <p>
+                            <strong>@item.inv_Property1.FirstOrDefault().Property </strong>
+                        </p>
+                    </li>
+                    @if (item.inv_Property1.FirstOrDefault().TranslatedProperty != null && item.inv_Property1.FirstOrDefault().TranslatedProperty.ToLower() == "flower")
+                    {
+                        foreach (var sitem in item.inv_Property1.Where(s => s.ShowInMenu.Value).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value).OrderBy(o => o.Priority))
+                        {        
+                        <li><a href="@Url.Action("Category", "Home", new { property = @sitem.PropertyId, name = @sitem.Property })">@sitem.Property
+                            <img class="flowerIcon" alt="@sitem.Property" src="@("../../../../Data/m_zhoobin51Images/FlowerIcons/" + sitem.TranslatedProperty + ".jpg")"/></a></li>
+                        }
+                    }
+                    else
+                        if (item.inv_Property1.FirstOrDefault().TranslatedProperty != null && item.inv_Property1.FirstOrDefault().TranslatedProperty.ToLower() == "color")
+                        {
+                            foreach (var sitem in item.inv_Property1.Where(s => s.ShowInMenu.Value).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value).OrderBy(o => o.Priority))
+                            {        
+                        <li class="color-filter"><a href="@Url.Action("Category", "Home", new { property = @sitem.PropertyId ,name=@sitem.Property})">@sitem.Property
+                            <small  style="background-color: @sitem.TranslatedProperty.ToLower()"></small></a>
+                        </li>
+                            }
+                        }
+                        else
+                        {
+                            foreach (var sitem in item.inv_Property1.Where(s => s.ShowInMenu.Value).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value).OrderBy(o => o.Priority))
+                            {        
+                        <li><a href="@Url.Action("Category", "Home", new { property = @sitem.PropertyId, name = @sitem.Property })">@sitem.Property</a></li>
+                            }
+                        }
+                </ul>
+            }
+            }
+            @* <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-6">
+                <li class="no-margin productPopItem "><a href="product-details.html">
+                    <img class="img-responsive" src="../../Content/template/images/site/g4.jpg" alt="img">
+                </a><a class="text-center productInfo alpha90" href="product-details.html">Eodem modo
+                    typi
+                    <br>
+                    <span>$60 </span></a></li>
+            </ul>
+            <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-6">
+                <li class="no-margin productPopItem relative"><a href="product-details.html">
+                    <img class="img-responsive" src="../../Content/template/images/site/g5.jpg" alt="img">
+                </a><a class="text-center productInfo alpha90" href="product-details.html">Eodem modo
+                    typi
+                    <br>
+                    <span>$60 </span></a></li>
+            </ul>*@ </li>
+    </ul>
+</li>

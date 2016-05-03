@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Category>
+<li class="dropdown megamenu-fullwidth"><a data-toggle="dropdown" class="dropdown-toggle"
+    href="#">نوع محصول <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li class="megamenu-content ">
+            <ul class="col-lg-3  col-sm-3 col-md-3 unstyled noMarginLeft newCollectionUl">
+                <li class="no-border">
+                    <p class="promo-1">
+                        <strong>نوع محصول </strong>
+                    </p>
+                </li>
+                @foreach (var item in Model)
+                {
+                    <li><a href="@Url.Action("Category", "Home", new { categoryId = @item.CategoryId, name = @item.Category })">@item.Category
+                    </a></li>
+                }
+            </ul>
+            <ul class="col-lg-3  col-sm-3 col-md-3  col-xs-4">
+                <li><a class="newProductMenuBlock" href="product-details.html">
+                    <img class="img-responsive" src='../Data/@(Membership.ApplicationName == "/" ? "" : Membership.ApplicationName)Images/Site/promo1.jpg' alt="product">
+                    <span class="ProductMenuCaption"><i class="fa fa-caret-right"></i>JEANS </span></a>
+                </li>
+            </ul>
+            <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-4">
+                <li><a class="newProductMenuBlock" href="product-details.html">
+                    <img class="img-responsive" src='../Data/@(Membership.ApplicationName == "/" ? "" : Membership.ApplicationName)Images/Site/promo2.jpg' alt="product">
+                    <span class="ProductMenuCaption"><i class="fa fa-caret-right"></i>PARTY DRESS </span>
+                </a></li>
+            </ul>
+            <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-4">
+                <li><a class="newProductMenuBlock" href="product-details.html">
+                    <img class="img-responsive" src='../Data/@(Membership.ApplicationName == "/" ? "" : Membership.ApplicationName)Images/Site/promo3.jpg' alt="product">
+                    <span class="ProductMenuCaption"><i class="fa fa-caret-right"></i>SHOES </span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>

@@ -1,0 +1,38 @@
+﻿<div id="content" class="main-content">
+    <form id="imageForm" action="Uploadify/Index" method="post">
+    <ul class="formControls">
+        <li class="formControl">
+            <label for="password" class="labelLeft  ">
+                size  <em class="required">*</em></label>
+            <input type="text" class=" inputText inputW136 required validate" name="size" maxlength="100"
+                id="txt_m_Size" />
+        </li>
+        <li class="formControl">
+            <label for="username" class="labelLeft">
+                chooseFile</label>
+            <input id="fileInput" name="fileInput" class="required validate" maxlength="300"
+                type="file" />
+        </li>
+        <li class="formControl frog">
+            <label class="labelLeft ">
+            </label>
+            <button id="btn_Submit" style="width: 100px;">
+                save</button>
+        </li>
+    </ul>
+    <input type="hidden" value="True" name="isMenu" />
+    <input id="menuId" type="hidden" value="True" name="id" />
+    </form>
+    <br class="clearer" />
+    <div class="progress">
+        <div class="bar">
+        </div>
+        <div class="percent">
+            0%</div>
+    </div>
+    <div id="status">
+    </div>
+        <br class="clearer" />
+    <div id="div_d_PhotoList" class="formControls">
+    </div>
+</div>

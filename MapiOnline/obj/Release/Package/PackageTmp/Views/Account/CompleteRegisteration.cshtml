@@ -1,0 +1,308 @@
+﻿@model MapiOnline.Models.RegisterModel
+@{
+    ViewBag.Title = "تکمیل ثبت نام";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[name=BirthYear]").val('@Model.BirthYear');
+        $("[name=BirthMonth]").val('@Model.BirthMonth');
+        $("[name=BirthDay]").val('@Model.BirthDay');
+        $("[name=Gender]").val('@Model.Gender');
+        $("[name=Combo]").val('@Model.Combo');
+        $("#addPhone").unbind().click(function () {
+            $("[name=Phone]").val($.trim($("[name=Phone]").val()));
+            if ($("[name=Phone]").val() != "") {
+                $("#phones").append("<li style='margin:3px;width:120px; float:right; ' class='ui-state-default ui-corner-top' ><a id=delete name='smsItems' style='float:right' class='ui-icon ui-icon-close'>حذف</a><label name='num' class='ui-tabs-anchor' >" + $("[name=Phone]").val() + "</label></li>");
+                $("#phones").find("span[name=msg]").addClass("invisible");
+                $("[id=delete]").addClass("cursor").unbind().click(function () {
+                    $(this).parents("li").remove();
+                });
+            }
+        });
+        $("#addMobile").unbind().click(function () {
+            $("[name=Mobile]").val($.trim($("[name=Mobile]").val()));
+            if ($("[name=Mobile]").val() != "") {
+                $("#mobiles").append("<li style='margin:3px;width:120px; float:right; ' class='ui-state-default ui-corner-top' ><a id=delete name='smsItems' style='float:right' class='ui-icon ui-icon-close'>حذف</a><label name='num' class='ui-tabs-anchor' >" + $("[name=Mobile]").val() + "</label></li>");
+                $("#mobiles").find("span[name=msg]").addClass("invisible");
+                $("[id=delete]").addClass("cursor").unbind().click(function () {
+                    $(this).parents("li").remove();
+                });
+            }
+        });
+        $("[id=delete]").addClass("cursor").unbind().click(function () {
+            $(this).parents("li").remove();
+        });
+        $("#btn_register").unbind().click(function () {
+            $("#Name").val($.trim($("#Name").val()));
+            $("#Family").val($.trim($("#Family").val()));
+            $("#AddressStr").val($.trim($("#AddressStr").val()));
+            $("#Email").val($.trim($("#Email").val()));
+            if (!validateAll($("#registerForm")))
+                return;
+            var isvalid = true;
+            $("[name=Phone]").val($.trim($("[name=Phone]").val()));
+            if ($("#phones").find("li").length == 0 && $("[name=Phone]").val() != "") {
+                $("#phones").append("<li style='margin:3px;width:120px; float:right; ' class='ui-state-default ui-corner-top' ><a id=delete name='smsItems' style='float:right' class='ui-icon ui-icon-close'>حذف</a><label name='num' class='ui-tabs-anchor' >" + $("[name=Phone]").val() + "</label></li>");
+                $("#phones").find("span[name=msg]").addClass("invisible");
+            }
+            $("[name=Mobile]").val($.trim($("[name=Mobile]").val()));
+            if ($("#mobiles").find("li").length == 0 && $("[name=Mobile]").val() == "") {
+                if ($("#mobiles").find("span[name=msg]").length > 0)
+                    $("#mobiles").find("span[name=msg]").removeClass("invisible");
+                else
+                    $("#mobiles").append("<span name='msg' style='color: #FF0000'>ثبت شماره موبایل ضروری می باشد.</span>")
+                isvalid = false;
+            }
+            else if ($("#mobiles").find("li").length == 0 && $("[name=Mobile]").val() != "") {
+                $("#mobiles").append("<li style='margin:3px;width:120px; float:right; ' class='ui-state-default ui-corner-top' ><a id=delete name='smsItems' style='float:right' class='ui-icon ui-icon-close'>حذف</a><label name='num' class='ui-tabs-anchor' >" + $("[name=Mobile]").val() + "</label></li>");
+                $("#mobiles").find("span[name=msg]").addClass("invisible");
+            }
+            if (!isvalid) {
+                $("#result").html("پر کردن موارد ستاره دار ضروری می باشد. لطفاً اطلاعات خواسته شده را کامل و صحیح وارد کنید.");
+                return;
+            }
+            else
+                $("#result").html("");
+            var phoneNums = [];
+            var mobNums = [];
+            $("#phones").find("label[name=num]").each(function () {
+                phoneNums.push($(this).html());
+            });
+            $("#mobiles").find("label[name=num]").each(function () {
+                mobNums.push($(this).html());
+            });
+            $.ajax({ type: 'POST',
+                url: "/Account/CompleteRegisteration",
+                data: $("form").serialize() + '&phones=' + phoneNums + '&mobiles=' + mobNums,
+                success: function (response) {
+                    if (response.logged) {
+                        window.location = response.link;
+                    }
+                    else
+                        $("#result").html(response.msg);
+                },
+                dataType: "json"
+            });
+        });
+    });
+</script>
+@using (Html.BeginForm(new
+{
+    categoryId = Request["categoryId"],
+    isNew = Request["isNew"],
+    isOffer = Request["isOffer"],
+    isSale = Request["isSale"]
+}))
+{
+    @Html.ValidationSummary(true)
+    <div class="RegForm ">
+        <div class="header">
+            <div class="dots">
+                <h2>
+                    تکمیل ثبت نام
+                </h2>
+            </div>
+        </div>
+        <input type="hidden" name="code" value='@Model.code' />
+        <table class="reg_table" id="registerForm">
+            <tbody>
+                <tr>
+                    <td style="text-align: center" colspan="2">
+                        <div class="Error">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span> رمز عبور :
+                    </th>
+                    <td style="color: red;">
+                        @Html.PasswordFor(model => model.Password, new { @class = "usernameInput required validate", @validation = "password" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>تکرار رمز عبور :
+                    </th>
+                    <td style="color: red;">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "usernameInput required validate", @validation = "passwordConfirm" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>ایمیل معتبر :
+                    </th>
+                    <td style="color: red;">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "usernameInput required validate", @validation = "Email" })
+                        <br class="cleaner">
+                        <span style="color: #666666; font-size: 9px;">مثال : ali@yahoo.com</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        نام :
+                    </th>
+                    <td style="color: red;">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "inputRightDir" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>نام خانوادگی :
+                    </th>
+                    <td style="color: red;">
+                        @Html.TextBoxFor(model => model.Family, new { @class = "inputRightDir required validate", @validation = "LongString" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>جنسیت :
+                    </th>
+                    <td style="color: red;">
+                        @Html.DropDownList("Gender", (IEnumerable<SelectListItem>)ViewBag.Gender, new { @class = "required", @validation = "ComboBool" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>تاریخ تولد :
+                    </th>
+                    <td style="color: red;">
+                        @{Html.RenderPartial("GetDaysList");}
+                        /
+                        @{Html.RenderPartial("GetMonthsList");}
+                        /
+                        @{Html.RenderPartial("GetYearsList");}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        تلفن :
+                    </th>
+                    <td style="color: red; float: right">
+                        <input type="text" name="Phone" class="usernameInput" style="float: right" />&nbsp;
+                        <span id="addPhone" class="addItem" title="ثبت">&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                    </th>
+                    <td>
+                        <div>
+                            <ul id="phones" class="red">
+                                @foreach (var item in Model.Phonelist)
+                                {
+                                    <li class='ui-state-default ui-corner-top'><a id="delete" name='smsItems' style='float: right'
+                                        class='ui-icon ui-icon-close'>حذف</a>
+                                        <label name='num' class='ui-tabs-anchor'>
+                                            @item</label>
+                                    </li>
+                                   
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>موبایل :
+                    </th>
+                    <td style="color: red; float: right">
+                        <input type="text" name="Mobile" class="usernameInput" style="float: right" />&nbsp;
+                        <span id="addMobile" class="addItem" title="ثبت">&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                    </th>
+                    <td>
+                        <div>
+                            <ul id="mobiles" class="red">
+                                @foreach (var nums in Model.Mobilelist)
+                                {
+                                    <li class='ui-state-default ui-corner-top'><a id="delete" name='smsItems' style='float: right'
+                                        class='ui-icon ui-icon-close'>حذف</a>
+                                        <label name='num' class='ui-tabs-anchor'>
+                                            @nums
+                                        </label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>آدرس :
+                    </th>
+                    <td style="color: red;">
+                        <div id="parent">
+                            <div id="Address" name="Address" class="editor-field">
+                                @{Html.RenderAction("BuildAddressHierarchy", "Hierarchy", new { id = "Address", container = "parent", table = "Address", parentid = Model.selectedValue, css = "required validate" });
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: #ce0000">*</span>ادامه آدرس :
+                    </th>
+                    <td style="color: red;">
+                        @Html.TextAreaFor(model => model.AddressStr, new { @class = "inputRightDir required validate", @validation = "LongString" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        کد پستی :
+                    </th>
+                    <td style="color: red;">
+                        @Html.TextBoxFor(model => model.PostalCode, new { @class = "usernameInput" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        شغل :
+                    </th>
+                    <td style="color: red;">
+                        <div id="parentJob">
+                            <div id="CustomerJob" name="JobsList" class="editor-field">
+                                @{Html.RenderAction("bindXmlDropDownData", "Hierarchy", new
+                              {
+                                  id = "CustomerJob",
+                                  container = "parentJob",
+                                  path = "XmlData/jobTitle",
+                                  canmodify = false,
+                                  istext = false,
+                                  headertext = "انتخاب شغل"
+                              });
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="BTN cleaner">
+            <input id="btn_register" type="button" value="ثبت اطلاعات" class="btn btn-success submitBtn button" />&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("انصراف و بازگشت به صفحه اصلی", "Index", "Home", new
+       {
+           categoryId = Request["categoryId"],
+           isNew = Request["isNew"],
+           isOffer = Request["isOffer"],
+           isSale = Request["isSale"]
+       })
+            <br />
+            <label id="result" style="color: #FF0000; font-size: 11px">
+            </label>
+        </div>
+        <div class="cleaner">
+            &nbsp;</div>
+    </div>
+}

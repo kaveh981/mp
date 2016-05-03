@@ -1,0 +1,72 @@
+﻿<div id="content" class="main-content">
+    <form id="Frm_FiscalPeriod" method="post" action="Management/addFiscalPeriod">
+    <div class="report-filter">
+        <div id="div1">
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label class="labelLeft  ">
+                            FiscalPeriodName
+                        </label>
+                        <div class="form-field">
+                            <input lang="fa" type="text" class=" inputText inputW136 required validate keyboardInput"
+                                name="txt_FiscalPeriodName" id="txt_FiscalPeriodName" maxlength="100" placeholder='FiscalPeriodName' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label class="labelLeft  ">
+                            dateStart
+                        </label>
+                        <div class="form-field">
+                            <input lang="fa" type="text" class=" inputText inputW136 required validate keyboardInput"
+                                name="txt_dateStart" id="txt_dateStart" maxlength="100" placeholder='dateStart' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label class="labelLeft  ">
+                            endingDate
+                        </label>
+                        <div class="form-field">
+                            <input lang="fa" type="text" class=" inputText inputW136 required validate keyboardInput"
+                                id="txt_endingDate" name="txt_endingDate" maxlength="100" placeholder='endingDate' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label class="labelLeft  ">
+                            ClosingDate
+                        </label>
+                        <div class="form-field">
+                            <input lang="fa" type="text" class=" inputText inputW136 required validate keyboardInput"
+                                id="txt_ClosingDate" name="txt_ClosingDate" maxlength="100" placeholder='ClosingDate' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div>
+                <div class="left formControl unit frog">
+                    <input type="hidden" id="hi_SelectedFiscalPeriodId" name="hi_SelectedFiscalPeriodId" />
+                    <button id="AddFiscalPeriod" style="width: 100px; top: 20px;" type="submit">
+                        save</button>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <br class="clearer">
+    </div>
+    </form>
+    <div id="FiscalPeriodList">
+    </div>
+</div>

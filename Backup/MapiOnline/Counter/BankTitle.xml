@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root>
+  <Title Id="1" Title="بانک ملی"></Title>
+  <Title Id="3" Title="بانک صادرات"></Title>
+  <Title Id="4" Title="بانک ملت"></Title>
+  <Title Title="بانک اقتصاد نوین" Id="5" />
+  <Title Title="بانک سپه" Id="6" />
+  <Title Title="بانک پارسیان" Id="7" />
+  <Title Title="بانک رفاه" Id="8" />
+  <Title Title="بانک تجارت" Id="9" />
+  <Title Title="بانک سپه" Id="10" />
+  <Title Title="بانک پاسارگاد" Id="11" />
+  <Title Title="بانک انصار" Id="12" />
+  <Title Title="بانک کشاورزی" Id="13" />
+  <Title Title="بانک مسکن" Id="14" />
+  <Title Title="بانک مهر" Id="15" />
+  <Title Title="بانک شهر" Id="16" />
+</root>

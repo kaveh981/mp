@@ -1,0 +1,194 @@
+﻿<link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+<div id="content" class="main-content">
+    <div id="Div_Print" class="printtd invisible">
+    </div>
+    <div id="BarcodeContent">
+        <div id="divBarcodesearch" class="report-filter">
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           searchBy</label>
+                        <div class="form-field">
+                            <select id="ddl_d_SearchBy">
+                                <option value="">searchBy</option>
+                                <option value="Barcode">barcode</option>
+                                <option value="Name">itemName</option>
+                                <option value="Code">itemCode</option>
+                                <option value="Price">price</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            value</label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="txt_s_Inventory" placeholder="searchph" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            subCategory</label>
+                        <div class="form-field">
+                            <div id="hr_s_Category">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           itemStatus</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_s_Availability">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            onlineShow</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_s_ShowOnline">
+                            <option value="">choose</option>
+                                <option value="false">notShow</option>
+                                <option value="true">isShow</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           amountFrom</label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="quantityFrom" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            to</label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="quantityTo" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            dateSaveFrom</label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="regdateFrom" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            to</label>
+                        <div class="form-field">
+                            <input size="18" name="searchTerm" id="regdateTo" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div style="clear: both;">
+                <div class="left">
+                    <button id="btnSearchInventory" class="unit" style="width: 100px; margin-left: 7px;">
+                        search</button>
+                    <div class="unitleft red">
+                        &nbsp;&nbsp;&nbsp;
+                        <button id="btnPrint" style="width: 100px; margin-left: 7px;">
+                            print</button>
+                    </div>
+                    <div class="unitleft red">
+                        &nbsp;&nbsp;&nbsp;
+                        <button id="btnPrintBarcode" style="width: 100px; margin-left: 7px;">
+                            printBarcode</button>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <br class="clearer">
+        </div>
+    </div>
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <td width="10%">
+                    <a  href='javascript:void(0);' id="Barcode" rel="sort">barcode</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="ItemCode" rel="sort">itemCode</a>
+                </td>
+                <td width="20%">
+                    <a href='javascript:void(0);' id="Name" rel="sort">itemName</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="Regular" rel="sort">price</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="AvailablityId" rel="sort">status</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="Category" rel="sort">category</a>
+                </td>
+                <td width="6%">
+                    <a href='javascript:void(0);' id="Quantity" rel="sort">count</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="EnteryDate" rel="sort">registerDate</a>
+                </td>
+                <td width="10%">
+                    image
+                </td>
+                <td width="6%">&nbsp;
+                    
+                </td>
+            </tr>
+        </thead>
+        <tbody id="BarcodeList">
+        </tbody>
+    </table>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+</div>

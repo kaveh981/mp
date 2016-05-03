@@ -1,0 +1,135 @@
+﻿<link href="../Content/themes/base/colors.css" rel="stylesheet" type="text/css" />
+<link href="../Content/Default/Style.css" rel="stylesheet" type="text/css" />
+<div id="content" class="main-content">
+    <form id="frm_PaidCheck" method="post" action="Management/addPaidCheque">
+    <div class="report-filter">
+        <div>
+            <div id="div3" class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            paidDocument
+                        </label>
+                        <div class="form-field">
+                            <select id='ddl_accountPaidBanks' name='ddl_accountPaidBanks' class=" selectMedium required validate">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div2" class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            chequeDate</label>
+                        <div class="form-field">
+                            <input type='text' class=' inputText inputW136 validate' id='txt_checkDate' name='txt_checkDate'
+                                placeholder='chequeDate' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div1" class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            chequeSerial
+                        </label>
+                        <div class="form-field">
+                            <input type='text' class=' inputText inputW136 validate' id='txt_serial' name='txt_serial'
+                                placeholder='chequeSerial' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div4" class="unit size1of6">
+                <div class="blocker">
+                    <div>
+                        <br class="clearer" />
+                        <div class="form-field">
+                            <label>
+                                passed</label>
+                            <input type="checkbox" id="chk_isPassed" name="chk_isPassed" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit" style="width: 80%">
+                <div class="blocker" style="width: 100%">
+                    <div class="form-row" style="width: 100%">
+                        <label>
+                            description</label>
+                        <div class="form-field" style="width: 100%">
+                            <input id="txt_comment" name="txt_comment" type="text" placeholder="description"
+                                style="width: 70%" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer" />
+            <div>
+                <div class="left  frog">
+                    <input type="hidden" id="hi_SelectedchequeAccDetailId" name='hi_SelectedchequeAccDetailId'
+                        value="0" />
+                    <button id="btn_Add_Payment" type="submit" style="width: 100px; top: 20px;">
+                        save
+                    </button>
+                </div>
+                <br class="clearer">
+            </div>
+            <br class="clearer">
+        </div>
+    </div>
+    <!--<button id="btn_addRow" type="button">
+        newRow
+    </button>
+    <br class="clearer">-->
+    <br class="clearer">
+    <table id="tbl_Accounting">
+        <thead id="header">
+            <td class="sunny"  width="1%">
+              <span class="left cursor ui-icon ui-icon-plus" id="btn_addRow" title="row">
+            </td>
+            <td width="7%">
+                accountCode
+            </td>
+            <td width="7%">
+                chequeReciever
+            </td>
+            <td width="22%">
+                description
+            </td>
+            <td width="5%">
+                amount
+            </td>
+            <td width="6%">
+                Currency
+            </td>
+            <td width="1%">
+                deleteKey
+            </td>
+        </thead>
+        <tbody id="chequePaidList">
+        </tbody>
+    </table>
+    </form>
+    <br class="clearer">
+    <div id="chequeList">
+    </div>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+    <br />
+</div>

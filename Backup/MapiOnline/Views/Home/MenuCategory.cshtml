@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Category>
+
+ <!--Category--> 
+
+      
+@{
+    foreach (var menu in Model)
+    {
+        var sub = menu.inv_Category1.Where(s => s.ShowOnline.Value).OrderBy(o => o.Priority);
+    <li class="dropdown-tree" id="@(menu.CategoryId)" >
+     
+       <a @(sub.Count()>0?"":"productCategory") class="dropdown-tree-a" id="@menu.CategoryId" href="#">@*<span class="badge pull-right">@menu.Quantity</span>*@@menu.Category
+  </a> 
+  
+         @{
+        
+        if (sub.Count() > 0)
+        {
+            <ul class="category-level-2 dropdown-menu-tree">
+                @foreach (var subMenu in sub)
+                {
+                    var subsub = subMenu.inv_Category1.Where(s => s.ShowOnline.Value).OrderBy(o => o.Priority);
+                     <li class="dropdown-tree"  id="@(subMenu.CategoryId)">
+                           <a @(subsub.Count()>0?"#":"productCategory") class="dropdown-tree-a" id="@subMenu.CategoryId"  href="#">@subMenu.Category</a>
+                      
+                        @{
+                         
+                          if (subsub.Count() > 0)
+                          {
+                            <ul class="category-level-2 dropdown-menu-tree">
+                                @foreach (var subsubMenu in subsub)
+                                {
+                                  <li id="@(subsubMenu.CategoryId)">
+                                         <a productCategory class="dropdown-tree-a" id="@subsubMenu.CategoryId"  href="#">@subsubMenu.Category</a>
+                                       
+                                   </li>
+                                }
+                            </ul>
+                          }
+                        }
+                    </li>
+                }
+            </ul>
+        }
+        }
+  
+   </li>
+    }
+       
+}
+
+
+
+

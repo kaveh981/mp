@@ -1,0 +1,148 @@
+﻿@model MapiOnline.Models.LogOnModel
+@{
+    ViewBag.Title = "ورود به سایت";
+    Layout = "~/Views/Shared/_FirstLayoutNew2.cshtml";
+}
+@*<div class="breadcrumb">
+    <a href="../Home/Index">صفحه اصلی</a> » <span class="last">ورود / عضویت</span>
+</div>*@ @*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //        $("#btnlogon").button();
+        //        $("[name=StartRegisterByCode]").button();
+        //        $("[name=Register]").button();
+    });
+</script>*@
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a> </li>
+                <li class="active">Authentication </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h1 class="section-title-inner">
+                <span><i class="fa fa-lock"></i>&nbsp;Authentication</span></h1>
+            <div class="row userInfo">
+                <div class="col-xs-12 col-sm-4" id="ModalSignup">
+                    <h2 class="block-title-2">
+                        Create an account
+                    </h2>
+                    <form action="@Url.Action("Register", "Home", new { returnUrl = Request.Url })" id="Frm_MyAccSignUp" method="post">
+                    <div class="form-group">
+                        <label>
+                            Email address</label>
+                        <input type="email" class="form-control" placeholder="Enter email" id="reg" name="reg">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Password</label>
+                        <input type="password" class="form-control" placeholder="password" id="password"
+                            name="password">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Password</label>
+                        <input type="password" class="form-control" placeholder="Password" id="rePassword"
+                            name="rePassword">
+                    </div>
+                    <button type="submit" class="btn   btn-primary" id="btn_MyAccSignUp" name="btn_MyAccSignUp">
+                        <i class="fa fa-user"></i>&nbsp;Create an account</button>
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-4" id="ModalLogin">
+                    <h2 class="block-title-2">
+                        <span>Already registered?</span></h2>
+                     <form action="@Url.Action("LogOn", "Account")" method="post" id="Frm_Tshop">
+                    <div class="form-group">
+                        <label>
+                            Email address</label>
+                        <input type="email" class="form-control" placeholder="Enter email" name="UserName"
+                            id="UserName">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name="Password"
+                            id="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input name="RememberMe" id="RememberMe" type="checkbox" name="checkbox">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a title="Recover your forgotten password"  href="@Url.Action("LostPassword", "Account")">
+                            </a>
+                        </p>
+                    </div>
+                    <button type="submit" class="btn   btn-primary" id="btnlogon" name="btnlogon">
+                        <i class="fa fa-sign-in"></i>&nbsp;Sign In</button>
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <h2 class="block-title-2">
+                        <span>Checkout as Guest</span></h2>
+                    <p>
+                        Don't have an account and you don't want to register? Checkout as a guest instead!</p>
+                    <a href="@Url.Action("CheckOut", "Shopping", new { isGuest = "guest" })" class="btn btn-primary">
+                        <i class="fa fa-sign-in"></i>&nbsp; Checkout as Guest</a>
+                </div>
+            </div>
+            <!--/row end-->
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5">
+        </div>
+    </div>
+    <!--/row-->
+    <div style="clear: both">
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#Frm_MyAccSignUp').bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    reg: {
+                        feedbackIcons: true,
+                        validators: {
+                            notEmpty: {
+                                message: 'پست الکترونیک ضروروی می باشد'
+                            }
+                        }
+                    },
+
+                    password: {
+                        feedbackIcons: true,
+                        validators: {
+                            notEmpty: {
+                                message: 'رمز ورود ضروری می باشد'
+                            }
+                        }
+                    }
+                      ,
+                    rePassword: {
+                        feedbackIcons: true,
+                        validators: {
+                            notEmpty: {
+                                message: ' تکرار رمز ورود ضروری می باشد'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</div>
+<!-- /wrapper -->
+<div class="gap">
+</div>

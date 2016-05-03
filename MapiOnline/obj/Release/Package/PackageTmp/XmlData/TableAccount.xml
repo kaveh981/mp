@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root>
+	<Title Id="personCurrentAccount" Title="personCurrentAccount"></Title>
+	<Title Id="customer" Title="customer"></Title>
+	<Title Id="supplier" Title="supplier"></Title>
+	<Title Id="currentAccount" Title="currentAccount"></Title>
+	<Title Id="counter" Title="counter"></Title>
+	<Title Id="item" Title="item"></Title>
+	<Title Id="itemSale" Title="itemSale"></Title>
+	<Title Id="itemPrice" Title="itemPrice"></Title>
+	<Title Id="employee" Title="employee"></Title>
+	<Title Id="banks" Title="banks"></Title>
+	<Title Id="bankReceivedDocument" Title="bankReceivedDocument"></Title>
+	<Title Id="generalReceive" Title="generalReceive"></Title>
+	<Title Id="buyDiscountIncome" Title="buyDiscountIncome"></Title>
+	<Title Id="saleReturnDiscountIncome" Title="saleReturnDiscountIncome"></Title>
+	<Title Id="vatExpense" Title="vatExpense"></Title>
+	<Title Id="discountExpense" Title="discountExpense"></Title>
+	<Title Id="vatIncome" Title="vatIncome"></Title>
+	<Title Id="discountIncome" Title="discountIncome"></Title>
+	<Title Id="deliveryExpense" Title="deliveryExpense"></Title>
+	<Title Id="deliveryIncome" Title="deliveryIncome"></Title>
+	<Title Id="bankPaidDocument" Title="bankPaidDocument"></Title>
+  <Title Id="income" Title="income"></Title>
+  <Title Id="expense" Title="expense"></Title>
+</root>

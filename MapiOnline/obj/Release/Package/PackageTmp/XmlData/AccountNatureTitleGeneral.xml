@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root>
+  <Title Id="1" Title="deptor"></Title>
+  <Title Id="2" Title="creditor"></Title>
+  <Title Id="3" Title="neutral"></Title>
+</root>

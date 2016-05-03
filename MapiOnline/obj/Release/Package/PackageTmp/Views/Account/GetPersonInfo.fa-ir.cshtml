@@ -1,0 +1,7 @@
+﻿<li><a href="@Url.Action("MyAccount", "Account")"><span class="hidden-xs">حساب من</span>
+    <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
+<li><a href="@Url.Action("LogOff", "Home")" >
+    <span class="hidden-xs">خروج</span> <i class="glyphicon glyphicon-log-in hide visible-xs ">
+    </i></a></li>
+<li class="hidden-xs"><a href="@Url.Action("MyAccount", "Account")" >
+    @ViewData["name"].ToString() </a></li>

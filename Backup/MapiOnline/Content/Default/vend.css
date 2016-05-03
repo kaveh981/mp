@@ -1,0 +1,423 @@
+﻿
+
+.heading
+{
+    -webkit-box-shadow: 1px 2px 2px #ddd;
+    -moz-box-shadow: 1px 2px 2px #ddd;
+    box-shadow: 1px 2px 2px #ddd;
+    background: #3e9b33;
+    border-bottom: 1px solid #2a6e24;
+    min-height: 15px;
+    border-radius: 0px;
+}
+
+#mainTab
+{
+    padding: 0px;
+    background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #E4FFCC 100%);
+    background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #E4FFCC 100%);
+    border-width: 0px;
+}
+#mainTab .ui-widget-header
+{
+    border: 0px none;
+}
+
+#mainTab ul .top-nav
+{
+    border-style: none;
+}
+#mainTab .top-nav
+{
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#444),color-stop(100%,#1a1a1a));
+    background-image: -webkit-linear-gradient(#444,#1a1a1a);
+    background-image: -moz-linear-gradient(#444,#1a1a1a);
+    background-image: -o-linear-gradient(#444,#1a1a1a);
+    background-image: linear-gradient(#444,#1a1a1a);
+    overflow: hidden;
+    border-radius: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    clear: both;
+    color: #FFFFFF;
+    position: relative;
+    padding: 0em;
+    zoom: 1;
+}
+
+/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+#mainTab .ui-tabs-nav
+{
+    margin: 0;
+    padding: .0em .0em 0;
+}
+#mainTab .ui-tabs-nav li
+{
+    list-style: none;
+    float: right;
+    position: relative;
+    top: 0;
+    margin: 0px 0em 0 0;
+    border-bottom: 0;
+    padding: 0;
+    border-style: none;
+    border-bottom-color: transparent;
+    border-radius: 0px;
+}
+
+#mainTab .ui-tabs-nav li a, #toolbar .ui-button-text
+{
+    float: left;
+    padding: 1.07em 1.2em;
+    text-decoration: none;
+    font: 11px Tahoma;
+    font-weight: bold;
+    color: Black;
+}
+
+#toolbar .ui-button-text-icon-primary .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary
+{
+    left: -0.2em;
+}
+
+#mainTab .ui-tabs-nav li.ui-tabs-active
+{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0px transparent;
+    background: #3e9b33;
+}
+#mainTab .ui-tabs-nav li.oldTab
+{
+    background: #FF6600;
+    color: #FF0000;
+}
+#mainTab .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a
+{
+    color: #FFFFFF;
+    cursor: text;
+}
+#mainTab .ui-tabs-nav li a, .ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active a
+{
+    cursor: pointer;
+}
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+
+#mainTab .top-nav .ui-state-default a
+{
+    color: #d6d6d6;
+}
+.heading .ui-state-default a
+{
+    color: #000000;
+}
+
+#mainTab .top-nav .ui-state-default, .heading .ui-state-default
+{
+    border: 0px none #d3d3d3;
+    background: transparent;
+    font-weight: normal;
+    color: #555555;
+}
+
+
+/*
+filter box
+*/
+.report-filter
+{
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#f7f7f7),color-stop(100%,#ececee));
+    background-image: -webkit-linear-gradient(#f7f7f7,#ececee);
+    background-image: -moz-linear-gradient(#f7f7f7,#ececee);
+    background-image: -o-linear-gradient(#f7f7f7,#ececee);
+    background-image: -ms-linear-gradient(#f7f7f7,#ececee);
+    background-image: linear-gradient(#f7f7f7,#ececee);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0 2px 0 -1px white;
+    -webkit-box-shadow: inset 0 2px 0 -1px white;
+    -o-box-shadow: inset 0 2px 0 -1px white;
+    box-shadow: inset 0 2px 0 -1px white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    position: relative;
+    margin: 0 0 20px 0;
+}
+.report-filter .form-row
+{
+    margin-left: 15px;
+}
+.blocker
+{
+    display: block;
+    width: auto;
+    float: right;
+    height: auto;
+}
+.form-row
+{
+    padding-bottom: 5px;
+}
+.report-filter .form-row label
+{
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 white;
+}
+.form-row label
+{
+    margin: 5px 0px 3px 10px;
+    color: #333333;
+    display: block;
+    float: right;
+    font-weight: bold;
+}
+.form-row .form-field
+{
+    clear: right;
+}
+.report-filter .form-row input
+{
+    height: 14px;
+    line-height: 14px;
+    margin: 0;
+    padding: 3px 5px;
+    width: 134px;
+}
+.report-filter .form-row select
+{
+    width: 150px;
+}
+.report-filter .form-row .selectHierarchy
+{
+    width: 120px;
+}
+.form-row select
+{
+    max-width: 200px;
+    padding: 2px;
+}
+
+.report-filter a.toggle-more-filters
+{
+    -moz-box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.25);
+    -webkit-box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.25);
+    -o-box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.25);
+    box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.25);
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -o-border-radius: 0 0 5px 5px;
+    -ms-border-radius: 0 0 5px 5px;
+    -khtml-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    background: url(images/arrow.png) no-repeat 7px 8px #f6f6f6;
+    border: 1px solid #ccc;
+    padding: 0 15px 0 10px;
+    color: #666;
+    display: block;
+    position: absolute;
+    bottom: -22px;
+    height: 20px;
+    right: 10px;
+    line-height: 21px;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 123px;
+}
+.report-filter a.toggle-more-filters.open
+{
+    background-image: url(images/arrow-up.png);
+}
+.report-filter .clear-filters
+{
+    position: absolute;
+    bottom: -20px;
+    left: 175px;
+    font-size: 11px;
+}
+.report-filter .more-filters
+{
+    display: none;
+}
+.report-filter .more-filters.show
+{
+    display: block;
+}
+
+.table-footer
+{
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#777777),color-stop(100%,#303030));
+    background-image: -webkit-linear-gradient(#777777,#303030);
+    background-image: -moz-linear-gradient(#777777,#303030);
+    background-image: -o-linear-gradient(#777777,#303030);
+    background-image: -ms-linear-gradient(#777777,#303030);
+    background-image: linear-gradient(#777777,#303030);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none !important;
+    -moz-box-shadow: inset 0 2px 0 -1px white;
+    -webkit-box-shadow: inset 0 2px 0 -1px white;
+    -o-box-shadow: inset 0 2px 0 -1px white;
+    box-shadow: inset 0 2px 0 -1px white;
+    padding: 10px;
+    position: relative;
+    margin: 0 0 20px 0;
+}
+.table-footer .form-row
+{
+    margin-left: 15px;
+}
+
+.table-footer .form-row label
+{
+    font-size: 10px;
+    font-weight: bold;
+    color:White;
+
+}
+
+
+
+.clearer
+{
+    clear: both;
+    float: none;
+    height: 0;
+}
+
+
+#cb_d_Sale
+{
+    background-color: #FF6600;
+}
+#cb_d_Sale label
+{
+    background-color: #FF6600;
+}
+#cb_d_Sale label span
+{
+    background-color: #FF6600;
+}
+
+
+.main-content
+{
+    clear: right;
+    padding: 0 0 10px;
+    margin: 25px 25px 20px;
+}
+
+/*
+table
+*/
+.tablescroll table .item_list
+{
+    width: 100%;
+    background-color: white;
+}
+
+table.tablescroll_head thead tr td
+{
+    padding: 0;
+}
+table.tablescroll_head thead tr td:first-child, table.tablescroll_head tr td:first-child
+{
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-right: 0px none;
+    border-top: 0px none;
+}
+table.tablescroll_head thead tr td:last-child, table.tablescroll_head tr td:last-child
+{
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top: 0px none;
+}
+table.tablescroll_head tr td
+{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+table.tablescroll_head tr td a
+{
+    height: 16px;
+    line-height: 16px;
+    font-weight: bold;
+    color: white;
+    display: block;
+    padding: 6px 9px;
+    text-decoration: none;
+}
+
+table.tablescroll_head tr td a.sorted:hover
+{
+    -webkit-box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.5);
+}
+table.tablescroll_head tr td a.sorted:active
+{
+    -webkit-box-shadow: inset 0 0 7px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0 0 7px 0 rgba(0,0,0,0.75);
+    box-shadow: inset 0 0 7px 0 rgba(0,0,0,0.75);
+}
+table.tablescroll_head tr td a.sort-arrow
+{
+    display: none;
+}
+table.tablescroll_head tr td
+{
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#777),color-stop(100%,#303030));
+    background-image: -webkit-linear-gradient(#777,#303030);
+    background-image: -moz-linear-gradient(#777,#303030);
+    background-image: -o-linear-gradient(#777,#303030);
+    background-image: linear-gradient(#777,#303030);
+    -webkit-box-shadow: inset 0 2px 0 -1px rgba(255,255,255,0.2);
+    -moz-box-shadow: inset 0 2px 0 -1px rgba(255,255,255,0.2);
+    box-shadow: inset 0 2px 0 -1px rgba(255,255,255,0.2);
+}
+table.tablescroll_head tr td a.sorted .sort-arrow
+{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    width: 8px;
+    height: 12px;
+    line-height: 12px;
+    padding: 0;
+    display: inline-block;
+    margin-left: 5px;
+    border: none !important;
+}
+table.tablescroll_head tr td a.sorted.sort-icon-left .sort-arrow
+{
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+table.tablescroll_head tr td a.sorted.ASC
+{
+    background: transparent url(images/arrow-up-down.png) no-repeat left 7px top 7px;
+}
+table.tablescroll_head tr td a.sorted.DESC
+{
+    background: transparent url(images/arrow-up-down.png) no-repeat left 7px bottom 7px;
+}
+.blueHeader table.tablescroll_head tr td
+{
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#2D77D6),color-stop(100%,#2D77D6));
+    background-image: -webkit-linear-gradient(#71A8F8, #2D77D6);
+    background-image: -moz-linear-gradient(#71A8F8, #2D77D6);
+    background-image: -o-linear-gradient(#71A8F8, #2D77D6);
+    background-image: linear-gradient(#71A8F8, #2D77D6);
+}

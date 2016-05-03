@@ -1,0 +1,83 @@
+﻿
+.chead 
+{
+    background-color: #CCCCCC; 
+    border: 1pt solid black;
+    text-align:center;
+}
+
+.tablePrint
+{
+    border-collapse:collapse;
+    border: 2px solid black;
+    font-family:Tahoma;
+    font-size:80%;
+    width:100%;
+
+}
+.Printtd
+{
+    width:25%;
+    border-top: 1pt solid black;
+    border-bottom: 1pt solid black;
+}
+
+.tableDetail
+{
+    border-collapse:collapse;
+    border: 1px solid black;
+    font-family:Tahoma;
+    font-style:normal;
+    font-size:80%;
+    width:100%;
+}
+
+.tableDetail td 
+{
+     border: 1pt solid black;
+}
+
+
+
+
+        @page :left
+        {
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        @page :right
+        {
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        
+        @page :first
+        {
+            margin-top: 0%;
+            margin-bottom: 0cm;
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        
+        .chapdesc
+        {
+          
+        }
+        @media print
+        {
+            body
+            {
+
+            }
+            tbody
+            {
+                
+            }
+        }
+        @media all {
+  .page-break  { display: none; }
+}
+
+@media print {
+  .page-break  { display: block; page-break-before: always; }
+}

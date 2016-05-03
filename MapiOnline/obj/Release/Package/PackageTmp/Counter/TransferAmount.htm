@@ -1,0 +1,79 @@
+﻿<div id="content" class="main-content">
+    <div id="divTransferAmountsearch" class="report-filter">
+        <div class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        toCounter</label>
+                    <div class="form-field">
+                        <select id="ddl_m_CounterTo">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        amount
+                    </label>
+                    <div class="form-field">
+                        <input size="18" name="searchTerm" id="txt_m_TransferAmount" type="text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="frog">
+            <button id="btn_AddTransferAmount" style="width: 100px;">
+                save</button>
+        </div>
+        <br class="clearer">
+        <br />
+    </div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="Amount" rel="sort">amount </a>
+                </td>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="Date" rel="sort">date</a>
+                </td>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="ac_Counter.CounterId" rel="sort">fromCounter</a>
+                </td>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="ac_Counter1.CounterId" rel="sort">toCounter</a>
+                </td>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="p_Person.PersonId" rel="sort">senderName</a>
+                </td>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="p_Person1.PersonId" rel="sort">recieverName</a>
+                </td>
+                <td width="10%">
+                </td>
+            </tr>
+        </thead>
+        <tbody id="TransferAmountList">
+        </tbody>
+    </table>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+</div>

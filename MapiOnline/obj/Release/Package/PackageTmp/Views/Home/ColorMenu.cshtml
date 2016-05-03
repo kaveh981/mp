@@ -1,0 +1,24 @@
+﻿@model IEnumerable< MapiOnline.Models.inv_Color>
+           
+           <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapseColor" class="collapseWill">Color <span
+                                class="pull-left"><i class="fa fa-caret-right"></i></span></a>
+                        </h4>
+                    </div>
+                    <div id="collapseColor" class="panel-collapse collapse in">
+                        <div class="panel-body smoothscroll maxheight300 color-filter">
+                        @foreach (var item in Model)
+                        {
+                            <div class="block-element">
+                                <label>
+                                    <input value="@item.ColorId" type="checkbox" name="tour" value="0" />
+                                    <small style="background-color: @item.Color"></small>@item.Color <span>(123)</span>
+                                </label>
+                            </div>
+                        }
+                        </div>
+                    </div>
+                </div>
+

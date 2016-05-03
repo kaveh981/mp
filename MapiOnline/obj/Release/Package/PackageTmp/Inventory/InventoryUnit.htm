@@ -1,0 +1,51 @@
+﻿<head>
+    <link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<div id="content" class="main-content">
+    <input type="hidden" id="barcodeid"/>
+    <br />
+    <br />
+    <br />
+    <button id="btn_new">
+        new</button>
+    <br />
+    <br />
+    <div id="UnitTable">
+    </div>
+    <div class="invisible" id="dialogAddUnit" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl ">
+                <label class="labelLeft">
+                    itemUnit <em class="required">*</em></label>
+                <div id="divUnitCategoryAdd" class="select">
+                </div>
+                <span class="inputTip tipOk Combo "><span class="tips ui-icon ui-icon-check"></span>
+                </span><span class="inputTip tipWarn Combo"><span class="tips ui-icon ui-icon-notice">
+                </span><span class="advice required" style="display: none;">requiredField</span>
+                    <span class="advice validate" style="display: none;">pleaseEnterAValidItemUnit</span></span>
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                   count <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 required validate" name="Digit" id="txtQuantityAdd" />
+                <span class="inputTip tipOk Digit"><span class="tips ui-icon ui-icon-check"></span>
+                </span><span class="inputTip tipWarn Digit"><span class="tips ui-icon ui-icon-notice">
+                </span><span class="advice required" style="display: none;">requiredField</span>
+                    <span class="advice validate" style="display: none;">pleaseEnterAValidQuantity</span></span>
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    unitDiscount
+                </label>
+                <input type="text" class=" inputText inputW136 " name="LongString" maxlength="50"
+                    id="txtDiscountAdd" />
+            </li>
+            <li class="formControl unit size1of2">
+                <label class="labelLeft ">
+                    &nbsp;</label>
+                <button id="btn_save">
+                   save</button>
+            </li>
+        </ul>
+    </div>
+</div>

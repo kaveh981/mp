@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Slider Title="love" File="1" Priority="2" Id="1" SliderInfo="&lt;div class=&quot;sliderInfo&quot;&gt;&#xA;            &lt;div class=&quot;container&quot;&gt;&#xA;              &lt;div class=&quot;col-lg-12 col-md-12 col-sm-12 sliderTextFull &quot;&gt;&#xA;                &lt;div class=&quot;inner text-center&quot;&gt;&#xA;                  &lt;div class=&quot;topAnima animated&quot;&gt;&#xA;                    &lt;h1 class=&quot;uppercase xlarge&quot;&gt;FREE SHIPPING&lt;/h1&gt;&#xA;                    &lt;h3 class=&quot;hidden-xs&quot;&gt; Free Standard Shipping on Orders Over $100 &lt;/h3&gt;&#xA;                  &lt;/div&gt;&#xA;                  &lt;a class=&quot;btn btn-danger btn-lg bottomAnima animated opacity0&quot;&gt;SHOP NOW ON TSHOP &lt;span class=&quot;arrowUnicode&quot;&gt;►&lt;/span&gt;&lt;/a&gt; &lt;/div&gt;&#xA;              &lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;          &lt;/div&gt;" />
+  <Slider Title="getwell" LinkTo="" Description="" File="2" Priority="1" Id="2" />
+</root>

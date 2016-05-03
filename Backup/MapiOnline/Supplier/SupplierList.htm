@@ -1,0 +1,137 @@
+﻿<link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+<div id="content" class="main-content">
+    <div id="SupplierContent">
+        <div class="report-filter">
+            <div id="divBasic">
+                <div class="unit size1of1">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               searchBy
+                            </label>
+                            <div class="form-field">
+                                <select id="SearchBy">
+                                    <option value="">searchBy</option>
+                                    <option value="Code">usernameCode</option>
+                                    <option value="Name">nameAndFamily</option>
+                                    <option value="RegName">registrator</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                value
+                            </label>
+                            <div class="form-field">
+                                <input name="searchTerm"  id="SuppliertxtSearch" placeholder="searchph" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+            </div>
+            <br class="clearer">
+            <div id="moreFilter">
+                <div class="unit size1of2">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                usernameCode
+                            </label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchCode" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                nameAndFamily</label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchName" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of2">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                registrator</label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchRegName" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of2">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                dateOfRegistrationFrom</label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchRegDateStart" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchRegDateEnd" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of2">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                ageFrom</label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchAgeStart" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="SupplierSearchAgeEnd" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--<input type="button" value="جستجو" id="SupplierAdvanceSearchbt" style="width: 100px;" />-->
+                </div>
+            </div>
+            <br class="clearer">
+            <button mll="search"  id="btnSearchSupplier" style="width: 100px;" class="left" ></button>
+            <br />
+            <br />
+            <a class="toggle-more-filters" mll="moreFilter" href="#">moreFilter</a>
+        </div>
+        <br />
+        <br />
+        <div id="SupplierList">
+    </div>
+        
+        <div>
+            <ul class="paging">
+                <li>
+                    <div id="paging" class="pagination">
+                    </div>
+                </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                    <select class="PagingSelect" id="PageSize">
+                        <option value="5">itemsPerPage5</option>
+                        <option value="10">itemsPerPage10</option>
+                        <option value="20">itemsPerPage20</option>
+                        <option value="40">itemsPerPage40</option>
+                    </select></li></ul>
+        </div>
+
+    </div>

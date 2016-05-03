@@ -1,0 +1,429 @@
+﻿@model MapiOnline.Models.CategoryItemsModel
+@{
+    ViewBag.Title = "کارآمد سیستم";
+    Layout = "~/Views/Shared/First_Layout.fa-ir.cshtml";
+}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../Content/template/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../Content/template/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../Content/template/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../Content/template/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../../Content/template/assets/ico/favicon.png">
+<title>TSHOP - Bootstrap E-Commerce Parallax Theme</title>
+<!-- Bootstrap core CSS -->
+<link href="../../Content/template/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="../../Content/template/assets/css/style.css" rel="stylesheet">
+
+<!-- css3 animation effect for this template -->
+<link href="../../Content/template/assets/css/animate.min.css" rel="stylesheet">
+
+<!-- styles needed by carousel slider -->
+<link href="../../Content/template/assets/css/owl.carousel.css" rel="stylesheet">
+<link href="../../Content/template/assets/css/owl.theme.css" rel="stylesheet">
+
+<!-- styles needed by checkRadio -->
+<link href="../../Content/template/assets/css/ion.checkRadio.css" rel="stylesheet">
+<link href="../../Content/template/assets/css/ion.checkRadio.cloudy.css" rel="stylesheet">
+
+<!-- styles needed by mCustomScrollbar -->
+<link href="../../Content/template/assets/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+
+
+@*<script src="../../Content/template/assets/js/link1.js" type="text/javascript"></script>
+<script src="../../Content/template/assets/js/link2.js" type="text/javascript"></script>
+*@
+<!-- Just for debugging purposes. -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!-- include pace script for automatic web page progress bar  -->
+
+<script>
+    paceOptions = {
+        elements: true
+    };
+</script>
+<script src="../../Content/template/assets/js/pace.min.js"></script>
+
+
+
+
+
+<div class="header">
+    <div class="dots">
+        <h2>
+            جدیدترین محصولات
+        </h2>
+    </div>
+</div>
+<div class="news_box_left">
+    <div class="unitRight">
+        <div class="content_item ">
+            <div class="item_content">
+                <div id="itemBoxContainer" class="cleaner">
+                    @for (int i = 0; i < Model.Items.Count; i++)
+                    {
+                        var item = Model.Items[i];
+                        <table>
+                            <tr>
+                                <td>
+                                    <div name='proBox' class='product_box' style='position: relative;'>
+                                        <div class='cursor' name='img_proName' id='img@(item.BarcodeId)'>
+                                            @if (item.IsNew == true || item.IsOffer == true || item.IsSale == true)
+                                            {
+                                                <div style="position: absolute; left: 15px; top: 5px;">
+                                                    @if (item.IsNew == true)
+                                                    {
+                                                        @:<img src="../../Content/Main/image/new products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                    @if (item.IsOffer == true)
+                                                    {
+                                                        @:<img src="../../Content/Main/image/offer products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                    @if (item.IsSale == true)
+                                                    {
+                                                        @:<img src="../../Content/Main/image/sale products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                </div>
+                                            }
+                                            <a class="recent-works" href="@Url.Action("ProductDetails", new
+                                                                         {
+                                                                             productId = @item.BarcodeId,
+                                                                             categoryId = Request["categoryId"],
+                                                                             tabName = "general",
+                                                                             isNew = Request["isNew"],
+                                                                             isOffer = Request["isOffer"],
+                                                                             isSale = Request["isSale"]
+                                                                         })">
+                                                <img class='productImg cleaner' src='../../../Data/@(item.aspnet_Applications.ApplicationName == "/" ? "" : item.aspnet_Applications.ApplicationName)Photos/@(item.Barcode)/thumb_1.jpg' alt='@item.Name' title='@item.Name' style="border: none;"/>
+                                            </a>
+                                        </div>
+                                        <h3 class='name'>
+                                            <span id='proname'>@item.Name</span>
+                                            <br />
+                                            <span class='proCode'>&nbsp;@item.ItemCode</span></h3>
+                                        <div class='price cleaner' id='price@(item.BarcodeId)' style="height:20px;">
+                                            <span id='qprice'>
+                                                @if (Model.HasWholeRole != true && Model.hasFriendRole != true)
+                                                {
+                                                    if (item.IsSale == true && item.inv_ItemDetail.Any(it => it.inv_Size == null || it.inv_Size.Count == 0))
+                                                    {
+                                                    <span style="text-decoration: line-through; margin-left: 5px; color: #FF0000;">
+                                                        @if (item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault() != null)
+                                                        {
+                                                            @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault().Online)<span>
+                                                                تومان</span>
+                                                        }
+                                                    </span>
+                                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                        تومان</span>
+                                                    }
+                                                    else
+                                                    {
+                                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                        تومان</span>
+                                                    }
+                                                }
+                                                else if (Model.HasWholeRole == true)
+                                                {
+                                                    if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale > 0)
+                                                    {
+                                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale)<span>
+                                                        تومان</span>
+                                                    }
+                                                    else
+                                                    {
+                                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                        تومان</span>
+                                                    }
+                                                }
+                                                else if (Model.hasFriendRole == true)
+                                                {
+                                                    if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds > 0)
+                                                    {
+                                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds)<span>
+                                                        تومان</span>
+                                                    }
+                                                    else
+                                                    {
+                                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                        تومان</span>
+                                                    }
+                                                }
+                                            </span>
+                                        </div>
+                                        <div style="margin-right: 10px;">
+                                            <a href="@Url.Action("ProductDetails", new
+                                                {
+                                                    productId = @item.BarcodeId,
+                                                    categoryId = Request["categoryId"],
+                                                    tabName = "general",
+                                                    isNew = Request["isNew"],
+                                                    isOffer = Request["isOffer"],
+                                                    isSale = Request["isSale"]
+                                                })">
+                                                <div class='showDetails'>
+                                                    <span id='dtl@(item.BarcodeId)' name='btn_details' href="productdetail.html" class="detail">
+                                                        مشخصات</span>
+                                                </div>
+                                            </a>
+                                            @if (item.inv_Property.Count == 0 || item.inv_Property.Any(p => p.Property != "customized" && p.Value != "bride"))
+                                            {
+                                                <div class='buynow'>
+                                                    <span id='ord@(item.BarcodeId)' name='order' class="add_to_card" style="margin:0;">خرید</span>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </td>
+                                @{
+                                            i++;
+                                            if (i < Model.Items.Count)
+                                            {
+                                                item = Model.Items[i];
+                                    <td>
+                                        <div name='proBox' class='product_box' style='position: relative;'>
+                                            <div class='cursor' name='img_proName' id='img@(item.BarcodeId)'>
+                                                @if (item.IsNew == true || item.IsOffer == true || item.IsSale == true)
+                                                {
+                                                    <div style="position: absolute; left: 15px; top: 5px;">
+                                                        @if (item.IsNew == true)
+                                                        {
+                                                            @:<img src="../../Content/Main/image/new products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                        @if (item.IsOffer == true)
+                                                        {
+                                                            @:<img src="../../Content/Main/image/offer products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                        @if (item.IsSale == true)
+                                                        {
+                                                            @:<img src="../../Content/Main/image/sale products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                    </div>
+                                                }
+                                                <a class="recent-works" href="@Url.Action("ProductDetails", new
+                                                                         {
+                                                                             productId = @item.BarcodeId,
+                                                                             categoryId = Request["categoryId"],
+                                                                             tabName = "general",
+                                                                             isNew = Request["isNew"],
+                                                                             isOffer = Request["isOffer"],
+                                                                             isSale = Request["isSale"]
+                                                                         })">
+                                                    <img class='productImg cleaner' src='../../../Data/@(item.aspnet_Applications.ApplicationName == "/" ? "" : item.aspnet_Applications.ApplicationName)Photos/@(item.Barcode)/thumb_1.jpg' alt='@item.Name' title='@item.Name' style="border: none;"/>
+                                                </a>
+                                            </div>
+                                            <h3 class='name'>
+                                                <span id='proname'>@item.Name</span>
+                                                <br />
+                                                <span class='proCode'>&nbsp;@item.ItemCode</span></h3>
+                                            <div class='price cleaner' id='price@(item.BarcodeId)' style="height:20px;">
+                                                <span id='qprice'>
+                                                    @if (Model.HasWholeRole != true && Model.hasFriendRole != true)
+                                                    {
+                                                        if (item.IsSale == true && item.inv_ItemDetail.Any(it => it.inv_Size == null || it.inv_Size.Count == 0))
+                                                        {
+                                                        <span style="text-decoration: line-through; margin-left: 5px; color: #FF0000;">
+                                                            @if (item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault() != null)
+                                                            {
+                                                                @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault().Online)<span>
+                                                                    تومان</span>
+                                                            }
+                                                        </span>
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                    }
+                                                    else if (Model.HasWholeRole == true)
+                                                    {
+                                                        if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale > 0)
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale)<span>
+                                                            تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                    }
+                                                    else if (Model.hasFriendRole == true)
+                                                    {
+                                                        if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds > 0)
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds)<span>
+                                                            تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                    }
+                                                </span>
+                                            </div>
+                                            <div style="margin-right: 10px;">
+                                                <a href="@Url.Action("ProductDetails", new
+                                                {
+                                                    productId = @item.BarcodeId,
+                                                    categoryId = Request["categoryId"],
+                                                    ttabName = "general",
+                                                    isNew = Request["isNew"],
+                                                    isOffer = Request["isOffer"],
+                                                    isSale = Request["isSale"]
+                                                })">
+                                                    <div class='showDetails'>
+                                                        <span id='dtl@(item.BarcodeId)' name='btn_details' href="productdetail.html" class="detail">
+                                                            مشخصات</span>
+                                                    </div>
+                                                </a>
+                                                @if (item.inv_Property.Count == 0 || item.inv_Property.Any(p => p.Property != "customized" && p.Value != "bride"))
+                                                {
+                                                    <div class='buynow'>
+                                                        <span id='ord@(item.BarcodeId)' name='order' class="add_to_card" style="margin:0;">خرید</span>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                            }
+                                }
+                                @{
+                                            i++;
+                                            if (i < Model.Items.Count)
+                                            {
+                                                item = Model.Items[i];
+                                                                       
+                                    <td>
+                                        <div name='proBox' class='product_box' style='position: relative;'>
+                                            <div class='cursor' name='img_proName' id='img@(item.BarcodeId)'>
+                                                @if (item.IsNew == true || item.IsOffer == true || item.IsSale == true)
+                                                {
+                                                    <div style="position: absolute; left: 15px; top: 5px;">
+                                                        @if (item.IsNew == true)
+                                                        {
+                                                            @:<img src="../../Content/Main/image/new products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                        @if (item.IsOffer == true)
+                                                        {
+                                                            @:<img src="../../Content/Main/image/offer products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                        @if (item.IsSale == true)
+                                                        {
+                                                            @:<img src="../../Content/Main/image/sale products.png" style="display:block; float:left">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                    </div>
+                                                }
+                                                <a class="recent-works" href="@Url.Action("ProductDetails", new
+                                                                         {
+                                                                             productId = @item.BarcodeId,
+                                                                             categoryId = Request["categoryId"],
+                                                                             tabName = "general",
+                                                                             isNew = Request["isNew"],
+                                                                             isOffer = Request["isOffer"],
+                                                                             isSale = Request["isSale"]
+                                                                         })">
+                                                    <img class='productImg cleaner' src='../../../Data/@(item.aspnet_Applications.ApplicationName == "/" ? "" : item.aspnet_Applications.ApplicationName)Photos/@(item.Barcode)/thumb_1.jpg' alt='@item.Name' title='@item.Name' style="border: none;"/>
+                                                </a>
+                                            </div>
+                                            <h3 class='name'>
+                                                <span id='proname'>@item.Name</span>
+                                                <br />
+                                                <span class='proCode'>&nbsp;@item.ItemCode</span></h3>
+                                            <div class='price cleaner' id='price@(item.BarcodeId)' style="height:20px;">
+                                                <span id='qprice'>
+                                                    @if (Model.HasWholeRole != true && Model.hasFriendRole != true)
+                                                    {
+                                                        if (item.IsSale == true && item.inv_ItemDetail.Any(it => it.inv_Size == null || it.inv_Size.Count == 0))
+                                                        {
+                                                        <span style="text-decoration: line-through; margin-left: 5px; color: #FF0000;">
+                                                            @if (item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault() != null)
+                                                            {
+                                                                @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault().Online)<span>
+                                                                    تومان</span>
+                                                            }
+                                                        </span>
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                    }
+                                                    else if (Model.HasWholeRole == true)
+                                                    {
+                                                        if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale > 0)
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale)<span>
+                                                            تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                    }
+                                                    else if (Model.hasFriendRole == true)
+                                                    {
+                                                        if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds > 0)
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds)<span>
+                                                            تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)<span>
+                                                            تومان</span>
+                                                        }
+                                                    }
+                                                </span>
+                                            </div>
+                                            <div style="margin-right: 10px;">
+                                                <a href="@Url.Action("ProductDetails", new
+                                                {
+                                                    productId = @item.BarcodeId,
+                                                    categoryId = Request["categoryId"],
+                                                    tabName = "general",
+                                                    isNew = Request["isNew"],
+                                                    isOffer = Request["isOffer"],
+                                                    isSale = Request["isSale"]
+                                                })">
+                                                    <div class='showDetails'>
+                                                        <span id='dtl@(item.BarcodeId)' name='btn_details' href="productdetail.html" class="detail">
+                                                            مشخصات</span>
+                                                    </div>
+                                                </a>
+                                                @if (item.inv_Property.Count == 0 || item.inv_Property.Any(p => p.Property != "customized" && p.Value != "bride"))
+                                                {
+                                                    <div class='buynow'>
+                                                        <span id='ord@(item.BarcodeId)' name='order' class="add_to_card" style="margin:0;">خرید</span>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                            }
+                                }
+                            </tr>
+                        </table>
+                    }
+                    <br class="cleaner">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

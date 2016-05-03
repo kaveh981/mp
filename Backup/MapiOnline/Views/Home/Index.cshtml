@@ -1,0 +1,385 @@
+﻿@model MapiOnline.Models.CategoryItemsModel
+@{
+    ViewBag.Title = "شیراز رز";
+    Layout = "~/Views/Shared/_FirstLayoutNew2.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#mainPage").addClass("active");
+        $("[name=order]").unbind().click(function () {
+            var productId = $(this).attr("id").replace("ord", "");
+            var sizeid = "";
+            $(this).parents("[name=proBox]").find("input[id*=Quality]").each(function () {
+                if ($(this).is(":checked")) {
+                    sizeid = $(this).attr("sizeId");
+                }
+            });
+            AddToShoppingCart(productId, 1, sizeid, null, $(this));
+        });
+        //        $("input[id=Quality2]").each(function () {
+        //            $(this).attr("checked", true);
+        //            $(this).parents("[name=proBox]").find("[name=itemprice]").html($(this).attr("value"));
+        //        });
+        //        $("input[id*=Quality]").unbind().change(function () {
+        //            if ($(this).is(":checked")) {
+        //                $(this).parents("[name=proBox]").find("[name=itemprice]").html($(this).attr("value"));
+        //            }
+        //        });
+    });
+</script>
+@{Html.RenderAction("GetOnlineSliderShow", "Home");}
+<div class="container main-container">
+    <!-- Main component call to action -->
+    <div class="row featuredPostContainer globalPadding style2">
+        <h3 class="section-title style2 text-center">
+            <span>NEW ARRIVALS</span></h3>
+        <div dir="ltr" id="productslider" class="owl-carousel owl-theme">
+            @for (int i = 0; i < Model.Items.Count; i++)
+            {
+                var item = Model.Items[i];
+                int? oldPrice = null;
+                if (item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault() != null)
+                {
+                    oldPrice = @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault().Online);
+                }
+                if (item.inv_Property.Any(p => p.TranslatedProperty == "new"))
+                { 
+                  
+                <div name='proBox' class="item">
+                    <div class="product">
+                        <div class="image"  name='img_proName' id='img@(item.BarcodeId)'>
+                            <a href="@Url.Action("ProductDetails", new
+                                {
+                                    productId = @item.BarcodeId,
+                                    categoryId = Request["categoryId"],
+                                    tabName = "general",
+                                    isNew = Request["isNew"],
+                                    isOffer = Request["isOffer"],
+                                    isSale = Request["isSale"]
+                                })">
+                                <img  class="img-responsive" src='../Data/@(item.aspnet_Applications.ApplicationName == "/" ? "" : item.aspnet_Applications.ApplicationName)Photos/@(item.Barcode)/thumb_1.jpg' alt='@item.Name' title='@item.Name' style="border: none;"/>
+                                <div class="promotion">
+                                    @*<span class="new-product">جدید</span>*@
+                                    @if (item.inv_Property.Any(p => p.TranslatedProperty == "offer"))
+                                    {
+                                        <span class="offer-product">پیشنهادی</span>
+                                    }
+                                    @if (item.inv_Property.Any(p => p.TranslatedProperty == "sale") && oldPrice != null)
+                                    { <span class="discount">@(100 - Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online) * 100 / oldPrice)%
+                                        تخفیف</span>}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="description">
+                            <h4>
+                                <a href="@Url.Action("ProductDetails", new
+                                    {
+                                        productId = @item.BarcodeId,
+                                        categoryId = Request["categoryId"],
+                                        tabName = "general",
+                                        isNew = Request["isNew"],
+                                        isOffer = Request["isOffer"],
+                                        isSale = Request["isSale"]
+                                    })">@item.Name
+                                </a>
+                            </h4>
+                            @if (!string.IsNullOrEmpty(@item.Description))
+                            {
+                                <p>
+                                    @item.Description &nbsp;
+                                </p>
+                            }
+                            @{
+                            var q = item.inv_ItemDetail.Where(s => s.inv_Size.Count > 0).Select(s => s.inv_Size.FirstOrDefault().Size).Distinct();
+                            if (q.Count() > 0)
+                            {
+                                <span class="size">&nbsp;
+                                    @{
+                                var size = "";
+                                var j = 0;
+                                foreach (var it in q)
+                                {
+                                    if (j == 0)
+                                    {
+                                        size += it;
+                                    }
+                                    else
+                                    {
+                                        size += " / " + it;
+                                    }
+                                    j++;
+                                }
+                                
+                                        @size
+                                    }
+                                </span>
+                            }
+                            }
+                        </div>
+                        <div class="price">
+                            <span>
+                                @if (Model.HasWholeRole != true && Model.hasFriendRole != true)
+                                {
+                                    if (item.inv_Property.Any(p => p.TranslatedProperty == "sale") && item.inv_ItemDetail.Any(it => it.inv_Size == null || it.inv_Size.Count == 0))
+                                    {
+                                    <span style="text-decoration: line-through; margin-left: 5px; color: #FF0000;">
+                                        @if (oldPrice != null)
+                                        {
+                                            @(Convert.ToInt32(oldPrice))
+                                        }
+                                    </span><span>$</span>
+                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                    }
+                                    else
+                                    {
+                                    <span>$</span>
+                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                    }
+                                }
+                                else if (Model.HasWholeRole == true)
+                                {
+                                    if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale > 0)
+                                    {
+                                    <span>$</span>
+                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale)
+                                    }
+                                    else
+                                    {
+                                    <span>$</span>
+                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                    }
+                                }
+                                else if (Model.hasFriendRole == true)
+                                {
+                                    if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds > 0)
+                                    {
+                                    <span>$</span>
+                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds)
+                                    }
+                                    else
+                                    {
+                                    <span>$</span>
+                                    @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                    }
+                                }
+                            </span>
+                        </div>
+                        <div class="action-control">
+                            <a class="btn btn-primary" name='order' id='ord@(item.BarcodeId)' ><span class="add2cart">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>Add to cart </span></a>
+                        </div>
+                    </div>
+                </div>
+
+                }
+
+
+
+
+            }
+        </div>
+        <!--/.productslider-->
+    </div>
+    <!--/.featuredPostContainer-->
+</div>
+<div class="parallax-section parallax-image-1">
+    <div class="container">
+        <div class="row ">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="parallax-content clearfix">
+                    <h1 class="parallaxPrce">
+                        $200
+                    </h1>
+                    <h2 class="uppercase">
+                        FREE INTERNATIONAL SHIPPING! Get Free Shipping Coupons</h2>
+                    <h3>
+                        Energistically develop parallel mindshare rather than premier deliverables.
+                    </h3>
+                    <div style="clear: both">
+                    </div>
+                    <a class="btn btn-discover "><i class="fa fa-shopping-cart"></i>SHOP NOW </a>
+                </div>
+            </div>
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+</div>
+<div class="container main-container">
+    <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
+        <h3 class="section-title style2 text-center">
+            <span>FEATURES PRODUCT</span></h3>
+        <div class="container">
+            <div class="row xsResponse">
+                @for (int i = 0; i < Model.Items.Count; i++)
+                {
+                    var item = Model.Items[i];
+                    int? oldPrice = null;
+                    if (item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault() != null)
+                    {
+                        oldPrice = @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).Skip(1).Take(1).FirstOrDefault().Online);
+                    }
+                    if (item.inv_Property.Any(p => p.TranslatedProperty == "offer"))
+                    { 
+                  
+                    <div class="item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                        <div class="product">
+                            <div class="image"  name='img_proName' id='img@(item.BarcodeId)'>
+                                <a href="@Url.Action("ProductDetails", new
+                                    {
+                                        productId = @item.BarcodeId,
+                                        categoryId = Request["categoryId"],
+                                        tabName = "general",
+                                        isNew = Request["isNew"],
+                                        isOffer = Request["isOffer"],
+                                        isSale = Request["isSale"]
+                                    })">
+                                    <img  class="img-responsive" src='../Data/@(item.aspnet_Applications.ApplicationName == "/" ? "" : item.aspnet_Applications.ApplicationName)Photos/@(item.Barcode)/thumb_1.jpg' alt='@item.Name' title='@item.Name' style="border: none;"/>
+                                    <div class="promotion">
+                                        @if (item.inv_Property.Any(p => p.TranslatedProperty == "new"))
+                                        {
+                                            <span class="new-product">جدید</span>
+                                        }
+@* <span class="offer-product">پیشنهادی</span>*@
+                                        @if (item.inv_Property.Any(p => p.TranslatedProperty == "sale") && oldPrice != null)
+                                        { <span class="discount">@(100 - Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online) * 100 / oldPrice)%
+                                            تخفیف</span>}
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="description">
+                                <h4>
+                                    <a href="@Url.Action("ProductDetails", new
+                                        {
+                                            productId = @item.BarcodeId,
+                                            categoryId = Request["categoryId"],
+                                            tabName = "general",
+                                            isNew = Request["isNew"],
+                                            isOffer = Request["isOffer"],
+                                            isSale = Request["isSale"]
+                                        })">@item.Name
+                                    </a>
+                                </h4>
+                                @if (!string.IsNullOrEmpty(@item.Description))
+                                {
+                                    <p>
+                                        @item.Description &nbsp;
+                                    </p>
+                                }
+                                @{
+                                var q = item.inv_ItemDetail.Where(s => s.inv_Size.Count > 0).Select(s => s.inv_Size.FirstOrDefault().Size).Distinct();
+                                if (q.Count() > 0)
+                                {
+                                    <span class="size">&nbsp;
+                                        @{
+                                    var size = "";
+                                    var j = 0;
+                                    foreach (var it in q)
+                                    {
+                                        if (j == 0)
+                                        {
+                                            size += it;
+                                        }
+                                        else
+                                        {
+                                            size += " / " + it;
+                                        }
+                                        j++;
+                                    }
+                                
+                                            @size
+                                        }
+                                    </span>
+                                }
+                                }
+                            </div>
+                            <div class="price">
+                                <span>
+                                    @if (Model.HasWholeRole != true && Model.hasFriendRole != true)
+                                    {
+                                        if (item.inv_Property.Any(p => p.TranslatedProperty == "sale") && item.inv_ItemDetail.Any(it => it.inv_Size == null || it.inv_Size.Count == 0))
+                                        {
+                                        <span style="text-decoration: line-through; margin-left: 5px; color: #FF0000;">
+                                            @if (oldPrice != null)
+                                            {
+                                                @(Convert.ToInt32(oldPrice))
+                                            }
+                                        </span>
+                                        <span>$</span>
+                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                        }
+                                        else
+                                        {
+                                        <span>$</span>
+                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                        }
+                                    }
+                                    else if (Model.HasWholeRole == true)
+                                    {
+                                        if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale > 0)
+                                        {
+                                        <span>$</span>
+                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Wholesale)
+                                        }
+                                        else
+                                        {
+                                        <span>$</span>
+                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                        }
+                                    }
+                                    else if (Model.hasFriendRole == true)
+                                    {
+                                        if (item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds > 0)
+                                        {
+                                        <span>$</span>
+                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Freinds)
+                                        }
+                                        else
+                                        {
+                                        <span>$</span>
+                                        @Convert.ToInt32(item.inv_Price.OrderByDescending(p => p.Date).FirstOrDefault().Online)
+                                        }
+                                    }
+                                </span>
+                            </div>
+                            <div class="action-control">
+                                <a class="btn btn-primary" name='order' id='ord@(item.BarcodeId)' ><span class="add2cart">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i>Add to cart </span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    }
+
+                }
+            </div>
+            <div class="row">
+                <div class="load-more-block text-center">
+                    <a class="btn btn-thin" href="#"><i class="fa fa-plus-sign">+</i> load more products</a>
+                </div>
+                <script src="../../Content/template/assets/js/jquery.cycle2.min.js"></script>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+<!--/.container-->
+<div class="parallax-section parallax-image-2">
+    <div class="w100 parallax-section-overley">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="parallax-content clearfix">
+                        <h1 class="xlarge">
+                            Trusted Seller 500+
+                        </h1>
+                        <h5 class="parallaxSubtitle">
+                            Lorem ipsum dolor sit amet consectetuer
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../Content/template/assets/js/home.js"></script>

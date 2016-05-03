@@ -1,0 +1,86 @@
+﻿<div id="content" class="main-content">
+   
+    <form id="imageForm" action="Uploadify/Index" method="post">
+    <ul class="formControls">
+        <li class="formControl">
+            <label for="username" class="labelLeft">
+                chooseFile</label>
+            <input id="fileInput" name="fileInput" class="required validate" maxlength="300"
+                type="file" />
+        </li>
+        <li class="formControl ">
+            <label class="labelLeft">
+                title</label>
+            <input type="text" class=" inputText inputW136  " name="title" maxlength="300" id="txtMenuName" />
+        </li>
+        <li class="formControl ">
+            <label class="labelLeft">
+                linkTo</label>
+            <input type="text" class=" inputText inputW136  " name="linkTo" maxlength="300" id="Text1" />
+        </li>
+        <li class="formControl ">
+            <label class="labelLeft">
+                description</label>
+            <textarea style="height: 90px;" id="Textarea1" name="description" class="inputW136 "></textarea>
+        </li>
+           <li class="formControl ">
+            <label class="labelLeft">
+                sliderInfo</label>
+            <textarea style="height: 90px;" id="sliderInfo" name="sliderInfo" class="inputW136 "></textarea>
+        </li>
+        <li class="formControl frog">
+            <label class="labelLeft ">
+            </label>
+            <button id="btn_Submit" style="width: 100px;">
+                save</button>
+        </li>
+    </ul>
+    <input type="hidden" value="True" name="isSlider" />
+    </form>
+    <br class="clearer" />
+    <div class="progress">
+        <div class="bar">
+        </div>
+        <div class="percent">
+            0%</div>
+    </div>
+    <div id="status">
+    </div>
+    <br class="clearer" />
+    <div id="div_d_PhotoList" class="formControls">
+    </div>
+    <ul id="sortableSlider">
+    </ul>
+    <div class="invisible" id="editDialog" dir="rtl">
+        <form id="formSliderShow" action="Management/EditOnlineSliderShow" method="post">
+        <ul class="formControls">
+            <li class="formControl ">
+                <label class="labelLeft">
+                    title</label>
+                <input type="text" class=" inputText inputW136  " name="title" maxlength="300" id="txtTitle" />
+            </li>
+            <li class="formControl ">
+                <label class="labelLeft">
+                    linkTo</label>
+                <input type="text" class=" inputText inputW136  " name="linkTo" maxlength="300" id="txtLinkTo" />
+            </li>
+            <li class="formControl ">
+                <label class="labelLeft">
+                    description</label>
+                <textarea style="height: 90px;" id="txtDescription" name="description" class="inputW136 "></textarea>
+            </li>
+            <li class="formControl ">
+                <label class="labelLeft">
+                    sliderInfo</label>
+                <textarea style="height: 90px;" id="sliderInfo" name="sliderInfo" class="inputW136 "></textarea>
+            </li>
+            <li class="formControl unit size1of2">
+                <label class="labelLeft ">
+                    &nbsp;</label>
+                <button id="btn_save">
+                    save</button>
+            </li>
+        </form>
+        </ul>
+    </div>
+</div>

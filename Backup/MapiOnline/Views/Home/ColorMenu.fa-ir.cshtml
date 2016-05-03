@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Color>
+
+            @foreach (var item in Model)
+            {
+                <div class="block-element">
+                    <label>
+                        <input @(Request["colors"] != null ? (Request["colors"].Split(',').Contains(item.ColorId.ToString()) ? "checked" : "") : "") value="@item.ColorId" type="checkbox" name="colors"  />
+                        <small style="background-color: @item.Color"></small>@item.Color <span>(123)</span>
+                    </label>
+                </div>
+            }
+     

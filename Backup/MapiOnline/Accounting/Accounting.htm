@@ -1,0 +1,137 @@
+﻿<div id="content" class="main-content">
+    <form id="frm_Accounting" method="post" action="Management/AddItemAccounting">
+    <!--<div class=" panel panel-primary " id="div_Details">
+        <div class="panel-heading">
+            <label style="font-weight: bold">
+                factorInfo</label>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="pull-right col-md-12">
+                    <div class="form-group col-md-2 pull-right">
+                        <div class="row col-md-12">
+                            <label id="Label2">
+                                invoiceNumber
+                            </label>
+                        </div>
+                        <div class="row col-md-12 ">
+                            <input type="text" id="txt_InvoiceNum" name="txt_InvoiceNum" placeholder='invoiceNumber'
+                                style="width: 100%" class=" inputText digit inputW136 required validate" />
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-group pull-right">
+                        <div class="row col-md-12">
+                            <label>
+                                description</label></div>
+                        <div class="row col-md-12 ">
+                            <input id="txt_AccountingDescription" name="txt_AccountingDescription" type="text"
+                                placeholder="description" class="inputW500" /></div>
+                    </div>
+                    <div class="col-md-1 form-group pull-right">
+                        <div class="row col-md-12">
+                        </div>
+                        <div class="row col-md-12 ">
+                            <button id="btn_AddNewRow" type="button" style="width: 30px; height: 30px">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="right size1of5">
+        <div class="blocker">
+            <div class="form-row">
+                <label>
+                    invoiceNumber
+                </label>
+                <div class="form-field">
+                    <input type="text" class="inputText" id="txt_InvoiceNum" name="txt_InvoiceNum" placeholder='invoiceNumber' />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right size3of5">
+        <div class="blocker">
+            <div class="form-row">
+                <label>
+                    description
+                </label>
+                <div class="form-field">
+                    <input id="txt_AccountingDescription" class="inputText" name="txt_AccountingDescription"
+                        type="text" placeholder="description" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br class="clearer">
+    <table id="tbl_Accounting">
+        <thead id="header" style="height: 23px">
+            <td class="sunny" width="1%">
+                <span>row</span> <span class="left cursor ui-icon ui-icon-plus" id="btn_AddNewRow"
+                    title="row"></span>
+            </td>
+            <td width="6%">
+                accountCode
+            </td>
+            <td width="11%">
+                account
+            </td>
+            <td width="6%">
+                debtorAmount
+            </td>
+            <td width="6%">
+                creditorAmount
+            </td>
+            <td width="2%">
+                deleteBtn
+            </td>
+        </thead>
+        <tbody id="AccountingList">
+        </tbody>
+    </table>
+    <div id="divFooter" class="table-footer">
+        <div class="unit size2of5">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        debtor</label>
+                    <div class="form-field">
+                        <span class="digit whiteFont" id="spDeptor"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="unit size2of5">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        creditor</label>
+                    <div class="form-field">
+                        <span class="digit whiteFont" id="spCreditor"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+    </div>
+    <div class="frog left">
+        <!--<input type="hidden" id="Hidden1" name="hi_cRow" />-->
+        <input type="hidden" id="hi_cRow" name="hi_cRow" />
+        <input type="hidden" id="isper" name="isper" value="0" />
+        <input type="hidden" name="count" />
+        <input type="hidden" id="hi_AddedOrderHeaderId" value="626"/>
+        <button id="btn_TemporarySaveAccounting" type="button">
+            temporarySave
+        </button>
+        <button id="btn_PermanentSaveAccounting" type="button">
+            permanentSave
+        </button>
+         <button id="btn_Print" type="button">
+            print
+        </button>
+    </div>
+    </form>
+    <div id="Div_Print" class="invisible">
+    </div>
+</div>

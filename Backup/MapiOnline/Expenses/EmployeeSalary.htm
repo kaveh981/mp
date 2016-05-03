@@ -1,0 +1,294 @@
+﻿<div id="content" class="main-content">
+    <div id="divEmployeesearch" class="report-filter">
+        <div id="divBasic">
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            searchBy</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_m_searchBy">
+                                <option value="">searchBy</option>
+                                <option value="employee">employee</option>
+                                <option value="confirmer">confirmer</option>
+                                <option value="registerer">registerer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            value</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" id="EmployeetxtSearch" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <div id="moreFilter">
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            employeeName</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_m_employee">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            fromDate</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" maxlength="10" id="txt_m_fromDate" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           toDate</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" maxlength="10" id="txt_m_toDate" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            status</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_m_status">
+                                <option value="">select</option>
+                                <option value="true">confirmed</option>
+                                <option value="false">notConfirmed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            confirmer</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" id="txt_m_confirmer" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            amountSalaryFrom</label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" maxlength="8" id="txt_m_fixSalaryFrom" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            to </label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" maxlength="8" id="txt_m_fixSalaryTo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            registerer</label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" id="txt_m_registerer" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            description</label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" maxlength="8" id="txt_m_description" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <br class="clearer">
+        <button class="left" id="EmployeeAdvanceSearchbt" mll="search" style="width: 100px;">
+            search</button>
+        <br />
+        <br />
+        <a class="toggle-more-filters" mll="moreFilter" href="#">description</a>
+    </div>
+    <br />
+    <div class="blue">
+        <button id="btn_new">
+            new</button>
+    </div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <td width="13%">
+                    <a href='javascript:void(0);' id="p_Person1.Family" rel="sort">employeeNamefamily</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="ac_EmployeeSalary.FixSalary" rel="sort">amountSalary</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="ac_EmployeeSalary.Commission" rel="sort">commission</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="ac_EmployeeSalary.FromDate" rel="sort">fromDate</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="ac_EmployeeSalary.ToDate" rel="sort">toDate</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="Date" rel="sort">registerDate</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="p_Person.Family" rel="sort">by</a>
+                </td>
+                <td width="5%">
+                    <a href='javascript:void(0);' id="inv_Shop.Name" rel="sort">branch</a>
+                </td>
+                <td width="5%">
+                    <a href='javascript:void(0);' id="ac_EmployeeSalary.ac_Counter.Code" rel="sort">counter</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="Description" rel="sort">description</a>
+                </td>
+                <td width="8%">
+                    <a href='javascript:void(0);' id="ac_EmployeeSalary.p_Person.Family" rel="sort">confirm</a>
+                </td>
+                <td width="6%">
+                   edit
+                </td>
+                <td width="3%">
+                   deleteBtn
+                </td>
+            </tr>
+        </thead>
+        <tbody id="SalaryList">
+        </tbody>
+    </table>
+    <div>
+        <ul class="paging unit size1of2">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">numberPerPage5</option>
+                    <option value="10">numberPerPage10</option>
+                    <option value="20">numberPerPage20</option>
+                    <option value="40">numberPerPage40</option>
+                </select></li></ul>
+        <ul class="unit size1of2">
+            <li class="unit size1of3">
+                <div class="unit">
+                    <label class="labelLeft labelAuto">
+                        amountSum
+                    </label>
+                </div>
+                <div class="unit">
+                    <label class="labelLeft labelAuto" id="txtTotalSalary">
+                    </label>
+                </div>
+            </li>
+            <li class="unit size1of3">
+                <div class="unit">
+                    <label class="labelLeft labelAuto">
+                        :
+                    </label>
+                </div>
+                <div class="unit">
+                    <label class="labelLeft labelAuto" id="txtTotalCommision">
+                    </label>
+                </div>
+            </li>
+            <li class="unit size1of3">
+                <div class="unit">
+                    <label class="labelLeft labelAuto">
+                        sumRecieved :
+                    </label>
+                </div>
+                <div class="unit">
+                    <label class="labelLeft labelAuto" id="txtTotalRecieve">
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="dialogAddSalary" class="invisible" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl ">
+                <label class="labelLeft">
+                    employeeName  <em class="required">*</em></label>
+                <select class=" selectMedium required validate" name="Combo" id="ddl_m_employee_add">
+                </select>
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    fromDate  <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 required validate" name="Date" maxlength="10"
+                    id="txt_m_fromDate_add" />
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    toDate  <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 required validate" name="Date" maxlength="10"
+                    id="txt_m_toDate_add" />
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    fixSalary  <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 required validate" name="Digit" id="txt_m_fixSalary_add" />
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    commission</label>
+                <input type="text" class=" inputText inputW136 " name="Digit" id="txt_m_commission_add" />
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    description</label>
+                <input type="text" class=" inputText inputW136 " name="LongString" maxlength="50"
+                    id="txt_salary_description_add" />
+            </li>
+            <li class="formControl unit size1of2 frog">
+                <label class="labelLeft ">
+                    &nbsp;</label>
+                <button id="btn_save">
+                    save</button>
+            </li>
+        </ul>
+    </div>
+</div>

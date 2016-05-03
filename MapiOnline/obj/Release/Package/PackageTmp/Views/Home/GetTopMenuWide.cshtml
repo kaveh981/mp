@@ -1,0 +1,89 @@
+﻿@model IEnumerable<System.Xml.Linq.XElement>
+@{
+                        
+
+    foreach (var menu in Model)
+    {
+        int count = 0;
+        var subModel = menu.Elements("Content").Where(c => c.Attribute("menuLocation").Value == "side" && c.Attribute("show").Value == "true").OrderBy(o => Convert.ToInt32(o.Attribute("order").Value));
+    <li id="@("menu"+menu.Attribute("Id").Value)" class="dropdown megamenu-fullwidth">
+        @if (bool.Parse(menu.Attribute("isLink").Value))
+        {
+            <a class="dropdown-toggle"  target="@(bool.Parse(menu.Attribute("newPage").Value) ? "_blank" : "_self")" href="@menu.Attribute("linkTo").Value">@menu.Attribute("menuName").Value
+            
+            @if (subModel.Count() > 0)
+                {
+                    <b class='caret'></b>
+                }
+                
+                </a>
+        }
+        else
+        {
+     
+            <a class="dropdown-toggle"  target="@(bool.Parse(menu.Attribute("newPage").Value) ? "_blank" : "_self")" href="@Url.Action("SideMenu", "Home", new
+                {
+                    categoryId = Request["categoryId"],
+                    menuId = menu.Attribute("Id").Value,
+                    name = menu.Attribute("menuName").Value
+                })">@menu.Attribute("menuName").Value
+                @if (subModel.Count() > 0)
+                {
+                    <b class='caret'></b>
+                }
+            </a>    
+        }
+        @{
+            
+   
+        if (subModel.Count() > 0)
+        {
+            <ul class="dropdown-menu">
+                <li class="megamenu-content">
+                    @foreach (var smenus in subModel)
+                    {
+                        count++;
+                        <ul class="col-lg-2  col-sm-2 col-md-2 unstyled">
+                            <li class="no-border">
+                                <p>
+                                    <strong>@(smenus.Attribute("menuName").Value)</strong></p>
+                            </li>
+                            @{
+            
+                                        var sub = smenus.Elements("Content").Where(c => c.Attribute("menuLocation").Value
+                                  == "side" && c.Attribute("show").Value == "true").OrderBy(o => Convert.ToInt32(o.Attribute("order").Value));
+                                        if (sub.Count() > 0)
+                                        {
+                                <ul class="">
+                                    @foreach (var subMenu in sub)
+                                    {
+                                        <li  id="@(subMenu.Attribute("Id").Value)" >
+                                            @if (bool.Parse(subMenu.Attribute("isLink").Value))
+                                            {
+                                                <a  target="@(bool.Parse(subMenu.Attribute("newPage").Value) ? "_blank" : "_self")" href="@subMenu.Attribute("linkTo").Value">@subMenu.Attribute("menuName").Value</a>
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(subMenu.Attribute("menuName").Value, "SideMenu", "Home", new
+       {
+           categoryId = Request["categoryId"],
+
+           menuId = subMenu.Attribute("Id").Value,
+           name = subMenu.Attribute("menuName").Value
+       }, new { @target = (bool.Parse(subMenu.Attribute("newPage").Value) ? "_blank" : "_self") })
+                                            }
+                                        </li>
+
+                                    }
+                                </ul>
+                                        }
+                            }
+                        </ul>
+                    }
+                </li>
+            </ul>
+        }        
+        }
+    </li>
+    }
+}

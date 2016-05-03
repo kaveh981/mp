@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Category>
+<li class="dropdown "><a data-toggle="dropdown" class="dropdown-toggle" href="#">نوع
+    محصول <b class="caret"></b></a>
+    <ul class="dropdown-menu" style="left: auto;">
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("Category", "Home", new { categoryId = @item.CategoryId, name = @item.Category.Replace(' ', '-') })">@item.Category
+            </a></li>
+        }
+    </ul>
+</li>

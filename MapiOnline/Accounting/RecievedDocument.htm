@@ -1,0 +1,252 @@
+﻿<div id="content" class="main-content">
+    <form id="frm_RecievedCheck" method="post" action="Management/addRecievedCheque">
+    <div class="report-filter">
+        <div id="div5" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        rievableAccount</label>
+                    <div class="form-field">
+                        <select id='ddl_recievableAccount' name='ddl_recievableAccount' class=" selectMedium required validate">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div2" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        chequeDate</label>
+                    <div class="form-field">
+                        <input type='text' class=' inputText inputW136 validate' id='txt_checkDate' name='txt_checkDate'
+                            placeholder='chequeDate' />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div1" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        chequeSerial</label>
+                    <div class="form-field">
+                        <input type='text' class=' inputText inputW136 validate' id='txt_serial' name='txt_serial'
+                            placeholder='chequeSerial' />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div4" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        chequePayer</label>
+                    <div class="form-field">
+                        <input id="txt_currentAccountPerson" name="txt_currentAccountPerson" type="text"
+                            placeholder="chequePayer" class=' inputText inputW136 validate' />
+                    </div>
+                    <label id="lb_currentAccPersonName">
+                    </label>
+                    <input type="hidden" id="hi_currentAccPeraccId" name="hi_currentAccPeraccId" />
+                </div>
+            </div>
+        </div>
+        <div id="div_counterTo" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        amount</label>
+                    <div class="form-field">
+                        <input type='text' id='txt_Amount' name='txt_Amount' placeholder='amount' onchange='return SumPayment(\"" + container + "\");'
+                            class=' inputText inputW136 validate' />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div_customer" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        Currency</label>
+                    <div class="form-field">
+                        <select id='ddl_Currency' name='ddl_Currency' class=" selectMedium required validate">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer" />
+        <div id="div3" class="unit size1of6">
+            <div class="blocker">
+                <div class="form-row">
+                    <label>
+                        bank</label>
+                    <div class="form-field">
+                        <select id='ddl_Banks' name='ddl_Banks' class=" selectMedium required validate">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="unit" style="width: 80%">
+            <div class="blocker" style="width: 100%">
+                <div class="form-row" style="width: 100%">
+                    <label>
+                        description</label>
+                    <div class="form-field" style="width: 100%%">
+                        <input id="txt_comment" name="txt_comment" type="text" placeholder="description"
+                            style="width: 95%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <div>
+            <div class="left unit frog">
+                <button id="btn_Add_Payment" style="width: 100px">
+                    save</button>
+            </div>
+        </div>
+        <br class="clearer">
+        <br class="clearer">
+    </div>
+    </form>
+    <div id="chequeList">
+    </div>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+    <br />
+    <input type="hidden" id="hi_SelectedchequeAccDetailId" />
+    <div class="report-filter">
+        <div id="div6" class="size3of6">
+            <div>
+                <div class="frog">
+                    <br class="clearer">
+                    <button id="btn_currentcheque" style="width: 100px">
+                        currentCheque</button>
+                    <button id="btn_givecheque" style="width: 100px">
+                        giveCheque</button>
+                    <button id="btn_passedcheque" style="width: 100px">
+                        passedCheque</button>
+                    <button id="btn_returncheque" style="width: 100px">
+                        returnedCheque</button>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+    </div>
+    <div id="dialogCurrStatus" class="invisible" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl">
+                <br class="clearer">
+                <label for="" class="labelLeft label80">
+                    <em class="required">*</em> bank
+                </label>
+                <br class="clearer">
+                <select id="ddl_accontRecievedBank" class=" selectMedium required validate">
+                </select>
+            </li>
+            <li class="formControl">
+                <label for="" class="labelLeft label80">
+                    description</label>
+                <br class="clearer">
+                <textarea rows="5" cols="30" id="txt_commentChangeStatus"></textarea>
+            </li>
+            <li class="formControl frog left">
+                <button id="btn_savecurrStatus">
+                    save</button>
+            </li>
+        </ul>
+    </div>
+    <div id="dialogpassStatus" class="invisible" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl">
+                <br class="clearer">
+                <label for="" class="labelLeft label80">
+                    <em class="required">*</em> bank</label>
+                <br class="clearer">
+                <select class='selectLarg' id='ddl_RecievableAccPass'>
+                </select>
+            </li>
+            <li class="formControl">
+                <label for="" class="labelLeft label80">
+                    description</label>
+                <br class="clearer">
+                <textarea rows="5" cols="30" id="txt_commentChangeStatusPass"></textarea>
+            </li>
+            <li class="formControl frog left">
+                <button id="btn_savePassStatus">
+                    save</button>
+            </li>
+        </ul>
+    </div>
+    <div id="dialogGiveStatus" class="invisible" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl">
+                <br class="clearer">
+                <label for="" class="labelLeft label80">
+                    <em class="required">*</em> chequeReciever</label>
+                <br class="clearer">
+                <input id="txt_curAccountPersonRec" type="text" class=" inputText inputW136 validate" />
+                <label id="lb_curAccountPersonRec">
+                </label>
+                <input type="hidden" id="hi_curAccPeraccIdRec" />
+            </li>
+            <li class="formControl">
+                <br class="clearer">
+                <label for="" class="labelLeft label80">
+                    description</label>
+                <br class="clearer">
+                <textarea rows="5" cols="30" id="txt_commentChangeStatusGive"></textarea>
+            </li>
+            <li class="formControl frog left">
+                <button id="btn_saveGiveStatus">
+                    save</button>
+            </li>
+        </ul>
+    </div>
+    <div id="dialogReturnStatus" class="invisible" dir="rtl">
+        <li class="formControl">
+            <label for="" class="labelLeft label80">
+                description</label>
+            <br class="clearer">
+            <textarea rows="5" cols="30" id="txt_commentChangeStatusRet"></textarea>
+        </li>
+        <li class="formControl frog left">
+            <button id="btn_saveRetStatus">
+                save</button>
+        </li>
+    </div>
+    <br />
+</div>
+<!-- <div class="orange blueHeader invisible" id="dialog" dir="rtl">
+        <div id="VoucherList">
+        </div>
+        <div>
+            <ul class="paging">
+                <li>
+                    <div id="paging" class="pagination">
+                    </div>
+                </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                    <select class="PagingSelect" id="PageSize">
+                        <option value="5">itemsPerPage5</option>
+                        <option value="10">itemsPerPage10</option>
+                        <option value="20">itemsPerPage20</option>
+                        <option value="40">itemsPerPage40</option>
+                    </select></li></ul>
+        </div>
+    </div>-->

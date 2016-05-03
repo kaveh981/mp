@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MapiOnline.Models.ac_OrderHeader>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            ac_CurrencyRate
+        </th>
+        <th>
+            p_Person
+        </th>
+        <th>
+            p_Employee
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            InvoiceNO
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            inv_Shop
+        </th>
+        <th>
+            Sell
+        </th>
+        <th>
+            ac_Counter
+        </th>
+        <th>
+            p_Employee1
+        </th>
+        <th>
+            IsMoney
+        </th>
+        <th>
+            Table
+        </th>
+        <th>
+            ac_FiscalPeriod
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ac_CurrencyRate.CurrencyRateId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_Person.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_Employee.AccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inv_Shop.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sell)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ac_Counter.AccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_Employee1.AccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMoney)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ac_FiscalPeriod.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderHeaderId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderHeaderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderHeaderId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,3162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MapiDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MapiDBEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetParentAddressById" EntitySet="p_Address" ReturnType="Collection(MapiDBModel.p_Address)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="startLevel" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentCategoryById" EntitySet="inv_Category" ReturnType="Collection(MapiDBModel.inv_Category)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="startLevel" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubAddressByParent" ReturnType="Collection(Int32)">
+      <Parameter Name="ParentAddressID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubCategoryByParent" ReturnType="Collection(Int32)">
+      <Parameter Name="ParentCategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubMeasureUnitByParent">
+      <Parameter Name="MeasureUnitID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentMeasureUnitByID" EntitySet="inv_MeasureUnit" ReturnType="Collection(MapiDBModel.inv_MeasureUnit)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="startLevel" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentEmployeeByID" EntitySet="p_Employee" ReturnType="Collection(MapiDBModel.p_Employee)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="startLevel" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubEmployeeByParent" ReturnType="Collection(Int32)">
+      <Parameter Name="ParentEmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetBarcodeReport" ReturnType="Collection(MapiDBModel.GetBarcodeReport_Result)" />
+    <FunctionImport Name="GetSubEmployeeAndSelfByParent" EntitySet="p_Employee" ReturnType="Collection(MapiDBModel.p_Employee)">
+      <Parameter Name="ParentEmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubExpenseCategoryByParent">
+      <Parameter Name="ParentExpenseCategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentPropertyById" EntitySet="inv_Property" ReturnType="Collection(MapiDBModel.inv_Property)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="startLevel" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubPropertyByParent" ReturnType="Collection(Int32)">
+      <Parameter Name="ParentD" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentAccountByID" EntitySet="ac_Account" ReturnType="Collection(MapiDBModel.ac_Account)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="startLevel" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubAccountByParent" ReturnType="Collection(Int32)">
+      <Parameter Name="ParentAccountID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ac_Cash" EntityType="MapiDBModel.ac_Cash" />
+    <EntitySet Name="ac_Currency" EntityType="MapiDBModel.ac_Currency" />
+    <EntitySet Name="ac_CurrencyRate" EntityType="MapiDBModel.ac_CurrencyRate" />
+    <EntitySet Name="ac_EmployeeSalary" EntityType="MapiDBModel.ac_EmployeeSalary" />
+    <EntitySet Name="ac_OrderDetail" EntityType="MapiDBModel.ac_OrderDetail" />
+    <EntitySet Name="ac_ShoppingCart" EntityType="MapiDBModel.ac_ShoppingCart" />
+    <EntitySet Name="ac_ShoppingCartDetails" EntityType="MapiDBModel.ac_ShoppingCartDetails" />
+    <EntitySet Name="ac_SocialSecurity" EntityType="MapiDBModel.ac_SocialSecurity" />
+    <EntitySet Name="aspnet_Applications" EntityType="MapiDBModel.aspnet_Applications" />
+    <EntitySet Name="aspnet_Membership" EntityType="MapiDBModel.aspnet_Membership" />
+    <EntitySet Name="aspnet_Paths" EntityType="MapiDBModel.aspnet_Paths" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="MapiDBModel.aspnet_PersonalizationAllUsers" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="MapiDBModel.aspnet_PersonalizationPerUser" />
+    <EntitySet Name="aspnet_Profile" EntityType="MapiDBModel.aspnet_Profile" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="MapiDBModel.aspnet_SchemaVersions" />
+    <EntitySet Name="aspnet_Users" EntityType="MapiDBModel.aspnet_Users" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="MapiDBModel.aspnet_WebEvent_Events" />
+    <EntitySet Name="inv_Availablity" EntityType="MapiDBModel.inv_Availablity" />
+    <EntitySet Name="inv_Barcode" EntityType="MapiDBModel.inv_Barcode" />
+    <EntitySet Name="inv_BarcodeMeasureUnit" EntityType="MapiDBModel.inv_BarcodeMeasureUnit" />
+    <EntitySet Name="inv_BarcodeShop" EntityType="MapiDBModel.inv_BarcodeShop" />
+    <EntitySet Name="inv_Category" EntityType="MapiDBModel.inv_Category" />
+    <EntitySet Name="inv_Color" EntityType="MapiDBModel.inv_Color" />
+    <EntitySet Name="inv_Gurantee" EntityType="MapiDBModel.inv_Gurantee" />
+    <EntitySet Name="inv_ItemLocation" EntityType="MapiDBModel.inv_ItemLocation" />
+    <EntitySet Name="inv_MatchingBarcode" EntityType="MapiDBModel.inv_MatchingBarcode" />
+    <EntitySet Name="inv_MeasureUnit" EntityType="MapiDBModel.inv_MeasureUnit" />
+    <EntitySet Name="inv_Price" EntityType="MapiDBModel.inv_Price" />
+    <EntitySet Name="inv_Promotion" EntityType="MapiDBModel.inv_Promotion" />
+    <EntitySet Name="inv_Property" EntityType="MapiDBModel.inv_Property" />
+    <EntitySet Name="inv_Restriction" EntityType="MapiDBModel.inv_Restriction" />
+    <EntitySet Name="inv_Shop" EntityType="MapiDBModel.inv_Shop" />
+    <EntitySet Name="inv_Size" EntityType="MapiDBModel.inv_Size" />
+    <EntitySet Name="inv_TransferItem" EntityType="MapiDBModel.inv_TransferItem" />
+    <EntitySet Name="inv_TransferItemDetail" EntityType="MapiDBModel.inv_TransferItemDetail" />
+    <EntitySet Name="OnlineMenus" EntityType="MapiDBModel.OnlineMenu" />
+    <EntitySet Name="p_Address" EntityType="MapiDBModel.p_Address" />
+    <EntitySet Name="p_Comment" EntityType="MapiDBModel.p_Comment" />
+    <EntitySet Name="p_Customer" EntityType="MapiDBModel.p_Customer" />
+    <EntitySet Name="p_Employee" EntityType="MapiDBModel.p_Employee" />
+    <EntitySet Name="p_Message" EntityType="MapiDBModel.p_Message" />
+    <EntitySet Name="p_Phone" EntityType="MapiDBModel.p_Phone" />
+    <EntitySet Name="p_Supplier" EntityType="MapiDBModel.p_Supplier" />
+    <EntitySet Name="u_UserOrderHeader" EntityType="MapiDBModel.u_UserOrderHeader" />
+    <EntitySet Name="View_inv_ItemDetailLocation" EntityType="MapiDBModel.View_inv_ItemDetailLocation" />
+    <EntitySet Name="View_ProductList" EntityType="MapiDBModel.View_ProductList" />
+    <EntitySet Name="vw_aspnet_Applications" EntityType="MapiDBModel.vw_aspnet_Applications" />
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="MapiDBModel.vw_aspnet_MembershipUsers" />
+    <EntitySet Name="vw_aspnet_Profiles" EntityType="MapiDBModel.vw_aspnet_Profiles" />
+    <EntitySet Name="vw_aspnet_Roles" EntityType="MapiDBModel.vw_aspnet_Roles" />
+    <EntitySet Name="vw_aspnet_Users" EntityType="MapiDBModel.vw_aspnet_Users" />
+    <EntitySet Name="vw_aspnet_UsersInRoles" EntityType="MapiDBModel.vw_aspnet_UsersInRoles" />
+    <EntitySet Name="vw_aspnet_WebPartState_Paths" EntityType="MapiDBModel.vw_aspnet_WebPartState_Paths" />
+    <EntitySet Name="vw_aspnet_WebPartState_Shared" EntityType="MapiDBModel.vw_aspnet_WebPartState_Shared" />
+    <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="MapiDBModel.vw_aspnet_WebPartState_User" />
+    <AssociationSet Name="FK_ac_Cash_ac_CurrencyRate" Association="MapiDBModel.FK_ac_Cash_ac_CurrencyRate">
+      <End Role="ac_CurrencyRate" EntitySet="ac_CurrencyRate" />
+      <End Role="ac_Cash" EntitySet="ac_Cash" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Currency_aspnet_Applications" Association="MapiDBModel.FK_ac_Currency_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="ac_Currency" EntitySet="ac_Currency" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_CurrencyRate_ac_Currency" Association="MapiDBModel.FK_ac_CurrencyRate_ac_Currency">
+      <End Role="ac_Currency" EntitySet="ac_Currency" />
+      <End Role="ac_CurrencyRate" EntitySet="ac_CurrencyRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderDetail_ac_OrderDetail" Association="MapiDBModel.FK_ac_OrderDetail_ac_OrderDetail">
+      <End Role="ac_OrderDetail" EntitySet="ac_OrderDetail" />
+      <End Role="ac_OrderDetail1" EntitySet="ac_OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_ShoppingCart_p_Customer" Association="MapiDBModel.FK_ac_ShoppingCart_p_Customer">
+      <End Role="p_Customer" EntitySet="p_Customer" />
+      <End Role="ac_ShoppingCart" EntitySet="ac_ShoppingCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_ShoppingCartDetails_ac_ShoppingCart" Association="MapiDBModel.FK_ac_ShoppingCartDetails_ac_ShoppingCart">
+      <End Role="ac_ShoppingCart" EntitySet="ac_ShoppingCart" />
+      <End Role="ac_ShoppingCartDetails" EntitySet="ac_ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_ShoppingCartDetails_ac_ShoppingCartDetails" Association="MapiDBModel.FK_ac_ShoppingCartDetails_ac_ShoppingCartDetails">
+      <End Role="ac_ShoppingCartDetails" EntitySet="ac_ShoppingCartDetails" />
+      <End Role="ac_ShoppingCartDetails1" EntitySet="ac_ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__Appli__477199F1" Association="MapiDBModel.FK__aspnet_Me__Appli__477199F1">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__251C81ED" Association="MapiDBModel.FK__aspnet_Pa__Appli__251C81ED">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__27F8EE98" Association="MapiDBModel.FK__aspnet_Us__Appli__27F8EE98">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Availablity_aspnet_Applications" Association="MapiDBModel.FK_inv_Availablity_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Availablity" EntitySet="inv_Availablity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Barcode_aspnet_Applications" Association="MapiDBModel.FK_inv_Barcode_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Category_aspnet_Applications" Association="MapiDBModel.FK_inv_Category_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Category" EntitySet="inv_Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Color_aspnet_Applications" Association="MapiDBModel.FK_inv_Color_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Color" EntitySet="inv_Color" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_MeasureUnit_aspnet_Applications" Association="MapiDBModel.FK_inv_MeasureUnit_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_MeasureUnit" EntitySet="inv_MeasureUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Promotion_aspnet_Applications" Association="MapiDBModel.FK_inv_Promotion_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Promotion" EntitySet="inv_Promotion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Property_aspnet_Applications" Association="MapiDBModel.FK_inv_Property_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Property" EntitySet="inv_Property" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Restriction_aspnet_Applications" Association="MapiDBModel.FK_inv_Restriction_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Restriction" EntitySet="inv_Restriction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Shop_aspnet_Applications" Association="MapiDBModel.FK_inv_Shop_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Size_aspnet_Applications" Association="MapiDBModel.FK_inv_Size_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="inv_Size" EntitySet="inv_Size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OnlineMenu_aspnet_Applications" Association="MapiDBModel.FK_OnlineMenu_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="OnlineMenu" EntitySet="OnlineMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Address_aspnet_Applications" Association="MapiDBModel.FK_p_Address_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="p_Address" EntitySet="p_Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__4865BE2A" Association="MapiDBModel.FK__aspnet_Me__UserI__4865BE2A">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Customer_aspnet_Membership" Association="MapiDBModel.FK_p_Customer_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="p_Customer" EntitySet="p_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Employee_aspnet_Membership" Association="MapiDBModel.FK_p_Employee_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="p_Employee" EntitySet="p_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__44952D46" Association="MapiDBModel.FK__aspnet_Pe__PathI__44952D46">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__4589517F" Association="MapiDBModel.FK__aspnet_Pe__PathI__4589517F">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__467D75B8" Association="MapiDBModel.FK__aspnet_Pe__UserI__467D75B8">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__43A1090D" Association="MapiDBModel.FK__aspnet_Pr__UserI__43A1090D">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Barcode_inv_Availablity" Association="MapiDBModel.FK_inv_Barcode_inv_Availablity">
+      <End Role="inv_Availablity" EntitySet="inv_Availablity" />
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Barcode_inv_MeasureUnit" Association="MapiDBModel.FK_inv_Barcode_inv_MeasureUnit">
+      <End Role="inv_MeasureUnit" EntitySet="inv_MeasureUnit" />
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_BarcodeMeasureUnit_inv_Barcode" Association="MapiDBModel.FK_inv_BarcodeMeasureUnit_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_BarcodeMeasureUnit" EntitySet="inv_BarcodeMeasureUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_BarcodeShop_inv_Barcode" Association="MapiDBModel.FK_inv_BarcodeShop_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_BarcodeShop" EntitySet="inv_BarcodeShop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Gurantee_inv_Barcode" Association="MapiDBModel.FK_inv_Gurantee_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_Gurantee" EntitySet="inv_Gurantee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_MatchingBarcode_inv_Barcode" Association="MapiDBModel.FK_inv_MatchingBarcode_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_MatchingBarcode" EntitySet="inv_MatchingBarcode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_MatchingBarcode_inv_Barcode1" Association="MapiDBModel.FK_inv_MatchingBarcode_inv_Barcode1">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_MatchingBarcode" EntitySet="inv_MatchingBarcode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Price_inv_Barcode" Association="MapiDBModel.FK_inv_Price_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_Price" EntitySet="inv_Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Comment_inv_Barcode" Association="MapiDBModel.FK_p_Comment_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="p_Comment" EntitySet="p_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_BarcodeMeasureUnit_inv_MeasureUnit" Association="MapiDBModel.FK_inv_BarcodeMeasureUnit_inv_MeasureUnit">
+      <End Role="inv_MeasureUnit" EntitySet="inv_MeasureUnit" />
+      <End Role="inv_BarcodeMeasureUnit" EntitySet="inv_BarcodeMeasureUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_BarcodeShop_inv_Shop" Association="MapiDBModel.FK_inv_BarcodeShop_inv_Shop">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="inv_BarcodeShop" EntitySet="inv_BarcodeShop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Category_inv_Category" Association="MapiDBModel.FK_inv_Category_inv_Category">
+      <End Role="inv_Category" EntitySet="inv_Category" />
+      <End Role="inv_Category1" EntitySet="inv_Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationItem_Shop1" Association="MapiDBModel.FK_LocationItem_Shop1">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="inv_ItemLocation" EntitySet="inv_ItemLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeasureUni_MeasureUni" Association="MapiDBModel.FK_MeasureUni_MeasureUni">
+      <End Role="inv_MeasureUnit" EntitySet="inv_MeasureUnit" />
+      <End Role="inv_MeasureUnit1" EntitySet="inv_MeasureUnit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Property_inv_Property" Association="MapiDBModel.FK_inv_Property_inv_Property">
+      <End Role="inv_Property" EntitySet="inv_Property" />
+      <End Role="inv_Property1" EntitySet="inv_Property" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Shop_inv_Shop" Association="MapiDBModel.FK_inv_Shop_inv_Shop">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="inv_Shop1" EntitySet="inv_Shop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Shop_p_Address" Association="MapiDBModel.FK_inv_Shop_p_Address">
+      <End Role="p_Address" EntitySet="p_Address" />
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_TransferItem_inv_Shop" Association="MapiDBModel.FK_inv_TransferItem_inv_Shop">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="inv_TransferItem" EntitySet="inv_TransferItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_TransferItem_inv_Shop1" Association="MapiDBModel.FK_inv_TransferItem_inv_Shop1">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="inv_TransferItem" EntitySet="inv_TransferItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Size_Size" Association="MapiDBModel.FK_Size_Size">
+      <End Role="inv_Size" EntitySet="inv_Size" />
+      <End Role="inv_Size1" EntitySet="inv_Size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_TransferItem_p_Employee" Association="MapiDBModel.FK_inv_TransferItem_p_Employee">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="inv_TransferItem" EntitySet="inv_TransferItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_TransferItem_p_Employee1" Association="MapiDBModel.FK_inv_TransferItem_p_Employee1">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="inv_TransferItem" EntitySet="inv_TransferItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_TransferItemDetail_inv_TransferItem" Association="MapiDBModel.FK_inv_TransferItemDetail_inv_TransferItem">
+      <End Role="inv_TransferItem" EntitySet="inv_TransferItem" />
+      <End Role="inv_TransferItemDetail" EntitySet="inv_TransferItemDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Address_p_Address" Association="MapiDBModel.FK_p_Address_p_Address">
+      <End Role="p_Address" EntitySet="p_Address" />
+      <End Role="p_Address1" EntitySet="p_Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Comment_p_Customer" Association="MapiDBModel.FK_p_Comment_p_Customer">
+      <End Role="p_Customer" EntitySet="p_Customer" />
+      <End Role="p_Comment" EntitySet="p_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Customer_p_Customer" Association="MapiDBModel.FK_p_Customer_p_Customer">
+      <End Role="p_Customer" EntitySet="p_Customer" />
+      <End Role="p_Customer1" EntitySet="p_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Employee_p_Employee" Association="MapiDBModel.FK_p_Employee_p_Employee">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="p_Employee1" EntitySet="p_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_u_UserOrderHeader_p_Employee" Association="MapiDBModel.FK_u_UserOrderHeader_p_Employee">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="u_UserOrderHeader" EntitySet="u_UserOrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="invbr_BarcodeCategory" Association="MapiDBModel.invbr_BarcodeCategory">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_Category" EntitySet="inv_Category" />
+    </AssociationSet>
+    <AssociationSet Name="invbr_BarcodePromotion" Association="MapiDBModel.invbr_BarcodePromotion">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_Promotion" EntitySet="inv_Promotion" />
+    </AssociationSet>
+    <AssociationSet Name="invbr_BarcodeRestriction" Association="MapiDBModel.invbr_BarcodeRestriction">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_Restriction" EntitySet="inv_Restriction" />
+    </AssociationSet>
+    <AssociationSet Name="pbr_CustomerRestriction" Association="MapiDBModel.pbr_CustomerRestriction">
+      <End Role="inv_Restriction" EntitySet="inv_Restriction" />
+      <End Role="p_Customer" EntitySet="p_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="pbr_EmployeeShop" Association="MapiDBModel.pbr_EmployeeShop">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="p_Employee" EntitySet="p_Employee" />
+    </AssociationSet>
+    <EntitySet Name="ac_Counter" EntityType="MapiDBModel.ac_Counter" />
+    <EntitySet Name="inv_ItemDetail" EntityType="MapiDBModel.inv_ItemDetail" />
+    <AssociationSet Name="FK_ac_Counter_inv_Shop" Association="MapiDBModel.FK_ac_Counter_inv_Shop">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="ac_Counter" EntitySet="ac_Counter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_ShoppingCartDetails_inv_ItemDetail" Association="MapiDBModel.FK_ac_ShoppingCartDetails_inv_ItemDetail">
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+      <End Role="ac_ShoppingCartDetails" EntitySet="ac_ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_ItemDetail_inv_Barcode" Association="MapiDBModel.FK_inv_ItemDetail_inv_Barcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_ItemLocation_inv_ItemDetail" Association="MapiDBModel.FK_inv_ItemLocation_inv_ItemDetail">
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+      <End Role="inv_ItemLocation" EntitySet="inv_ItemLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_TransferItemDetail_inv_ItemDetail" Association="MapiDBModel.FK_inv_TransferItemDetail_inv_ItemDetail">
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+      <End Role="inv_TransferItemDetail" EntitySet="inv_TransferItemDetail" />
+    </AssociationSet>
+    <AssociationSet Name="acbr_EmployeeCounter" Association="MapiDBModel.acbr_EmployeeCounter">
+      <End Role="ac_Counter" EntitySet="ac_Counter" />
+      <End Role="p_Employee" EntitySet="p_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="invbr_ColorDetail" Association="MapiDBModel.invbr_ColorDetail">
+      <End Role="inv_Color" EntitySet="inv_Color" />
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+    </AssociationSet>
+    <AssociationSet Name="invbr_SizeDetail" Association="MapiDBModel.invbr_SizeDetail">
+      <End Role="inv_Size" EntitySet="inv_Size" />
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+    </AssociationSet>
+    <EntitySet Name="ac_OrderHeader" EntityType="MapiDBModel.ac_OrderHeader" />
+    <AssociationSet Name="FK_ac_OrderHeader_ac_Counter" Association="MapiDBModel.FK_ac_OrderHeader_ac_Counter">
+      <End Role="ac_Counter" EntitySet="ac_Counter" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderHeader_ac_CurrencyRate" Association="MapiDBModel.FK_ac_OrderHeader_ac_CurrencyRate">
+      <End Role="ac_CurrencyRate" EntitySet="ac_CurrencyRate" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderHeader_inv_Shop" Association="MapiDBModel.FK_ac_OrderHeader_inv_Shop">
+      <End Role="inv_Shop" EntitySet="inv_Shop" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderHeader_p_Employee" Association="MapiDBModel.FK_ac_OrderHeader_p_Employee">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderHeader_p_Employee1" Association="MapiDBModel.FK_ac_OrderHeader_p_Employee1">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <EntitySet Name="ac_Voucher" EntityType="MapiDBModel.ac_Voucher" />
+    <AssociationSet Name="FK_ac_Voucher_ac_CurrencyRate" Association="MapiDBModel.FK_ac_Voucher_ac_CurrencyRate">
+      <End Role="ac_CurrencyRate" EntitySet="ac_CurrencyRate" />
+      <End Role="ac_Voucher" EntitySet="ac_Voucher" />
+    </AssociationSet>
+    <EntitySet Name="ac_AccountDetail" EntityType="MapiDBModel.ac_AccountDetail" />
+    <AssociationSet Name="FK_ac_AccountDetail_ac_OrderHeader" Association="MapiDBModel.FK_ac_AccountDetail_ac_OrderHeader">
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Cash_ac_AccountDetail" Association="MapiDBModel.FK_ac_Cash_ac_AccountDetail">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_Cash" EntitySet="ac_Cash" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_EmployeeSalary_ac_AccountDetail" Association="MapiDBModel.FK_ac_EmployeeSalary_ac_AccountDetail">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_EmployeeSalary" EntitySet="ac_EmployeeSalary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderDetail_ac_AccountDetail" Association="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_OrderDetail" EntitySet="ac_OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderDetail_ac_AccountDetail1" Association="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail1">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_OrderDetail" EntitySet="ac_OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderDetail_ac_AccountDetail2" Association="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail2">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_OrderDetail" EntitySet="ac_OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_SocialSecurity_ac_AccountDetail" Association="MapiDBModel.FK_ac_SocialSecurity_ac_AccountDetail">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_SocialSecurity" EntitySet="ac_SocialSecurity" />
+    </AssociationSet>
+    <FunctionImport Name="GetSubAccountBalanceByParent" ReturnType="Collection(Decimal)">
+      <Parameter Name="ParentAccountID" Mode="In" Type="Int32" />
+      <Parameter Name="FiscalPeriodId" Mode="In" Type="Int32" />
+      <Parameter Name="isDept" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="ac_TableAccount" EntityType="MapiDBModel.ac_TableAccount" />
+    <AssociationSet Name="FK_ac_TableAccount_aspnet_Applications" Association="MapiDBModel.FK_ac_TableAccount_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="ac_TableAccount" EntitySet="ac_TableAccount" />
+    </AssociationSet>
+    <EntitySet Name="View_inv_ItemDetail" EntityType="MapiDBModel.View_inv_ItemDetail" />
+    <EntitySet Name="ac_FiscalPeriod" EntityType="MapiDBModel.ac_FiscalPeriod" />
+    <AssociationSet Name="FK_ac_FiscalPeriod_aspnet_Applications" Association="MapiDBModel.FK_ac_FiscalPeriod_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="ac_FiscalPeriod" EntitySet="ac_FiscalPeriod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderHeader_ac_FiscalPeriod" Association="MapiDBModel.FK_ac_OrderHeader_ac_FiscalPeriod">
+      <End Role="ac_FiscalPeriod" EntitySet="ac_FiscalPeriod" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <EntitySet Name="ApplicationDetails" EntityType="MapiDBModel.ApplicationDetail" />
+    <AssociationSet Name="FK_ApplicationDetails_ac_Counter" Association="MapiDBModel.FK_ApplicationDetails_ac_Counter">
+      <End Role="ac_Counter" EntitySet="ac_Counter" />
+      <End Role="ApplicationDetail" EntitySet="ApplicationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationDetails_ac_FiscalPeriod" Association="MapiDBModel.FK_ApplicationDetails_ac_FiscalPeriod">
+      <End Role="ac_FiscalPeriod" EntitySet="ac_FiscalPeriod" />
+      <End Role="ApplicationDetail" EntitySet="ApplicationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationDetails_aspnet_Applications" Association="MapiDBModel.FK_ApplicationDetails_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="ApplicationDetail" EntitySet="ApplicationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationDetails_p_Employee" Association="MapiDBModel.FK_ApplicationDetails_p_Employee">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="ApplicationDetail" EntitySet="ApplicationDetails" />
+    </AssociationSet>
+    <EntitySet Name="ac_Cheque" EntityType="MapiDBModel.ac_Cheque" />
+    <AssociationSet Name="FK_ac_Cheque_ac_AccountDetail" Association="MapiDBModel.FK_ac_Cheque_ac_AccountDetail">
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+      <End Role="ac_Cheque" EntitySet="ac_Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Cheque_ac_CurrencyRate" Association="MapiDBModel.FK_ac_Cheque_ac_CurrencyRate">
+      <End Role="ac_CurrencyRate" EntitySet="ac_CurrencyRate" />
+      <End Role="ac_Cheque" EntitySet="ac_Cheque" />
+    </AssociationSet>
+    <EntitySet Name="ac_Account" EntityType="MapiDBModel.ac_Account" />
+    <AssociationSet Name="FK_ac_Account_ac_Account" Association="MapiDBModel.FK_ac_Account_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_Account1" EntitySet="ac_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Account_ac_Account1" Association="MapiDBModel.FK_ac_Account_ac_Account1">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_Account1" EntitySet="ac_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Account_ac_Account2" Association="MapiDBModel.FK_ac_Account_ac_Account2">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_Account1" EntitySet="ac_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Account_aspnet_Applications" Association="MapiDBModel.FK_ac_Account_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="ac_Account" EntitySet="ac_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Account_p_Employee" Association="MapiDBModel.FK_ac_Account_p_Employee">
+      <End Role="p_Employee" EntitySet="p_Employee" />
+      <End Role="ac_Account" EntitySet="ac_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_AccountDetail_ac_Account" Association="MapiDBModel.FK_ac_AccountDetail_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_AccountDetail_ac_Account1" Association="MapiDBModel.FK_ac_AccountDetail_ac_Account1">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_AccountDetail" EntitySet="ac_AccountDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Cheque_ac_Account" Association="MapiDBModel.FK_ac_Cheque_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_Cheque" EntitySet="ac_Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_Counter_ac_Account" Association="MapiDBModel.FK_ac_Counter_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_Counter" EntitySet="ac_Counter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_TableAccount_ac_Account" Association="MapiDBModel.FK_ac_TableAccount_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="ac_TableAccount" EntitySet="ac_TableAccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_Barcode_ac_Account" Association="MapiDBModel.FK_inv_Barcode_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_ItemDetail_ac_Account" Association="MapiDBModel.FK_inv_ItemDetail_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="inv_ItemDetail" EntitySet="inv_ItemDetail" />
+    </AssociationSet>
+    <EntitySet Name="aspnet_Roles" EntityType="MapiDBModel.aspnet_Roles" />
+    <AssociationSet Name="FK__aspnet_Ro__Appli__2704CA5F" Association="MapiDBModel.FK__aspnet_Ro__Appli__2704CA5F">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_Roles_aspnet_Roles" Association="MapiDBModel.FK_aspnet_Roles_aspnet_Roles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_Roles1" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="aspnet_UsersInRoles" Association="MapiDBModel.aspnet_UsersInRoles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <EntitySet Name="p_Person" EntityType="MapiDBModel.p_Person" />
+    <AssociationSet Name="FK_p_Person_ac_Account" Association="MapiDBModel.FK_p_Person_ac_Account">
+      <End Role="ac_Account" EntitySet="ac_Account" />
+      <End Role="p_Person" EntitySet="p_Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_OrderHeader_p_Person" Association="MapiDBModel.FK_ac_OrderHeader_p_Person">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Person_aspnet_Applications" Association="MapiDBModel.FK_p_Person_aspnet_Applications">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="p_Person" EntitySet="p_Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Person_p_Address" Association="MapiDBModel.FK_p_Person_p_Address">
+      <End Role="p_Address" EntitySet="p_Address" />
+      <End Role="p_Person" EntitySet="p_Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Customer_p_Person" Association="MapiDBModel.FK_p_Customer_p_Person">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="p_Customer" EntitySet="p_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Employee_p_Person" Association="MapiDBModel.FK_p_Employee_p_Person">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="p_Employee" EntitySet="p_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Message_p_Person" Association="MapiDBModel.FK_p_Message_p_Person">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="p_Message" EntitySet="p_Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Message_p_Person1" Association="MapiDBModel.FK_p_Message_p_Person1">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="p_Message" EntitySet="p_Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Phone_p_Person" Association="MapiDBModel.FK_p_Phone_p_Person">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="p_Phone" EntitySet="p_Phone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_p_Supplier_p_Person" Association="MapiDBModel.FK_p_Supplier_p_Person">
+      <End Role="p_Person" EntitySet="p_Person" />
+      <End Role="p_Supplier" EntitySet="p_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="invbr_PropertyBarcode" Association="MapiDBModel.invbr_PropertyBarcode">
+      <End Role="inv_Barcode" EntitySet="inv_Barcode" />
+      <End Role="inv_Property" EntitySet="inv_Property" />
+    </AssociationSet>
+    <FunctionImport Name="GetBalanceSheetGeneral" ReturnType="Collection(MapiDBModel.BalanceSheet)">
+      <Parameter Name="appId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetBalanceSheetLegend" ReturnType="Collection(MapiDBModel.BalanceSheet)">
+      <Parameter Name="appId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetBalanceSheetDetail" ReturnType="Collection(MapiDBModel.BalanceSheet)">
+      <Parameter Name="appId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <EntitySet Name="ac_ReceiverDetails" EntityType="MapiDBModel.ac_ReceiverDetails" />
+    <AssociationSet Name="FK_ReceiverDetails_ac_OrderHeader" Association="MapiDBModel.FK_ReceiverDetails_ac_OrderHeader">
+      <End Role="ac_OrderHeader" EntitySet="ac_OrderHeader" />
+      <End Role="ac_ReceiverDetails" EntitySet="ac_ReceiverDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ac_ReceiverDetails_p_Address" Association="MapiDBModel.FK_ac_ReceiverDetails_p_Address">
+      <End Role="p_Address" EntitySet="p_Address" />
+      <End Role="ac_ReceiverDetails" EntitySet="ac_ReceiverDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GetBarcodeReport_Result">
+    <Property Type="Decimal" Name="SumBuyQuantity" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="SumBuyPrice" Nullable="true" Precision="38" Scale="3" />
+    <Property Type="Decimal" Name="SumSellPrice" Nullable="true" Precision="38" Scale="3" />
+    <Property Type="Decimal" Name="SumSoldQuantity" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="SumQuantity" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="SumBrokenQuantity" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Decimal" Name="totalPurchase" Nullable="true" Precision="38" Scale="5" />
+    <Property Type="Decimal" Name="TotalSell" Nullable="true" Precision="38" Scale="5" />
+    <Property Type="Decimal" Name="profit" Nullable="true" Precision="38" Scale="3" />
+    <Property Type="Decimal" Name="totalProfit" Nullable="true" Precision="38" Scale="5" />
+    <Property Type="Decimal" Name="profitPercentage" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="AveSellPerDay" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="profitPerDay" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="EstimatedItemFinish" Nullable="true" Precision="38" Scale="6" />
+  </ComplexType>
+  <EntityType Name="ac_Cash">
+    <Key>
+      <PropertyRef Name="AccountDetailId" />
+    </Key>
+    <Property Type="Int32" Name="CurrencyRateId" Nullable="false" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AccountDetailId" Nullable="false" />
+    <NavigationProperty Name="ac_CurrencyRate" Relationship="MapiDBModel.FK_ac_Cash_ac_CurrencyRate" FromRole="ac_Cash" ToRole="ac_CurrencyRate" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_Cash_ac_AccountDetail" FromRole="ac_Cash" ToRole="ac_AccountDetail" />
+  </EntityType>
+  <EntityType Name="ac_Currency">
+    <Key>
+      <PropertyRef Name="CurrencyId" />
+    </Key>
+    <Property Type="Int32" Name="CurrencyId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Currency" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Symbol" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Type="Boolean" Name="isIndex" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_ac_Currency_aspnet_Applications" FromRole="ac_Currency" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="ac_CurrencyRate" Relationship="MapiDBModel.FK_ac_CurrencyRate_ac_Currency" FromRole="ac_Currency" ToRole="ac_CurrencyRate" />
+  </EntityType>
+  <EntityType Name="ac_CurrencyRate">
+    <Key>
+      <PropertyRef Name="CurrencyRateId" />
+    </Key>
+    <Property Type="Int32" Name="CurrencyRateId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="Buy" Nullable="false" Precision="10" Scale="3" />
+    <Property Type="Decimal" Name="Sell" Nullable="false" Precision="10" Scale="3" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="CurrencyId" Nullable="false" />
+    <NavigationProperty Name="ac_Cash" Relationship="MapiDBModel.FK_ac_Cash_ac_CurrencyRate" FromRole="ac_CurrencyRate" ToRole="ac_Cash" />
+    <NavigationProperty Name="ac_Currency" Relationship="MapiDBModel.FK_ac_CurrencyRate_ac_Currency" FromRole="ac_CurrencyRate" ToRole="ac_Currency" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_OrderHeader_ac_CurrencyRate" FromRole="ac_CurrencyRate" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="ac_Voucher" Relationship="MapiDBModel.FK_ac_Voucher_ac_CurrencyRate" FromRole="ac_CurrencyRate" ToRole="ac_Voucher" />
+    <NavigationProperty Name="ac_Cheque" Relationship="MapiDBModel.FK_ac_Cheque_ac_CurrencyRate" FromRole="ac_CurrencyRate" ToRole="ac_Cheque" />
+  </EntityType>
+  <EntityType Name="ac_EmployeeSalary">
+    <Key>
+      <PropertyRef Name="AccountDetailId" />
+    </Key>
+    <Property Type="DateTime" Name="FromDate" Nullable="false" />
+    <Property Type="DateTime" Name="ToDate" Nullable="false" />
+    <Property Type="Decimal" Name="FixSalary" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Commission" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="AccountDetailId" Nullable="false" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_EmployeeSalary_ac_AccountDetail" FromRole="ac_EmployeeSalary" ToRole="ac_AccountDetail" />
+  </EntityType>
+  <EntityType Name="ac_OrderDetail">
+    <Key>
+      <PropertyRef Name="AccountDetailId" />
+    </Key>
+    <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="10" Scale="3" />
+    <Property Type="String" Name="Serial" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="Boolean" Name="Broken" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ChildOrderDetailId" />
+    <Property Type="Int32" Name="AccountDetailId" Nullable="false" />
+    <Property Type="Int32" Name="ItemSellAccountDetailId" />
+    <Property Type="Int32" Name="ItemPriceAccountDetailId" />
+    <NavigationProperty Name="ac_OrderDetail1" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_OrderDetail" FromRole="ac_OrderDetail" ToRole="ac_OrderDetail1" />
+    <NavigationProperty Name="ac_OrderDetail2" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_OrderDetail" FromRole="ac_OrderDetail1" ToRole="ac_OrderDetail" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail" FromRole="ac_OrderDetail" ToRole="ac_AccountDetail" />
+    <NavigationProperty Name="ac_AccountDetail1" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail1" FromRole="ac_OrderDetail" ToRole="ac_AccountDetail" />
+    <NavigationProperty Name="ac_AccountDetail2" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail2" FromRole="ac_OrderDetail" ToRole="ac_AccountDetail" />
+  </EntityType>
+  <EntityType Name="ac_ShoppingCart">
+    <Key>
+      <PropertyRef Name="ShoppingCartId" />
+    </Key>
+    <Property Type="Int32" Name="ShoppingCartId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CustomerId" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="GiftNote" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="p_Customer" Relationship="MapiDBModel.FK_ac_ShoppingCart_p_Customer" FromRole="ac_ShoppingCart" ToRole="p_Customer" />
+    <NavigationProperty Name="ac_ShoppingCartDetails" Relationship="MapiDBModel.FK_ac_ShoppingCartDetails_ac_ShoppingCart" FromRole="ac_ShoppingCart" ToRole="ac_ShoppingCartDetails" />
+  </EntityType>
+  <EntityType Name="ac_ShoppingCartDetails">
+    <Key>
+      <PropertyRef Name="ShoppingCartDetailsId" />
+    </Key>
+    <Property Type="Int32" Name="ShoppingCartDetailsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ItemDetailId" Nullable="false" />
+    <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="ShoppingCartId" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsHeader" />
+    <Property Type="Int32" Name="ChildShoppingCartDetailsId" />
+    <NavigationProperty Name="ac_ShoppingCart" Relationship="MapiDBModel.FK_ac_ShoppingCartDetails_ac_ShoppingCart" FromRole="ac_ShoppingCartDetails" ToRole="ac_ShoppingCart" />
+    <NavigationProperty Name="ac_ShoppingCartDetails1" Relationship="MapiDBModel.FK_ac_ShoppingCartDetails_ac_ShoppingCartDetails" FromRole="ac_ShoppingCartDetails" ToRole="ac_ShoppingCartDetails1" />
+    <NavigationProperty Name="ac_ShoppingCartDetails2" Relationship="MapiDBModel.FK_ac_ShoppingCartDetails_ac_ShoppingCartDetails" FromRole="ac_ShoppingCartDetails1" ToRole="ac_ShoppingCartDetails" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.FK_ac_ShoppingCartDetails_inv_ItemDetail" FromRole="ac_ShoppingCartDetails" ToRole="inv_ItemDetail" />
+  </EntityType>
+  <EntityType Name="ac_SocialSecurity">
+    <Key>
+      <PropertyRef Name="AccountDetailId" />
+    </Key>
+    <Property Type="Int32" Name="Month" Nullable="false" />
+    <Property Type="Int32" Name="AccountDetailId" Nullable="false" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_SocialSecurity_ac_AccountDetail" FromRole="ac_SocialSecurity" ToRole="ac_AccountDetail" />
+  </EntityType>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Type="String" Name="ApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ac_Currency" Relationship="MapiDBModel.FK_ac_Currency_aspnet_Applications" FromRole="aspnet_Applications" ToRole="ac_Currency" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="MapiDBModel.FK__aspnet_Me__Appli__477199F1" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="MapiDBModel.FK__aspnet_Pa__Appli__251C81ED" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Users" Relationship="MapiDBModel.FK__aspnet_Us__Appli__27F8EE98" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+    <NavigationProperty Name="inv_Availablity" Relationship="MapiDBModel.FK_inv_Availablity_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Availablity" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_Barcode_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_Category" Relationship="MapiDBModel.FK_inv_Category_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Category" />
+    <NavigationProperty Name="inv_Color" Relationship="MapiDBModel.FK_inv_Color_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Color" />
+    <NavigationProperty Name="inv_MeasureUnit" Relationship="MapiDBModel.FK_inv_MeasureUnit_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_MeasureUnit" />
+    <NavigationProperty Name="inv_Promotion" Relationship="MapiDBModel.FK_inv_Promotion_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Promotion" />
+    <NavigationProperty Name="inv_Property" Relationship="MapiDBModel.FK_inv_Property_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Property" />
+    <NavigationProperty Name="inv_Restriction" Relationship="MapiDBModel.FK_inv_Restriction_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Restriction" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_inv_Shop_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Shop" />
+    <NavigationProperty Name="inv_Size" Relationship="MapiDBModel.FK_inv_Size_aspnet_Applications" FromRole="aspnet_Applications" ToRole="inv_Size" />
+    <NavigationProperty Name="OnlineMenus" Relationship="MapiDBModel.FK_OnlineMenu_aspnet_Applications" FromRole="aspnet_Applications" ToRole="OnlineMenu" />
+    <NavigationProperty Name="p_Address" Relationship="MapiDBModel.FK_p_Address_aspnet_Applications" FromRole="aspnet_Applications" ToRole="p_Address" />
+    <NavigationProperty Name="ac_TableAccount" Relationship="MapiDBModel.FK_ac_TableAccount_aspnet_Applications" FromRole="aspnet_Applications" ToRole="ac_TableAccount" />
+    <NavigationProperty Name="ac_FiscalPeriod" Relationship="MapiDBModel.FK_ac_FiscalPeriod_aspnet_Applications" FromRole="aspnet_Applications" ToRole="ac_FiscalPeriod" />
+    <NavigationProperty Name="ApplicationDetail" Relationship="MapiDBModel.FK_ApplicationDetails_aspnet_Applications" FromRole="aspnet_Applications" ToRole="ApplicationDetail" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_ac_Account_aspnet_Applications" FromRole="aspnet_Applications" ToRole="ac_Account" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="MapiDBModel.FK__aspnet_Ro__Appli__2704CA5F" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Person_aspnet_Applications" FromRole="aspnet_Applications" ToRole="p_Person" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+    <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+    <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+    <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK__aspnet_Me__Appli__477199F1" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="MapiDBModel.FK__aspnet_Me__UserI__4865BE2A" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+    <NavigationProperty Name="p_Customer" Relationship="MapiDBModel.FK_p_Customer_aspnet_Membership" FromRole="aspnet_Membership" ToRole="p_Customer" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_p_Employee_aspnet_Membership" FromRole="aspnet_Membership" ToRole="p_Employee" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="PathId" Nullable="false" />
+    <Property Type="String" Name="Path" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredPath" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK__aspnet_Pa__Appli__251C81ED" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="MapiDBModel.FK__aspnet_Pe__PathI__44952D46" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="MapiDBModel.FK__aspnet_Pe__PathI__4589517F" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Type="Guid" Name="PathId" Nullable="false" />
+    <Property Type="Binary" Name="PageSettings" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="MapiDBModel.FK__aspnet_Pe__PathI__44952D46" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="PathId" />
+    <Property Type="Guid" Name="UserId" />
+    <Property Type="Binary" Name="PageSettings" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="MapiDBModel.FK__aspnet_Pe__PathI__4589517F" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Users" Relationship="MapiDBModel.FK__aspnet_Pe__UserI__467D75B8" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="PropertyNames" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PropertyValuesString" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="PropertyValuesBinary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
+    <NavigationProperty Name="aspnet_Users" Relationship="MapiDBModel.FK__aspnet_Pr__UserI__43A1090D" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Type="String" Name="Feature" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompatibleSchemaVersion" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsCurrentVersion" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK__aspnet_Us__Appli__27F8EE98" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="MapiDBModel.FK__aspnet_Me__UserI__4865BE2A" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="MapiDBModel.FK__aspnet_Pe__UserI__467D75B8" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="MapiDBModel.FK__aspnet_Pr__UserI__43A1090D" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="MapiDBModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Type="String" Name="EventId" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="EventTimeUtc" Nullable="false" />
+    <Property Type="DateTime" Name="EventTime" Nullable="false" />
+    <Property Type="String" Name="EventType" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="EventSequence" Nullable="false" Precision="19" Scale="0" />
+    <Property Type="Decimal" Name="EventOccurrence" Nullable="false" Precision="19" Scale="0" />
+    <Property Type="Int32" Name="EventCode" Nullable="false" />
+    <Property Type="Int32" Name="EventDetailCode" Nullable="false" />
+    <Property Type="String" Name="Message" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApplicationPath" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApplicationVirtualPath" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MachineName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RequestUrl" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ExceptionType" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="inv_Availablity">
+    <Key>
+      <PropertyRef Name="AvailablityId" />
+    </Key>
+    <Property Type="Int32" Name="AvailablityId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Availablity_aspnet_Applications" FromRole="inv_Availablity" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_Barcode_inv_Availablity" FromRole="inv_Availablity" ToRole="inv_Barcode" />
+  </EntityType>
+  <EntityType Name="inv_Barcode">
+    <Key>
+      <PropertyRef Name="BarcodeId" />
+    </Key>
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Barcode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EnteryDate" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ItemCode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Rate" />
+    <Property Type="Int32" Name="AvailabilityId" Nullable="false" />
+    <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DefaultMeasureUnitId" />
+    <Property Type="Byte" Name="RateQuantity" />
+    <Property Type="Decimal" Name="Weight" Precision="18" Scale="2" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="Decimal" Name="BuyQuantity" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="SellQuantity" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AverageBuyPrice" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="AverageSellPrice" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="TotalAvailableQuantity" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalBrokenQuantity" Precision="18" Scale="2" />
+    <Property Type="String" Name="Images" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ShowOnline" />
+    <Property Type="String" Name="Definition" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsSale" />
+    <Property Type="Boolean" Name="IsNew" />
+    <Property Type="Boolean" Name="IsOffer" />
+    <Property Type="Int32" Name="AccountId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Barcode_aspnet_Applications" FromRole="inv_Barcode" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Availablity" Relationship="MapiDBModel.FK_inv_Barcode_inv_Availablity" FromRole="inv_Barcode" ToRole="inv_Availablity" />
+    <NavigationProperty Name="inv_MeasureUnit" Relationship="MapiDBModel.FK_inv_Barcode_inv_MeasureUnit" FromRole="inv_Barcode" ToRole="inv_MeasureUnit" />
+    <NavigationProperty Name="inv_BarcodeMeasureUnit" Relationship="MapiDBModel.FK_inv_BarcodeMeasureUnit_inv_Barcode" FromRole="inv_Barcode" ToRole="inv_BarcodeMeasureUnit" />
+    <NavigationProperty Name="inv_BarcodeShop" Relationship="MapiDBModel.FK_inv_BarcodeShop_inv_Barcode" FromRole="inv_Barcode" ToRole="inv_BarcodeShop" />
+    <NavigationProperty Name="inv_Gurantee" Relationship="MapiDBModel.FK_inv_Gurantee_inv_Barcode" FromRole="inv_Barcode" ToRole="inv_Gurantee" />
+    <NavigationProperty Name="inv_MatchingBarcode" Relationship="MapiDBModel.FK_inv_MatchingBarcode_inv_Barcode" FromRole="inv_Barcode" ToRole="inv_MatchingBarcode" />
+    <NavigationProperty Name="inv_MatchingBarcode1" Relationship="MapiDBModel.FK_inv_MatchingBarcode_inv_Barcode1" FromRole="inv_Barcode" ToRole="inv_MatchingBarcode" />
+    <NavigationProperty Name="inv_Price" Relationship="MapiDBModel.FK_inv_Price_inv_Barcode" FromRole="inv_Barcode" ToRole="inv_Price" />
+    <NavigationProperty Name="p_Comment" Relationship="MapiDBModel.FK_p_Comment_inv_Barcode" FromRole="inv_Barcode" ToRole="p_Comment" />
+    <NavigationProperty Name="inv_Category" Relationship="MapiDBModel.invbr_BarcodeCategory" FromRole="inv_Barcode" ToRole="inv_Category" />
+    <NavigationProperty Name="inv_Promotion" Relationship="MapiDBModel.invbr_BarcodePromotion" FromRole="inv_Barcode" ToRole="inv_Promotion" />
+    <NavigationProperty Name="inv_Restriction" Relationship="MapiDBModel.invbr_BarcodeRestriction" FromRole="inv_Barcode" ToRole="inv_Restriction" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.FK_inv_ItemDetail_inv_Barcode" FromRole="inv_Barcode" ToRole="inv_ItemDetail" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_inv_Barcode_ac_Account" FromRole="inv_Barcode" ToRole="ac_Account" />
+    <NavigationProperty Name="inv_Property" Relationship="MapiDBModel.invbr_PropertyBarcode" FromRole="inv_Barcode" ToRole="inv_Property" />
+  </EntityType>
+  <EntityType Name="inv_BarcodeMeasureUnit">
+    <Key>
+      <PropertyRef Name="BarcodeId" />
+      <PropertyRef Name="MeasureUnitId" />
+    </Key>
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Int32" Name="MeasureUnitId" Nullable="false" />
+    <Property Type="Decimal" Name="DiscountPercentage" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_BarcodeMeasureUnit_inv_Barcode" FromRole="inv_BarcodeMeasureUnit" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_MeasureUnit" Relationship="MapiDBModel.FK_inv_BarcodeMeasureUnit_inv_MeasureUnit" FromRole="inv_BarcodeMeasureUnit" ToRole="inv_MeasureUnit" />
+  </EntityType>
+  <EntityType Name="inv_BarcodeShop">
+    <Key>
+      <PropertyRef Name="BarcodeId" />
+      <PropertyRef Name="ShopId" />
+    </Key>
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Int32" Name="ShopId" Nullable="false" />
+    <Property Type="Decimal" Name="DiscountPercent" Precision="5" Scale="3" />
+    <Property Type="Boolean" Name="Visibility" />
+    <Property Type="Decimal" Name="AlarmQuantity" Precision="9" Scale="2" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_BarcodeShop_inv_Barcode" FromRole="inv_BarcodeShop" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_inv_BarcodeShop_inv_Shop" FromRole="inv_BarcodeShop" ToRole="inv_Shop" />
+  </EntityType>
+  <EntityType Name="inv_Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Category" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentCategoryId" />
+    <Property Type="String" Name="TranslatedCategory" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="Boolean" Name="ShowOnline" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Priority" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Category_aspnet_Applications" FromRole="inv_Category" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Category1" Relationship="MapiDBModel.FK_inv_Category_inv_Category" FromRole="inv_Category" ToRole="inv_Category1" />
+    <NavigationProperty Name="inv_Category2" Relationship="MapiDBModel.FK_inv_Category_inv_Category" FromRole="inv_Category1" ToRole="inv_Category" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.invbr_BarcodeCategory" FromRole="inv_Category" ToRole="inv_Barcode" />
+  </EntityType>
+  <EntityType Name="inv_Color">
+    <Key>
+      <PropertyRef Name="ColorId" />
+    </Key>
+    <Property Type="Int32" Name="ColorId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Color" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="String" Name="ColorTranslate" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Color_aspnet_Applications" FromRole="inv_Color" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.invbr_ColorDetail" FromRole="inv_Color" ToRole="inv_ItemDetail" />
+  </EntityType>
+  <EntityType Name="inv_Gurantee">
+    <Key>
+      <PropertyRef Name="GuaranteeId" />
+    </Key>
+    <Property Type="Int32" Name="GuaranteeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Length" Nullable="false" />
+    <Property Type="String" Name="LengthUnit" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Insurance" Nullable="false" />
+    <Property Type="Boolean" Name="MoneyBack" Nullable="false" />
+    <Property Type="Decimal" Name="GuranteePrice" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_Gurantee_inv_Barcode" FromRole="inv_Gurantee" ToRole="inv_Barcode" />
+  </EntityType>
+  <EntityType Name="inv_ItemLocation">
+    <Key>
+      <PropertyRef Name="ItemDetailId" />
+      <PropertyRef Name="ShopId" />
+    </Key>
+    <Property Type="Int32" Name="ItemDetailId" Nullable="false" />
+    <Property Type="Int32" Name="ShopId" Nullable="false" />
+    <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="InitialQuantity" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="BrokenQuantity" Precision="9" Scale="2" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_LocationItem_Shop1" FromRole="inv_ItemLocation" ToRole="inv_Shop" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.FK_inv_ItemLocation_inv_ItemDetail" FromRole="inv_ItemLocation" ToRole="inv_ItemDetail" />
+  </EntityType>
+  <EntityType Name="inv_MatchingBarcode">
+    <Key>
+      <PropertyRef Name="MatchingItemId" />
+    </Key>
+    <Property Type="Int32" Name="MatchingItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Int32" Name="MatchingBarcodeId" Nullable="false" />
+    <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="MatchingQuantity" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DiscountPercentage" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_MatchingBarcode_inv_Barcode" FromRole="inv_MatchingBarcode" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_Barcode1" Relationship="MapiDBModel.FK_inv_MatchingBarcode_inv_Barcode1" FromRole="inv_MatchingBarcode" ToRole="inv_Barcode" />
+  </EntityType>
+  <EntityType Name="inv_MeasureUnit">
+    <Key>
+      <PropertyRef Name="MeasureUnitId" />
+    </Key>
+    <Property Type="Int32" Name="MeasureUnitId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UnitType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentMeasureUnitId" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_MeasureUnit_aspnet_Applications" FromRole="inv_MeasureUnit" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_Barcode_inv_MeasureUnit" FromRole="inv_MeasureUnit" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_BarcodeMeasureUnit" Relationship="MapiDBModel.FK_inv_BarcodeMeasureUnit_inv_MeasureUnit" FromRole="inv_MeasureUnit" ToRole="inv_BarcodeMeasureUnit" />
+    <NavigationProperty Name="inv_MeasureUnit1" Relationship="MapiDBModel.FK_MeasureUni_MeasureUni" FromRole="inv_MeasureUnit" ToRole="inv_MeasureUnit1" />
+    <NavigationProperty Name="inv_MeasureUnit2" Relationship="MapiDBModel.FK_MeasureUni_MeasureUni" FromRole="inv_MeasureUnit1" ToRole="inv_MeasureUnit" />
+  </EntityType>
+  <EntityType Name="inv_Price">
+    <Key>
+      <PropertyRef Name="PriceId" />
+    </Key>
+    <Property Type="Int32" Name="PriceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Decimal" Name="Regular" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Online" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Freinds" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Wholesale" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="Date" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_Price_inv_Barcode" FromRole="inv_Price" ToRole="inv_Barcode" />
+  </EntityType>
+  <EntityType Name="inv_Promotion">
+    <Key>
+      <PropertyRef Name="PromotionId" />
+    </Key>
+    <Property Type="Int32" Name="PromotionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Promotion_aspnet_Applications" FromRole="inv_Promotion" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.invbr_BarcodePromotion" FromRole="inv_Promotion" ToRole="inv_Barcode" />
+  </EntityType>
+  <EntityType Name="inv_Property">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Type="Int32" Name="PropertyId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Property" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentId" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Property_aspnet_Applications" FromRole="inv_Property" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Property1" Relationship="MapiDBModel.FK_inv_Property_inv_Property" FromRole="inv_Property" ToRole="inv_Property1" />
+    <NavigationProperty Name="inv_Property2" Relationship="MapiDBModel.FK_inv_Property_inv_Property" FromRole="inv_Property1" ToRole="inv_Property" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.invbr_PropertyBarcode" FromRole="inv_Property" ToRole="inv_Barcode" />
+    <Property Type="String" Name="TranslatedProperty" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ShowInMenu" />
+    <Property Type="Boolean" Name="ShowInProperty" />
+    <Property Type="Int32" Name="Priority" />
+    <Property Type="Boolean" Name="ShowInFilter" />
+  </EntityType>
+  <EntityType Name="inv_Restriction">
+    <Key>
+      <PropertyRef Name="RestrictionId" />
+    </Key>
+    <Property Type="Int32" Name="RestrictionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Restriction" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Restriction_aspnet_Applications" FromRole="inv_Restriction" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.invbr_BarcodeRestriction" FromRole="inv_Restriction" ToRole="inv_Barcode" />
+    <NavigationProperty Name="p_Customer" Relationship="MapiDBModel.pbr_CustomerRestriction" FromRole="inv_Restriction" ToRole="p_Customer" />
+  </EntityType>
+  <EntityType Name="inv_Shop">
+    <Key>
+      <PropertyRef Name="ShopId" />
+    </Key>
+    <Property Type="Int32" Name="ShopId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Fax" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AddressId" Nullable="false" />
+    <Property Type="DateTime" Name="StartingDate" Nullable="false" />
+    <Property Type="String" Name="Email" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentShopId" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="Int32" Name="RegistererId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Shop_aspnet_Applications" FromRole="inv_Shop" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_BarcodeShop" Relationship="MapiDBModel.FK_inv_BarcodeShop_inv_Shop" FromRole="inv_Shop" ToRole="inv_BarcodeShop" />
+    <NavigationProperty Name="inv_ItemLocation" Relationship="MapiDBModel.FK_LocationItem_Shop1" FromRole="inv_Shop" ToRole="inv_ItemLocation" />
+    <NavigationProperty Name="inv_Shop1" Relationship="MapiDBModel.FK_inv_Shop_inv_Shop" FromRole="inv_Shop" ToRole="inv_Shop1" />
+    <NavigationProperty Name="inv_Shop2" Relationship="MapiDBModel.FK_inv_Shop_inv_Shop" FromRole="inv_Shop1" ToRole="inv_Shop" />
+    <NavigationProperty Name="p_Address" Relationship="MapiDBModel.FK_inv_Shop_p_Address" FromRole="inv_Shop" ToRole="p_Address" />
+    <NavigationProperty Name="inv_TransferItem" Relationship="MapiDBModel.FK_inv_TransferItem_inv_Shop" FromRole="inv_Shop" ToRole="inv_TransferItem" />
+    <NavigationProperty Name="inv_TransferItem1" Relationship="MapiDBModel.FK_inv_TransferItem_inv_Shop1" FromRole="inv_Shop" ToRole="inv_TransferItem" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.pbr_EmployeeShop" FromRole="inv_Shop" ToRole="p_Employee" />
+    <NavigationProperty Name="ac_Counter" Relationship="MapiDBModel.FK_ac_Counter_inv_Shop" FromRole="inv_Shop" ToRole="ac_Counter" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_OrderHeader_inv_Shop" FromRole="inv_Shop" ToRole="ac_OrderHeader" />
+  </EntityType>
+  <EntityType Name="inv_Size">
+    <Key>
+      <PropertyRef Name="SizeId" />
+    </Key>
+    <Property Type="Int32" Name="SizeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Size" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentSizeId" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_inv_Size_aspnet_Applications" FromRole="inv_Size" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Size1" Relationship="MapiDBModel.FK_Size_Size" FromRole="inv_Size" ToRole="inv_Size1" />
+    <NavigationProperty Name="inv_Size2" Relationship="MapiDBModel.FK_Size_Size" FromRole="inv_Size1" ToRole="inv_Size" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.invbr_SizeDetail" FromRole="inv_Size" ToRole="inv_ItemDetail" />
+  </EntityType>
+  <EntityType Name="inv_TransferItem">
+    <Key>
+      <PropertyRef Name="TransferItemId" />
+    </Key>
+    <Property Type="Int32" Name="TransferItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="SenderEmployeeId" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="FromShopId" Nullable="false" />
+    <Property Type="Int32" Name="ToShopId" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ReceiverEmployeeId" />
+    <Property Type="Boolean" Name="Confirmed" Nullable="false" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_inv_TransferItem_inv_Shop" FromRole="inv_TransferItem" ToRole="inv_Shop" />
+    <NavigationProperty Name="inv_Shop1" Relationship="MapiDBModel.FK_inv_TransferItem_inv_Shop1" FromRole="inv_TransferItem" ToRole="inv_Shop" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_inv_TransferItem_p_Employee" FromRole="inv_TransferItem" ToRole="p_Employee" />
+    <NavigationProperty Name="p_Employee1" Relationship="MapiDBModel.FK_inv_TransferItem_p_Employee1" FromRole="inv_TransferItem" ToRole="p_Employee" />
+    <NavigationProperty Name="inv_TransferItemDetail" Relationship="MapiDBModel.FK_inv_TransferItemDetail_inv_TransferItem" FromRole="inv_TransferItem" ToRole="inv_TransferItemDetail" />
+  </EntityType>
+  <EntityType Name="inv_TransferItemDetail">
+    <Key>
+      <PropertyRef Name="ItemDetailId" />
+      <PropertyRef Name="TransferItemId" />
+    </Key>
+    <Property Type="Int32" Name="ItemDetailId" Nullable="false" />
+    <Property Type="Int32" Name="TransferItemId" Nullable="false" />
+    <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="10" Scale="3" />
+    <NavigationProperty Name="inv_TransferItem" Relationship="MapiDBModel.FK_inv_TransferItemDetail_inv_TransferItem" FromRole="inv_TransferItemDetail" ToRole="inv_TransferItem" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.FK_inv_TransferItemDetail_inv_ItemDetail" FromRole="inv_TransferItemDetail" ToRole="inv_ItemDetail" />
+  </EntityType>
+  <EntityType Name="OnlineMenu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Type="Int32" Name="MenuId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="MenuName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsLink" Nullable="false" />
+    <Property Type="Boolean" Name="Show" Nullable="false" />
+    <Property Type="String" Name="LinkTo" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Location" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_OnlineMenu_aspnet_Applications" FromRole="OnlineMenu" ToRole="aspnet_Applications" />
+  </EntityType>
+  <EntityType Name="p_Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Type="Int32" Name="AddressId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentAddressId" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="String" Name="TranslatedAddress" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_p_Address_aspnet_Applications" FromRole="p_Address" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_inv_Shop_p_Address" FromRole="p_Address" ToRole="inv_Shop" />
+    <NavigationProperty Name="p_Address1" Relationship="MapiDBModel.FK_p_Address_p_Address" FromRole="p_Address" ToRole="p_Address1" />
+    <NavigationProperty Name="p_Address2" Relationship="MapiDBModel.FK_p_Address_p_Address" FromRole="p_Address1" ToRole="p_Address" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Person_p_Address" FromRole="p_Address" ToRole="p_Person" />
+    <NavigationProperty Name="ac_ReceiverDetails" Relationship="MapiDBModel.FK_ac_ReceiverDetails_p_Address" FromRole="p_Address" ToRole="ac_ReceiverDetails" />
+  </EntityType>
+  <EntityType Name="p_Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Type="Int32" Name="CommentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="String" Name="Comment" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="Boolean" Name="IsConfirmed" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_p_Comment_inv_Barcode" FromRole="p_Comment" ToRole="inv_Barcode" />
+    <NavigationProperty Name="p_Customer" Relationship="MapiDBModel.FK_p_Comment_p_Customer" FromRole="p_Comment" ToRole="p_Customer" />
+  </EntityType>
+  <EntityType Name="p_Customer">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int64" Name="NationalCode" />
+    <Property Type="Guid" Name="UserId" />
+    <Property Type="Int32" Name="IntroducerId" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostalCode" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Job" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Accredit" Nullable="false" />
+    <Property Type="Decimal" Name="NetBuy" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetPayment" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="BuyCommission" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="IntroducedCommission" Precision="18" Scale="0" />
+    <Property Type="String" Name="FindBy" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <NavigationProperty Name="ac_ShoppingCart" Relationship="MapiDBModel.FK_ac_ShoppingCart_p_Customer" FromRole="p_Customer" ToRole="ac_ShoppingCart" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="MapiDBModel.FK_p_Customer_aspnet_Membership" FromRole="p_Customer" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="p_Comment" Relationship="MapiDBModel.FK_p_Comment_p_Customer" FromRole="p_Customer" ToRole="p_Comment" />
+    <NavigationProperty Name="p_Customer1" Relationship="MapiDBModel.FK_p_Customer_p_Customer" FromRole="p_Customer" ToRole="p_Customer1" />
+    <NavigationProperty Name="p_Customer2" Relationship="MapiDBModel.FK_p_Customer_p_Customer" FromRole="p_Customer1" ToRole="p_Customer" />
+    <NavigationProperty Name="inv_Restriction" Relationship="MapiDBModel.pbr_CustomerRestriction" FromRole="p_Customer" ToRole="inv_Restriction" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Customer_p_Person" FromRole="p_Customer" ToRole="p_Person" />
+  </EntityType>
+  <EntityType Name="p_Employee">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="String" Name="AccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="HierDate" Nullable="false" />
+    <Property Type="Binary" Name="ThumbPhoto" MaxLength="Max" FixedLength="false" />
+    <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="IdCart" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ManagerId" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="MapiDBModel.FK_p_Employee_aspnet_Membership" FromRole="p_Employee" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="inv_TransferItem" Relationship="MapiDBModel.FK_inv_TransferItem_p_Employee" FromRole="p_Employee" ToRole="inv_TransferItem" />
+    <NavigationProperty Name="inv_TransferItem1" Relationship="MapiDBModel.FK_inv_TransferItem_p_Employee1" FromRole="p_Employee" ToRole="inv_TransferItem" />
+    <NavigationProperty Name="p_Employee1" Relationship="MapiDBModel.FK_p_Employee_p_Employee" FromRole="p_Employee" ToRole="p_Employee1" />
+    <NavigationProperty Name="p_Employee2" Relationship="MapiDBModel.FK_p_Employee_p_Employee" FromRole="p_Employee1" ToRole="p_Employee" />
+    <NavigationProperty Name="u_UserOrderHeader" Relationship="MapiDBModel.FK_u_UserOrderHeader_p_Employee" FromRole="p_Employee" ToRole="u_UserOrderHeader" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.pbr_EmployeeShop" FromRole="p_Employee" ToRole="inv_Shop" />
+    <NavigationProperty Name="ac_Counter" Relationship="MapiDBModel.acbr_EmployeeCounter" FromRole="p_Employee" ToRole="ac_Counter" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_OrderHeader_p_Employee" FromRole="p_Employee" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="ac_OrderHeader1" Relationship="MapiDBModel.FK_ac_OrderHeader_p_Employee1" FromRole="p_Employee" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="ApplicationDetails" Relationship="MapiDBModel.FK_ApplicationDetails_p_Employee" FromRole="p_Employee" ToRole="ApplicationDetail" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_ac_Account_p_Employee" FromRole="p_Employee" ToRole="ac_Account" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Employee_p_Person" FromRole="p_Employee" ToRole="p_Person" />
+  </EntityType>
+  <EntityType Name="p_Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Type="Int32" Name="MessageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="SenderId" Nullable="false" />
+    <Property Type="Int32" Name="ReceiverId" Nullable="false" />
+    <Property Type="Int32" Name="Title" />
+    <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Byte" Name="Length" Nullable="false" />
+    <Property Type="String" Name="Status" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Number" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ReferenceId" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Message_p_Person" FromRole="p_Message" ToRole="p_Person" />
+    <NavigationProperty Name="p_Person1" Relationship="MapiDBModel.FK_p_Message_p_Person1" FromRole="p_Message" ToRole="p_Person" />
+  </EntityType>
+  <EntityType Name="p_Phone">
+    <Key>
+      <PropertyRef Name="PhoneId" />
+    </Key>
+    <Property Type="Int32" Name="PhoneId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PersonId" Nullable="false" />
+    <Property Type="String" Name="Number" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Cell" Nullable="false" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Phone_p_Person" FromRole="p_Phone" ToRole="p_Person" />
+  </EntityType>
+  <EntityType Name="p_Supplier">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="String" Name="fax" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Supplier_p_Person" FromRole="p_Supplier" ToRole="p_Person" />
+  </EntityType>
+  <EntityType Name="u_UserOrderHeader">
+    <Key>
+      <PropertyRef Name="UserOrderHeaderId" />
+    </Key>
+    <Property Type="Int32" Name="UserOrderHeaderId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Rate" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Tax" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ValueAdded" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Discount" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeId" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Boolean" Name="IsMoney" Nullable="false" />
+    <Property Type="Boolean" Name="IsCredit" Nullable="false" />
+    <Property Type="String" Name="PaymentType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PaymentNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvoiceNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsPreOrder" Nullable="false" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_u_UserOrderHeader_p_Employee" FromRole="u_UserOrderHeader" ToRole="p_Employee" />
+  </EntityType>
+  <EntityType Name="View_inv_ItemDetailLocation">
+    <Key>
+      <PropertyRef Name="AccountId" />
+      <PropertyRef Name="Barcode" />
+      <PropertyRef Name="BarcodeId" />
+    </Key>
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <Property Type="Int32" Name="ShopId" />
+    <Property Type="Decimal" Name="Quantity" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="BrokenQuantity" Precision="9" Scale="2" />
+    <Property Type="Int32" Name="ColorId" />
+    <Property Type="String" Name="Color" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SizeId" />
+    <Property Type="String" Name="Size" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Barcode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="String" Name="ApplicationName" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="View_ProductList">
+    <Key>
+      <PropertyRef Name="BarcodeId" />
+      <PropertyRef Name="Barcode" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="ApplicationName" />
+      <PropertyRef Name="AvailablityId" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="UnitType" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="EnteryDate" />
+    </Key>
+    <Property Type="Decimal" Name="Quantity" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Decimal" Name="Regular" Precision="10" Scale="2" />
+    <Property Type="String" Name="Barcode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ShopId" />
+    <Property Type="Int32" Name="CategoryId" />
+    <Property Type="String" Name="Category" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="ApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AvailablityId" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UnitType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ItemCode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EnteryDate" Nullable="false" />
+    <Property Type="Decimal" Name="AverageBuyPrice" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="AverageSellPrice" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="BuyQuantity" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="SellQuantity" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalAvailableQuantity" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalBrokenQuantity" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="ShowOnline" />
+    <Property Type="Int32" Name="AccountId" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationName" />
+      <PropertyRef Name="LoweredApplicationName" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Type="String" Name="ApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_MembershipUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+    <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+    <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+    <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+    <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
+    <Property Type="Int32" Name="DataSize" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Roles">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="LoweredRoleName" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Users">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Guid" Name="RoleId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_WebPartState_Paths">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="PathId" />
+      <PropertyRef Name="Path" />
+      <PropertyRef Name="LoweredPath" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="PathId" Nullable="false" />
+    <Property Type="String" Name="Path" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredPath" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_WebPartState_Shared">
+    <Key>
+      <PropertyRef Name="PathId" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Type="Guid" Name="PathId" Nullable="false" />
+    <Property Type="Int32" Name="DataSize" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_WebPartState_User">
+    <Key>
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Type="Guid" Name="PathId" />
+    <Property Type="Guid" Name="UserId" />
+    <Property Type="Int32" Name="DataSize" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ac_Cash_ac_CurrencyRate">
+    <End Type="MapiDBModel.ac_CurrencyRate" Role="ac_CurrencyRate" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Cash" Role="ac_Cash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_CurrencyRate">
+        <PropertyRef Name="CurrencyRateId" />
+      </Principal>
+      <Dependent Role="ac_Cash">
+        <PropertyRef Name="CurrencyRateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Currency_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Currency" Role="ac_Currency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ac_Currency">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_CurrencyRate_ac_Currency">
+    <End Type="MapiDBModel.ac_Currency" Role="ac_Currency" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_CurrencyRate" Role="ac_CurrencyRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Currency">
+        <PropertyRef Name="CurrencyId" />
+      </Principal>
+      <Dependent Role="ac_CurrencyRate">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderDetail_ac_OrderDetail">
+    <End Type="MapiDBModel.ac_OrderDetail" Role="ac_OrderDetail" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderDetail" Role="ac_OrderDetail1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_OrderDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_OrderDetail1">
+        <PropertyRef Name="ChildOrderDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_ShoppingCart_p_Customer">
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_ShoppingCart" Role="ac_ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Customer">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_ShoppingCart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_ShoppingCartDetails_ac_ShoppingCart">
+    <End Type="MapiDBModel.ac_ShoppingCart" Role="ac_ShoppingCart" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_ShoppingCartDetails" Role="ac_ShoppingCartDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_ShoppingCart">
+        <PropertyRef Name="ShoppingCartId" />
+      </Principal>
+      <Dependent Role="ac_ShoppingCartDetails">
+        <PropertyRef Name="ShoppingCartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_ShoppingCartDetails_ac_ShoppingCartDetails">
+    <End Type="MapiDBModel.ac_ShoppingCartDetails" Role="ac_ShoppingCartDetails" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_ShoppingCartDetails" Role="ac_ShoppingCartDetails1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_ShoppingCartDetails">
+        <PropertyRef Name="ShoppingCartDetailsId" />
+      </Principal>
+      <Dependent Role="ac_ShoppingCartDetails1">
+        <PropertyRef Name="ChildShoppingCartDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__Appli__477199F1">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__251C81ED">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__27F8EE98">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Availablity_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Availablity" Role="inv_Availablity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Availablity">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Barcode_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Barcode">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Category_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Category" Role="inv_Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Category">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Color_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Color" Role="inv_Color" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Color">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_MeasureUnit_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_MeasureUnit" Role="inv_MeasureUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_MeasureUnit">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Promotion_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Promotion" Role="inv_Promotion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Promotion">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Property_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Property" Role="inv_Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Property">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Restriction_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Restriction" Role="inv_Restriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Restriction">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Shop_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Shop">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Size_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Size" Role="inv_Size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="inv_Size">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OnlineMenu_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.OnlineMenu" Role="OnlineMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="OnlineMenu">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Address_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Address" Role="p_Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="p_Address">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__4865BE2A">
+    <End Type="MapiDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Customer_aspnet_Membership">
+    <End Type="MapiDBModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="p_Customer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Employee_aspnet_Membership">
+    <End Type="MapiDBModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="p_Employee">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__44952D46">
+    <End Type="MapiDBModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__4589517F">
+    <End Type="MapiDBModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="0..1" />
+    <End Type="MapiDBModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__467D75B8">
+    <End Type="MapiDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+    <End Type="MapiDBModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__43A1090D">
+    <End Type="MapiDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Barcode_inv_Availablity">
+    <End Type="MapiDBModel.inv_Availablity" Role="inv_Availablity" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Availablity">
+        <PropertyRef Name="AvailablityId" />
+      </Principal>
+      <Dependent Role="inv_Barcode">
+        <PropertyRef Name="AvailabilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Barcode_inv_MeasureUnit">
+    <End Type="MapiDBModel.inv_MeasureUnit" Role="inv_MeasureUnit" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_MeasureUnit">
+        <PropertyRef Name="MeasureUnitId" />
+      </Principal>
+      <Dependent Role="inv_Barcode">
+        <PropertyRef Name="DefaultMeasureUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_BarcodeMeasureUnit_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_BarcodeMeasureUnit" Role="inv_BarcodeMeasureUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_BarcodeMeasureUnit">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_BarcodeShop_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_BarcodeShop" Role="inv_BarcodeShop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_BarcodeShop">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Gurantee_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_Gurantee" Role="inv_Gurantee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_Gurantee">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_MatchingBarcode_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_MatchingBarcode" Role="inv_MatchingBarcode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_MatchingBarcode">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_MatchingBarcode_inv_Barcode1">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_MatchingBarcode" Role="inv_MatchingBarcode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_MatchingBarcode">
+        <PropertyRef Name="MatchingBarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Price_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_Price" Role="inv_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_Price">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Comment_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Comment" Role="p_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="p_Comment">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_BarcodeMeasureUnit_inv_MeasureUnit">
+    <End Type="MapiDBModel.inv_MeasureUnit" Role="inv_MeasureUnit" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_BarcodeMeasureUnit" Role="inv_BarcodeMeasureUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_MeasureUnit">
+        <PropertyRef Name="MeasureUnitId" />
+      </Principal>
+      <Dependent Role="inv_BarcodeMeasureUnit">
+        <PropertyRef Name="MeasureUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_BarcodeShop_inv_Shop">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_BarcodeShop" Role="inv_BarcodeShop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="inv_BarcodeShop">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Category_inv_Category">
+    <End Type="MapiDBModel.inv_Category" Role="inv_Category" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Category" Role="inv_Category1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="inv_Category1">
+        <PropertyRef Name="ParentCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationItem_Shop1">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_ItemLocation" Role="inv_ItemLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="inv_ItemLocation">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeasureUni_MeasureUni">
+    <End Type="MapiDBModel.inv_MeasureUnit" Role="inv_MeasureUnit" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_MeasureUnit" Role="inv_MeasureUnit1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_MeasureUnit">
+        <PropertyRef Name="MeasureUnitId" />
+      </Principal>
+      <Dependent Role="inv_MeasureUnit1">
+        <PropertyRef Name="ParentMeasureUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Property_inv_Property">
+    <End Type="MapiDBModel.inv_Property" Role="inv_Property" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Property" Role="inv_Property1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Property">
+        <PropertyRef Name="PropertyId" />
+      </Principal>
+      <Dependent Role="inv_Property1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Shop_inv_Shop">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="inv_Shop1">
+        <PropertyRef Name="ParentShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Shop_p_Address">
+    <End Type="MapiDBModel.p_Address" Role="p_Address" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="inv_Shop">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_TransferItem_inv_Shop">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_TransferItem" Role="inv_TransferItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="inv_TransferItem">
+        <PropertyRef Name="FromShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_TransferItem_inv_Shop1">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_TransferItem" Role="inv_TransferItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="inv_TransferItem">
+        <PropertyRef Name="ToShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Size_Size">
+    <End Type="MapiDBModel.inv_Size" Role="inv_Size" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Size" Role="inv_Size1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Size">
+        <PropertyRef Name="SizeId" />
+      </Principal>
+      <Dependent Role="inv_Size1">
+        <PropertyRef Name="ParentSizeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_TransferItem_p_Employee">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_TransferItem" Role="inv_TransferItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="inv_TransferItem">
+        <PropertyRef Name="SenderEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_TransferItem_p_Employee1">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_TransferItem" Role="inv_TransferItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="inv_TransferItem">
+        <PropertyRef Name="ReceiverEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_TransferItemDetail_inv_TransferItem">
+    <End Type="MapiDBModel.inv_TransferItem" Role="inv_TransferItem" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_TransferItemDetail" Role="inv_TransferItemDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_TransferItem">
+        <PropertyRef Name="TransferItemId" />
+      </Principal>
+      <Dependent Role="inv_TransferItemDetail">
+        <PropertyRef Name="TransferItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Address_p_Address">
+    <End Type="MapiDBModel.p_Address" Role="p_Address" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Address" Role="p_Address1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="p_Address1">
+        <PropertyRef Name="ParentAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Comment_p_Customer">
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Comment" Role="p_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Customer">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Comment">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Customer_p_Customer">
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Customer">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Customer1">
+        <PropertyRef Name="IntroducerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Employee_p_Employee">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Employee1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_u_UserOrderHeader_p_Employee">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <End Type="MapiDBModel.u_UserOrderHeader" Role="u_UserOrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="u_UserOrderHeader">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="invbr_BarcodeCategory">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <End Type="MapiDBModel.inv_Category" Role="inv_Category" Multiplicity="*" />
+  </Association>
+  <Association Name="invbr_BarcodePromotion">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <End Type="MapiDBModel.inv_Promotion" Role="inv_Promotion" Multiplicity="*" />
+  </Association>
+  <Association Name="invbr_BarcodeRestriction">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <End Type="MapiDBModel.inv_Restriction" Role="inv_Restriction" Multiplicity="*" />
+  </Association>
+  <Association Name="pbr_CustomerRestriction">
+    <End Type="MapiDBModel.inv_Restriction" Role="inv_Restriction" Multiplicity="*" />
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer" Multiplicity="*" />
+  </Association>
+  <Association Name="pbr_EmployeeShop">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="*" />
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ac_Counter">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="Int32" Name="ShopId" Nullable="false" />
+    <Property Type="Int32" Name="RegistererId" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_ac_Counter_inv_Shop" FromRole="ac_Counter" ToRole="inv_Shop" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.acbr_EmployeeCounter" FromRole="ac_Counter" ToRole="p_Employee" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_OrderHeader_ac_Counter" FromRole="ac_Counter" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="ApplicationDetails" Relationship="MapiDBModel.FK_ApplicationDetails_ac_Counter" FromRole="ac_Counter" ToRole="ApplicationDetail" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_ac_Counter_ac_Account" FromRole="ac_Counter" ToRole="ac_Account" />
+  </EntityType>
+  <EntityType Name="inv_ItemDetail">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Decimal" Name="DetailPrice" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="BuyQuantity" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="SoldQuantity" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="BuyPrice" Precision="10" Scale="3" />
+    <Property Type="Decimal" Name="SellPrice" Precision="10" Scale="3" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <NavigationProperty Name="ac_ShoppingCartDetails" Relationship="MapiDBModel.FK_ac_ShoppingCartDetails_inv_ItemDetail" FromRole="inv_ItemDetail" ToRole="ac_ShoppingCartDetails" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_ItemDetail_inv_Barcode" FromRole="inv_ItemDetail" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_ItemLocation" Relationship="MapiDBModel.FK_inv_ItemLocation_inv_ItemDetail" FromRole="inv_ItemDetail" ToRole="inv_ItemLocation" />
+    <NavigationProperty Name="inv_TransferItemDetail" Relationship="MapiDBModel.FK_inv_TransferItemDetail_inv_ItemDetail" FromRole="inv_ItemDetail" ToRole="inv_TransferItemDetail" />
+    <NavigationProperty Name="inv_Color" Relationship="MapiDBModel.invbr_ColorDetail" FromRole="inv_ItemDetail" ToRole="inv_Color" />
+    <NavigationProperty Name="inv_Size" Relationship="MapiDBModel.invbr_SizeDetail" FromRole="inv_ItemDetail" ToRole="inv_Size" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_inv_ItemDetail_ac_Account" FromRole="inv_ItemDetail" ToRole="ac_Account" />
+  </EntityType>
+  <Association Name="FK_ac_Counter_inv_Shop">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Counter" Role="ac_Counter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="ac_Counter">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_ShoppingCartDetails_inv_ItemDetail">
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_ShoppingCartDetails" Role="ac_ShoppingCartDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_ItemDetail">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_ShoppingCartDetails">
+        <PropertyRef Name="ItemDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_ItemDetail_inv_Barcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Barcode">
+        <PropertyRef Name="BarcodeId" />
+      </Principal>
+      <Dependent Role="inv_ItemDetail">
+        <PropertyRef Name="BarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_ItemLocation_inv_ItemDetail">
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_ItemLocation" Role="inv_ItemLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_ItemDetail">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="inv_ItemLocation">
+        <PropertyRef Name="ItemDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_TransferItemDetail_inv_ItemDetail">
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_TransferItemDetail" Role="inv_TransferItemDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_ItemDetail">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="inv_TransferItemDetail">
+        <PropertyRef Name="ItemDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="acbr_EmployeeCounter">
+    <End Type="MapiDBModel.ac_Counter" Role="ac_Counter" Multiplicity="*" />
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="*" />
+  </Association>
+  <Association Name="invbr_ColorDetail">
+    <End Type="MapiDBModel.inv_Color" Role="inv_Color" Multiplicity="*" />
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="*" />
+  </Association>
+  <Association Name="invbr_SizeDetail">
+    <End Type="MapiDBModel.inv_Size" Role="inv_Size" Multiplicity="*" />
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ac_OrderHeader">
+    <Key>
+      <PropertyRef Name="OrderHeaderId" />
+    </Key>
+    <Property Type="Int32" Name="OrderHeaderId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CurrencyRateId" Nullable="false" />
+    <Property Type="Int32" Name="ClientId" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvoiceNO" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="ShopId" />
+    <Property Type="Boolean" Name="Sell" Nullable="false" />
+    <Property Type="Int32" Name="CounterId" />
+    <Property Type="Int32" Name="ConfirmerId" />
+    <Property Type="Boolean" Name="IsMoney" />
+    <Property Type="String" Name="Table" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="ac_Counter" Relationship="MapiDBModel.FK_ac_OrderHeader_ac_Counter" FromRole="ac_OrderHeader" ToRole="ac_Counter" />
+    <NavigationProperty Name="ac_CurrencyRate" Relationship="MapiDBModel.FK_ac_OrderHeader_ac_CurrencyRate" FromRole="ac_OrderHeader" ToRole="ac_CurrencyRate" />
+    <NavigationProperty Name="inv_Shop" Relationship="MapiDBModel.FK_ac_OrderHeader_inv_Shop" FromRole="ac_OrderHeader" ToRole="inv_Shop" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_ac_OrderHeader_p_Employee" FromRole="ac_OrderHeader" ToRole="p_Employee" />
+    <NavigationProperty Name="p_Employee1" Relationship="MapiDBModel.FK_ac_OrderHeader_p_Employee1" FromRole="ac_OrderHeader" ToRole="p_Employee" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_AccountDetail_ac_OrderHeader" FromRole="ac_OrderHeader" ToRole="ac_AccountDetail" />
+    <Property Type="Int32" Name="FiscalPeriodId" />
+    <NavigationProperty Name="ac_FiscalPeriod" Relationship="MapiDBModel.FK_ac_OrderHeader_ac_FiscalPeriod" FromRole="ac_OrderHeader" ToRole="ac_FiscalPeriod" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_ac_OrderHeader_p_Person" FromRole="ac_OrderHeader" ToRole="p_Person" />
+    <NavigationProperty Name="ac_ReceiverDetails" Relationship="MapiDBModel.FK_ReceiverDetails_ac_OrderHeader" FromRole="ac_OrderHeader" ToRole="ac_ReceiverDetails" />
+  </EntityType>
+  <Association Name="FK_ac_OrderHeader_ac_Counter">
+    <End Type="MapiDBModel.ac_Counter" Role="ac_Counter" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Counter">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="CounterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderHeader_ac_CurrencyRate">
+    <End Type="MapiDBModel.ac_CurrencyRate" Role="ac_CurrencyRate" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_CurrencyRate">
+        <PropertyRef Name="CurrencyRateId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="CurrencyRateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderHeader_inv_Shop">
+    <End Type="MapiDBModel.inv_Shop" Role="inv_Shop" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_Shop">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderHeader_p_Employee">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderHeader_p_Employee1">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="ConfirmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ac_Voucher">
+    <Key>
+      <PropertyRef Name="VoucherId" />
+    </Key>
+    <Property Type="Int32" Name="OrderHeaderId" Nullable="false" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="DateTime" Name="IssueDate" Nullable="false" />
+    <Property Type="DateTime" Name="ExpieryDate" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="CurrencyRateId" Nullable="false" />
+    <Property Type="Int32" Name="AccountId" />
+    <Property Type="Boolean" Name="IsValid" />
+    <Property Type="Int32" Name="VoucherId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ac_CurrencyRate" Relationship="MapiDBModel.FK_ac_Voucher_ac_CurrencyRate" FromRole="ac_Voucher" ToRole="ac_CurrencyRate" />
+  </EntityType>
+  <Association Name="FK_ac_Voucher_ac_CurrencyRate">
+    <End Type="MapiDBModel.ac_CurrencyRate" Role="ac_CurrencyRate" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Voucher" Role="ac_Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_CurrencyRate">
+        <PropertyRef Name="CurrencyRateId" />
+      </Principal>
+      <Dependent Role="ac_Voucher">
+        <PropertyRef Name="CurrencyRateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ac_AccountDetail">
+    <Key>
+      <PropertyRef Name="AccountDetailId" />
+    </Key>
+    <Property Type="Int32" Name="AccountDetailId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="OrderHeaderId" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AccountId" />
+    <Property Type="Boolean" Name="IsDept" />
+    <Property Type="String" Name="Table" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_AccountDetail_ac_OrderHeader" FromRole="ac_AccountDetail" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="ac_Cash" Relationship="MapiDBModel.FK_ac_Cash_ac_AccountDetail" FromRole="ac_AccountDetail" ToRole="ac_Cash" />
+    <NavigationProperty Name="ac_EmployeeSalary" Relationship="MapiDBModel.FK_ac_EmployeeSalary_ac_AccountDetail" FromRole="ac_AccountDetail" ToRole="ac_EmployeeSalary" />
+    <NavigationProperty Name="ac_OrderDetail" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail" FromRole="ac_AccountDetail" ToRole="ac_OrderDetail" />
+    <NavigationProperty Name="ac_OrderDetail1" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail1" FromRole="ac_AccountDetail" ToRole="ac_OrderDetail" />
+    <NavigationProperty Name="ac_OrderDetail2" Relationship="MapiDBModel.FK_ac_OrderDetail_ac_AccountDetail2" FromRole="ac_AccountDetail" ToRole="ac_OrderDetail" />
+    <NavigationProperty Name="ac_SocialSecurity" Relationship="MapiDBModel.FK_ac_SocialSecurity_ac_AccountDetail" FromRole="ac_AccountDetail" ToRole="ac_SocialSecurity" />
+    <NavigationProperty Name="ac_Cheque" Relationship="MapiDBModel.FK_ac_Cheque_ac_AccountDetail" FromRole="ac_AccountDetail" ToRole="ac_Cheque" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_ac_AccountDetail_ac_Account" FromRole="ac_AccountDetail" ToRole="ac_Account" />
+    <NavigationProperty Name="ac_Account1" Relationship="MapiDBModel.FK_ac_AccountDetail_ac_Account1" FromRole="ac_AccountDetail" ToRole="ac_Account" />
+  </EntityType>
+  <Association Name="FK_ac_AccountDetail_ac_OrderHeader">
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_OrderHeader">
+        <PropertyRef Name="OrderHeaderId" />
+      </Principal>
+      <Dependent Role="ac_AccountDetail">
+        <PropertyRef Name="OrderHeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Cash_ac_AccountDetail">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Cash" Role="ac_Cash" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_Cash">
+        <PropertyRef Name="AccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_EmployeeSalary_ac_AccountDetail">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_EmployeeSalary" Role="ac_EmployeeSalary" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_EmployeeSalary">
+        <PropertyRef Name="AccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderDetail_ac_AccountDetail">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_OrderDetail" Role="ac_OrderDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_OrderDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderDetail_ac_AccountDetail1">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderDetail" Role="ac_OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_OrderDetail">
+        <PropertyRef Name="ItemSellAccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderDetail_ac_AccountDetail2">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderDetail" Role="ac_OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_OrderDetail">
+        <PropertyRef Name="ItemPriceAccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_SocialSecurity_ac_AccountDetail">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_SocialSecurity" Role="ac_SocialSecurity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_SocialSecurity">
+        <PropertyRef Name="AccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ac_TableAccount">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <Property Type="String" Name="Table" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_ac_TableAccount_aspnet_Applications" FromRole="ac_TableAccount" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_ac_TableAccount_ac_Account" FromRole="ac_TableAccount" ToRole="ac_Account" />
+  </EntityType>
+  <Association Name="FK_ac_TableAccount_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_TableAccount" Role="ac_TableAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ac_TableAccount">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="View_inv_ItemDetail">
+    <Key>
+      <PropertyRef Name="BarcodeId" />
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="BarcodeId" Nullable="false" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <Property Type="Int32" Name="ColorId" />
+    <Property Type="Int32" Name="SizeId" />
+    <Property Type="Decimal" Name="BuyPrice" Precision="10" Scale="3" />
+  </EntityType>
+  <EntityType Name="ac_FiscalPeriod">
+    <Key>
+      <PropertyRef Name="FiscalPeriodId" />
+    </Key>
+    <Property Type="Int32" Name="FiscalPeriodId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="StartingDate" Nullable="false" />
+    <Property Type="DateTime" Name="EndingDate" />
+    <Property Type="DateTime" Name="ClosingDate" />
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_ac_FiscalPeriod_aspnet_Applications" FromRole="ac_FiscalPeriod" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_OrderHeader_ac_FiscalPeriod" FromRole="ac_FiscalPeriod" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="ApplicationDetails" Relationship="MapiDBModel.FK_ApplicationDetails_ac_FiscalPeriod" FromRole="ac_FiscalPeriod" ToRole="ApplicationDetail" />
+  </EntityType>
+  <Association Name="FK_ac_FiscalPeriod_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_FiscalPeriod" Role="ac_FiscalPeriod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ac_FiscalPeriod">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderHeader_ac_FiscalPeriod">
+    <End Type="MapiDBModel.ac_FiscalPeriod" Role="ac_FiscalPeriod" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_FiscalPeriod">
+        <PropertyRef Name="FiscalPeriodId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="FiscalPeriodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ApplicationDetail">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Int32" Name="AccountLimit" Nullable="false" />
+    <Property Type="String" Name="AppName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="EmployeeLimit" Nullable="false" />
+    <Property Type="DateTime" Name="ExpieryDate" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="ShopLimit" Nullable="false" />
+    <Property Type="Decimal" Name="SmsCredit" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="StartingDate" Nullable="false" />
+    <Property Type="Int32" Name="CounterId" />
+    <Property Type="Int32" Name="EmployeeId" />
+    <Property Type="Int64" Name="SmsNumber" Nullable="false" />
+    <Property Type="String" Name="SmsUser" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SmsPass" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Port" />
+    <Property Type="String" Name="Host" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmailPass" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="TerminalId" />
+    <Property Type="String" Name="PaymentUserName" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PaymentPassword" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Language" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SliderQuantity" />
+    <Property Type="String" Name="OnlineHost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="DeliveryExpense" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="CurrentFiscalPeriodId" />
+    <NavigationProperty Name="ac_Counter" Relationship="MapiDBModel.FK_ApplicationDetails_ac_Counter" FromRole="ApplicationDetail" ToRole="ac_Counter" />
+    <NavigationProperty Name="ac_FiscalPeriod" Relationship="MapiDBModel.FK_ApplicationDetails_ac_FiscalPeriod" FromRole="ApplicationDetail" ToRole="ac_FiscalPeriod" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_ApplicationDetails_aspnet_Applications" FromRole="ApplicationDetail" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_ApplicationDetails_p_Employee" FromRole="ApplicationDetail" ToRole="p_Employee" />
+  </EntityType>
+  <Association Name="FK_ApplicationDetails_ac_Counter">
+    <End Type="MapiDBModel.ac_Counter" Role="ac_Counter" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ApplicationDetail" Role="ApplicationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Counter">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ApplicationDetail">
+        <PropertyRef Name="CounterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationDetails_ac_FiscalPeriod">
+    <End Type="MapiDBModel.ac_FiscalPeriod" Role="ac_FiscalPeriod" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ApplicationDetail" Role="ApplicationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_FiscalPeriod">
+        <PropertyRef Name="FiscalPeriodId" />
+      </Principal>
+      <Dependent Role="ApplicationDetail">
+        <PropertyRef Name="CurrentFiscalPeriodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationDetails_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.ApplicationDetail" Role="ApplicationDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ApplicationDetail">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationDetails_p_Employee">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ApplicationDetail" Role="ApplicationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ApplicationDetail">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ac_Cheque">
+    <Key>
+      <PropertyRef Name="ChequeId" />
+    </Key>
+    <Property Type="String" Name="Bank" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Serial" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DueDate" Nullable="false" />
+    <Property Type="Boolean" Name="Passed" Nullable="false" />
+    <Property Type="Int32" Name="CurrencyRateId" Nullable="false" />
+    <Property Type="Byte" Name="Status" />
+    <Property Type="Int32" Name="AccountDetailId" Nullable="false" />
+    <Property Type="Int32" Name="IssuerId" />
+    <Property Type="Int32" Name="ChequeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_Cheque_ac_AccountDetail" FromRole="ac_Cheque" ToRole="ac_AccountDetail" />
+    <NavigationProperty Name="ac_CurrencyRate" Relationship="MapiDBModel.FK_ac_Cheque_ac_CurrencyRate" FromRole="ac_Cheque" ToRole="ac_CurrencyRate" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_ac_Cheque_ac_Account" FromRole="ac_Cheque" ToRole="ac_Account" />
+  </EntityType>
+  <Association Name="FK_ac_Cheque_ac_AccountDetail">
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Cheque" Role="ac_Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_AccountDetail">
+        <PropertyRef Name="AccountDetailId" />
+      </Principal>
+      <Dependent Role="ac_Cheque">
+        <PropertyRef Name="AccountDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Cheque_ac_CurrencyRate">
+    <End Type="MapiDBModel.ac_CurrencyRate" Role="ac_CurrencyRate" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Cheque" Role="ac_Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_CurrencyRate">
+        <PropertyRef Name="CurrencyRateId" />
+      </Principal>
+      <Dependent Role="ac_Cheque">
+        <PropertyRef Name="CurrencyRateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ac_Account">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="AccountId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="Int32" Name="ParentAccountId" />
+    <Property Type="Byte" Name="Level" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="Byte" Name="AccountNature" />
+    <Property Type="Byte" Name="GroupType" />
+    <Property Type="Int32" Name="RelatedAccountId" />
+    <Property Type="Int32" Name="RegistererId" />
+    <Property Type="Int32" Name="LedgentId" />
+    <NavigationProperty Name="ac_Account1" Relationship="MapiDBModel.FK_ac_Account_ac_Account" FromRole="ac_Account" ToRole="ac_Account1" />
+    <NavigationProperty Name="ac_Account2" Relationship="MapiDBModel.FK_ac_Account_ac_Account" FromRole="ac_Account1" ToRole="ac_Account" />
+    <NavigationProperty Name="ac_Account11" Relationship="MapiDBModel.FK_ac_Account_ac_Account1" FromRole="ac_Account" ToRole="ac_Account1" />
+    <NavigationProperty Name="ac_Account3" Relationship="MapiDBModel.FK_ac_Account_ac_Account1" FromRole="ac_Account1" ToRole="ac_Account" />
+    <NavigationProperty Name="ac_Account12" Relationship="MapiDBModel.FK_ac_Account_ac_Account2" FromRole="ac_Account" ToRole="ac_Account1" />
+    <NavigationProperty Name="ac_Account4" Relationship="MapiDBModel.FK_ac_Account_ac_Account2" FromRole="ac_Account1" ToRole="ac_Account" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_ac_Account_aspnet_Applications" FromRole="ac_Account" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_ac_Account_p_Employee" FromRole="ac_Account" ToRole="p_Employee" />
+    <NavigationProperty Name="ac_AccountDetail" Relationship="MapiDBModel.FK_ac_AccountDetail_ac_Account" FromRole="ac_Account" ToRole="ac_AccountDetail" />
+    <NavigationProperty Name="ac_AccountDetail1" Relationship="MapiDBModel.FK_ac_AccountDetail_ac_Account1" FromRole="ac_Account" ToRole="ac_AccountDetail" />
+    <NavigationProperty Name="ac_Cheque" Relationship="MapiDBModel.FK_ac_Cheque_ac_Account" FromRole="ac_Account" ToRole="ac_Cheque" />
+    <NavigationProperty Name="ac_Counter" Relationship="MapiDBModel.FK_ac_Counter_ac_Account" FromRole="ac_Account" ToRole="ac_Counter" />
+    <NavigationProperty Name="ac_TableAccount" Relationship="MapiDBModel.FK_ac_TableAccount_ac_Account" FromRole="ac_Account" ToRole="ac_TableAccount" />
+    <NavigationProperty Name="inv_Barcode" Relationship="MapiDBModel.FK_inv_Barcode_ac_Account" FromRole="ac_Account" ToRole="inv_Barcode" />
+    <NavigationProperty Name="inv_ItemDetail" Relationship="MapiDBModel.FK_inv_ItemDetail_ac_Account" FromRole="ac_Account" ToRole="inv_ItemDetail" />
+    <NavigationProperty Name="p_Person" Relationship="MapiDBModel.FK_p_Person_ac_Account" FromRole="ac_Account" ToRole="p_Person" />
+  </EntityType>
+  <Association Name="FK_ac_Account_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_Account1">
+        <PropertyRef Name="ParentAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Account_ac_Account1">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_Account1">
+        <PropertyRef Name="RelatedAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Account_ac_Account2">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_Account1">
+        <PropertyRef Name="LedgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Account_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ac_Account">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Account_p_Employee">
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_Account">
+        <PropertyRef Name="RegistererId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_AccountDetail_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_AccountDetail">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_AccountDetail_ac_Account1">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_AccountDetail" Role="ac_AccountDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_AccountDetail">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Cheque_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_Cheque" Role="ac_Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_Cheque">
+        <PropertyRef Name="IssuerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_Counter_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_Counter" Role="ac_Counter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_Counter">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_TableAccount_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_TableAccount" Role="ac_TableAccount" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_TableAccount">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_Barcode_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="0..1" />
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="inv_Barcode">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_ItemDetail_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="1" />
+    <End Type="MapiDBModel.inv_ItemDetail" Role="inv_ItemDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="inv_ItemDetail">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ParentId" />
+    <Property Type="String" Name="Priority" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK__aspnet_Ro__Appli__2704CA5F" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Roles1" Relationship="MapiDBModel.FK_aspnet_Roles_aspnet_Roles" FromRole="aspnet_Roles" ToRole="aspnet_Roles1" />
+    <NavigationProperty Name="aspnet_Roles2" Relationship="MapiDBModel.FK_aspnet_Roles_aspnet_Roles" FromRole="aspnet_Roles1" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="aspnet_Users" Relationship="MapiDBModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+  </EntityType>
+  <Association Name="FK__aspnet_Ro__Appli__2704CA5F">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="MapiDBModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_Roles_aspnet_Roles">
+    <End Type="MapiDBModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="0..1" />
+    <End Type="MapiDBModel.aspnet_Roles" Role="aspnet_Roles1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnet_UsersInRoles">
+    <End Type="MapiDBModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+    <End Type="MapiDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+  </Association>
+  <EntityType Name="p_Person">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="AddressId" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Family" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateOfBirth" />
+    <Property Type="Boolean" Name="Gender" />
+    <Property Type="Guid" Name="ApplicationId" />
+    <Property Type="DateTime" Name="RegDate" Nullable="false" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <NavigationProperty Name="ac_Account" Relationship="MapiDBModel.FK_p_Person_ac_Account" FromRole="p_Person" ToRole="ac_Account" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ac_OrderHeader_p_Person" FromRole="p_Person" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="MapiDBModel.FK_p_Person_aspnet_Applications" FromRole="p_Person" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="p_Address" Relationship="MapiDBModel.FK_p_Person_p_Address" FromRole="p_Person" ToRole="p_Address" />
+    <NavigationProperty Name="p_Customer" Relationship="MapiDBModel.FK_p_Customer_p_Person" FromRole="p_Person" ToRole="p_Customer" />
+    <NavigationProperty Name="p_Employee" Relationship="MapiDBModel.FK_p_Employee_p_Person" FromRole="p_Person" ToRole="p_Employee" />
+    <NavigationProperty Name="p_Message" Relationship="MapiDBModel.FK_p_Message_p_Person" FromRole="p_Person" ToRole="p_Message" />
+    <NavigationProperty Name="p_Message1" Relationship="MapiDBModel.FK_p_Message_p_Person1" FromRole="p_Person" ToRole="p_Message" />
+    <NavigationProperty Name="p_Phone" Relationship="MapiDBModel.FK_p_Phone_p_Person" FromRole="p_Person" ToRole="p_Phone" />
+    <NavigationProperty Name="p_Supplier" Relationship="MapiDBModel.FK_p_Supplier_p_Person" FromRole="p_Person" ToRole="p_Supplier" />
+  </EntityType>
+  <Association Name="FK_p_Person_ac_Account">
+    <End Type="MapiDBModel.ac_Account" Role="ac_Account" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_Account">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_OrderHeader_p_Person">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="0..1" />
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ac_OrderHeader">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Person_aspnet_Applications">
+    <End Type="MapiDBModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="p_Person">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Person_p_Address">
+    <End Type="MapiDBModel.p_Address" Role="p_Address" Multiplicity="0..1" />
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="p_Person">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Customer_p_Person">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Customer" Role="p_Customer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Customer">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Employee_p_Person">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Employee" Role="p_Employee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Employee">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Message_p_Person">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Message" Role="p_Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Message">
+        <PropertyRef Name="SenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Message_p_Person1">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Message" Role="p_Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Message">
+        <PropertyRef Name="ReceiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Phone_p_Person">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Phone" Role="p_Phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Phone">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_p_Supplier_p_Person">
+    <End Type="MapiDBModel.p_Person" Role="p_Person" Multiplicity="1" />
+    <End Type="MapiDBModel.p_Supplier" Role="p_Supplier" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="p_Person">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="p_Supplier">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="invbr_PropertyBarcode">
+    <End Type="MapiDBModel.inv_Barcode" Role="inv_Barcode" Multiplicity="*" />
+    <End Type="MapiDBModel.inv_Property" Role="inv_Property" Multiplicity="*" />
+  </Association>
+  <ComplexType Name="BalanceSheet">
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <Property Type="Decimal" Name="balance" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="ac_ReceiverDetails">
+    <Key>
+      <PropertyRef Name="OrderHeaderID" />
+    </Key>
+    <Property Type="Int32" Name="OrderHeaderID" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Family" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CellPhone" MaxLength="20" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="Int32" Name="AddressID" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostalCode" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SendType" />
+    <Property Type="Int32" Name="PaymentType" />
+    <Property Type="Int64" Name="SaleOrderId" />
+    <Property Type="Boolean" Name="IsGift" />
+    <Property Type="String" Name="GiftNote" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SendTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SendDate" />
+    <Property Type="Boolean" Name="NeedWrap" />
+    <Property Type="Int64" Name="SaleReferenceId" />
+    <Property Type="Decimal" Name="DeliveryExpense" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DiscountAmount" Precision="18" Scale="2" />
+    <NavigationProperty Name="ac_OrderHeader" Relationship="MapiDBModel.FK_ReceiverDetails_ac_OrderHeader" FromRole="ac_ReceiverDetails" ToRole="ac_OrderHeader" />
+    <NavigationProperty Name="p_Address" Relationship="MapiDBModel.FK_ac_ReceiverDetails_p_Address" FromRole="ac_ReceiverDetails" ToRole="p_Address" />
+  </EntityType>
+  <Association Name="FK_ReceiverDetails_ac_OrderHeader">
+    <End Type="MapiDBModel.ac_OrderHeader" Role="ac_OrderHeader" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_ReceiverDetails" Role="ac_ReceiverDetails" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ac_OrderHeader">
+        <PropertyRef Name="OrderHeaderId" />
+      </Principal>
+      <Dependent Role="ac_ReceiverDetails">
+        <PropertyRef Name="OrderHeaderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ac_ReceiverDetails_p_Address">
+    <End Type="MapiDBModel.p_Address" Role="p_Address" Multiplicity="1" />
+    <End Type="MapiDBModel.ac_ReceiverDetails" Role="ac_ReceiverDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="p_Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="ac_ReceiverDetails">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

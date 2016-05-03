@@ -1,0 +1,262 @@
+﻿@model MapiOnline.Models.ac_OrderHeader
+@{
+    ViewBag.Title = "اتمام خرید";
+    Layout = "~/Views/Shared/_FirstLayoutNew2.fa-ir.cshtml";
+}
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">خانه</a> </li>
+                <li><a href="@Url.Action("ShoppingCart", "Shopping")">سبد خرید</a> </li>
+                <li class="active">اتمام خرید </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-7">
+            <h1 class="section-title-inner">
+                <span><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;اتمام خرید &nbsp;</span></h1>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar">
+            <h4 class="caps">
+                <a href="@Url.Action("Category", "Home")"><i class="fa fa-chevron-right"></i>&nbsp;ادامه
+                    خرید&nbsp; </a>
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-12">
+            <div class="row userInfo">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="w100 clearfix">
+                        <ul class="orderStep ">
+                            <li><a step="1" href="@Url.Action("CheckOut_step1", "Tshop")"><i class="fa fa-map-marker ">
+                            </i><span>سفارش دهنده</span> </a></li>
+                            <li><a step="2" href="@Url.Action("CheckOut_step2", "Tshop")"><i class="fa fa fa-envelope  ">
+                            </i><span>تحویل گیرنده </span></a></li>
+                            <li><a step="3" href="@Url.Action("CheckOut_step3", "Tshop")"><i class="fa fa-truck ">
+                            </i><span>نحوه ارسال</span> </a></li>
+                            <li><a step="4" href="@Url.Action("CheckOut_step4", "Tshop")"><i class="fa fa-money  ">
+                            </i><span>پرداخت</span> </a></li>
+                            <li class="active"><a step="5" href="@Url.Action("CheckOut_step5", "Tshop")"><i class="fa fa-check-square ">
+                            </i><span>اتمام خرید</span></a> </li>
+                        </ul>
+                    </div>
+                    <div class="w100 clearfix">
+                        <div class="row userInfo">
+                            <div class="col-lg-12">
+                                <div class="no-border">
+                                    <p class="promo-1">
+                                        <strong>بازبینی سفارش</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="cartContent w100 checkoutReview ">
+                                    <table class="cartTable table-responsive" style="width: 100%">
+                                        <tbody>
+                                            <tr class="CartProduct cartTableHeader">
+                                                <th style="width: 12%">
+                                                    کالا
+                                                </th>
+                                                <th class="checkoutReviewTdDetails">
+                                                    جزییات
+                                                </th>
+                                                <th style="width: 15%">
+                                                    قیمت واحد
+                                                </th>
+                                                <th class="hidden-xs" style="width: 5%">
+                                                    تعداد
+                                                </th>
+                                                <th class="hidden-xs" style="width: 7%">
+                                                    تخفیف
+                                                </th>
+                                                <th style="width: 15%">
+                                                    قیمت کل
+                                                </th>
+                                            </tr>
+                                            @foreach (var item in Model.ac_AccountDetail)
+                                            {
+                                                if (item.ac_Account.inv_ItemDetail != null)
+                                                {
+                                                <tr class="CartProduct" name="shopDetailtr">
+                                                    <td class="CartProductThumb">
+                                                        <div>
+                                                            <a href="@Url.Action("ProductDetails", "Home", new { productId = item.ac_Account.inv_ItemDetail.inv_Barcode.BarcodeId })">
+                                                                <img src='../Data/@(item.ac_Account.inv_ItemDetail.inv_Barcode.aspnet_Applications.ApplicationName)Photos/@(item.ac_Account.inv_ItemDetail.inv_Barcode.Barcode)/tiny_1.jpg'
+                    alt='@item.ac_Account.inv_ItemDetail.inv_Barcode.Name' title='@item.ac_Account.inv_ItemDetail.inv_Barcode.Name' 
+                     />
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="CartDescription">
+                                                            <h4>
+                                                                <a href="@Url.Action("ProductDetails", "Home", new { productId = item.ac_Account.inv_ItemDetail.inv_Barcode.BarcodeId })">
+                                                                    @if (string.IsNullOrEmpty(item.Description))
+                                                                    {
+                                                                        @item.ac_Account.inv_ItemDetail.inv_Barcode.Name 
+                                                                   if (item.ac_Account.inv_ItemDetail.inv_Size.Count > 0)
+                                                                   {
+                                                                        <span class="size">
+                                                                            @item.ac_Account.inv_ItemDetail.inv_Size.FirstOrDefault().Size</span>
+                                                                   }
+                                                                        @item.ac_Account.inv_ItemDetail.inv_Barcode.ItemCode
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @item.ac_Account.inv_ItemDetail.inv_Barcode.Name @:کد @(item.ac_Account.inv_ItemDetail.inv_Barcode.ItemCode)(@(item.Description))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                    <span class="size">
+                                                                        @(item.ac_Account.inv_ItemDetail.inv_Color.Count > 0 ? @item.ac_Account.inv_ItemDetail.inv_Color.FirstOrDefault().Color : "-")
+                                                                        @(item.ac_Account.inv_ItemDetail.inv_Size.Count > 0 ? @item.ac_Account.inv_ItemDetail.inv_Size.FirstOrDefault().Size : "-")
+                                                                    </span></a>
+                                                            </h4>
+                                                    </td>
+                                                    <td class="delete">
+                                                        <div class="price ">
+                                                            @if (item.ac_OrderDetail1.Count == 0)
+                                                            {
+                                                                @Convert.ToInt32(Math.Abs(item.ac_OrderDetail.ac_AccountDetail1.Amount.Value) / item.ac_OrderDetail.Quantity)
+                                                            }
+                                                            else
+                                                            {
+                                                                @Convert.ToInt32(item.ac_OrderDetail1.Sum(sdIt => sdIt.Quantity * (Math.Abs(sdIt.ac_AccountDetail.Amount.Value) / item.ac_OrderDetail.Quantity)) + (Math.Abs(item.ac_OrderDetail.ac_AccountDetail.Amount.Value) / item.ac_OrderDetail.Quantity))
+                                                            }
+                                                            <span>تومان</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="hidden-xs">
+                                                        @Convert.ToInt32(item.ac_OrderDetail.Quantity) <span>@item.ac_Account.inv_ItemDetail.inv_Barcode.inv_MeasureUnit.UnitType</span>
+                                                    </td>
+                                                    <td class="hidden-xs">
+                                                        0
+                                                    </td>
+                                                    <td class="price">
+                                                        @if (item.ac_OrderDetail1.Count == 0)
+                                                        {
+                                                            @Convert.ToInt32(Math.Abs(item.ac_OrderDetail.ac_AccountDetail1.Amount.Value))
+                                                        }
+                                                        else
+                                                        {
+                                                            @Convert.ToInt32((item.ac_OrderDetail1.Sum(sdIt => sdIt.Quantity * (Math.Abs(sdIt.ac_AccountDetail1.Amount.Value) / item.ac_OrderDetail.Quantity)) + (Math.Abs(item.ac_OrderDetail.ac_AccountDetail1.Amount.Value) / item.ac_OrderDetail.Quantity)) * Convert.ToInt32(item.ac_OrderDetail.Quantity))
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--cartContent-->
+                                <div class="w100 cartMiniTable">
+                                    <table id="cart-summary" class="std table">
+                                        <tbody>
+                                            @if (Model.ac_ReceiverDetails.SaleOrderId != null)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        شماره پرداخت :
+                                                    </td>
+                                                    <td class="price">
+                                                        <span>@Model.ac_ReceiverDetails.SaleOrderId</span>&nbsp;
+                                                    </td>
+                                                </tr>
+                                            }
+                                              <tr>
+                                                <td>
+                                                    شماره فاکتور:
+                                                </td>
+                                                <td class=" site-color" name="total-price">
+                                                    <span >@Model.InvoiceNO</span>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--/costDetails-->
+                                <!--/row-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row end-->
+                    @*<div class="cartFooter w100">
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a class="btn btn-default" href="@Url.Action("CheckOut_step4", "Tshop")"><i class="fa fa-arrow-left">
+                                </i>&nbsp; Payment method </a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-primary btn-small ">Confirm Order &nbsp; <i class="fa fa-check">
+                                </i></a>
+                            </div>
+                        </div>
+                    </div>*@
+                    <!--/ cartFooter -->
+                </div>
+            </div>
+        </div>
+        <!--/row end-->
+        <div class="col-lg-3 col-md-3 col-sm-12 rightSidebar">
+            <div class="w100 cartMiniTable">
+                <table id="cart-summary" class="std table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                تعداد کل
+                            </td>
+                            <td class="price">
+                                <span id="itemCatrQuantity"></span>&nbsp;عدد
+                            </td>
+                        </tr>
+                        <tr class="cart-total-price ">
+                            <td>
+                                جمع خرید
+                            </td>
+                            <td class="price" name="totalAmount">
+                                <span id="totalAmount"></span>&nbsp;تومان
+                            </td>
+                        </tr>
+                        <tr style="">
+                            <td>
+                                هزینه حمل
+                            </td>
+                            <td class="price">
+                                <span class="success" id="sendExpense" name="sendExpense"></span>&nbsp;تومان
+                            </td>
+                        </tr>
+                        <tr style="">
+                            <td>
+                                تخفیف
+                            </td>
+                            <td class="price">
+                                <span class="success" id="orderDiscount" name="sendExpense"></span>&nbsp;تومان
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                جمع کل
+                            </td>
+                            <td class=" site-color" name="total-price">
+                                <span id="total-price">0</span>&nbsp;تومان
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--/rightSidebar-->
+    </div>
+    <!--/row-->
+    <div style="clear: both">
+    </div>
+</div>
+<!-- /wrapper -->
+<div class="gap">
+</div>

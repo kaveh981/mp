@@ -1,0 +1,385 @@
+﻿@model MapiOnline.Models.ac_OrderHeader
+@{
+    ViewBag.Title = "نتیجه ثبت سفارش";
+    Layout = "~/Views/Shared/_FirstLayoutNew2.fa-ir.cshtml";
+}
+<div class="breadcrumb">
+    <a href="../Home/Index">صفحه اصلی</a> <span class="last">» <a href="../Shopping/ShoppingCart"
+        class="last">سبد خرید</a>
+</div>
+<h1>
+    اطلاعات سفارش</h1>
+<div class="box-container">
+    <br />
+    <div class="alert alert-success" style="margin-bottom: 50px!important; margin-right: 60px;
+        width: 500px; text-align: center;">
+        <strong style="text-align: center;">نتیجه :&nbsp;</strong>سفارش شما با موفقیت ثبت
+        شد، از خرید شما سپاسگزاریم.
+    </div>
+    @if (Model != null)
+    {
+        <div align="center">
+            <table class="shoppingCartTbl" cellspacing="0" align="center" style="max-width: 840px;">
+                <thead style="margin-bottom: 7px" class="blue">
+                    <tr class="shopDetail ui-state-default">
+                        <th>
+                            تصویر
+                        </th>
+                        <th>
+                            نام
+                        </th>
+                        <th>
+                            رنگ
+                        </th>
+                        <th>
+                            سایز
+                        </th>
+                        <th>
+                            قیمت
+                        </th>
+                        <th>
+                            تعداد
+                        </th>
+                        <th>
+                            قیمت کل
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.ac_AccountDetail)
+                {
+                    if (item.ac_Account.inv_ItemDetail != null)
+                    {
+                    <tr class="shopDetail cleaner ui-state-default" name="shopDetailtr">
+                        <td style="float: right" width="70px">
+                            <img src='../../../Data/@(item.ac_Account.inv_ItemDetail.inv_Barcode.aspnet_Applications.ApplicationName)Photos/@(item.ac_Account.inv_ItemDetail.inv_Barcode.Barcode)/thumb_1.jpg'
+                    alt='@item.ac_Account.inv_ItemDetail.inv_Barcode.Name' title='@item.ac_Account.inv_ItemDetail.inv_Barcode.Name' style='border: none; width: 70px;
+                    height: 80px;' />
+                        </td>
+                        <td style="padding: 10px; max-width: 420px;">
+                            @if (string.IsNullOrEmpty(item.Description))
+                            {
+                                <span>@item.ac_Account.inv_ItemDetail.inv_Barcode.Name </span>
+                                 if (item.ac_Account.inv_ItemDetail.inv_Size.Count > 0)
+                                 {
+                                <span>@item.ac_Account.inv_ItemDetail.inv_Size.FirstOrDefault().Size</span>
+                                 }
+                                @:کد @item.ac_Account.inv_ItemDetail.inv_Barcode.ItemCode
+                        }
+                            else
+                            {
+                                @item.ac_Account.inv_ItemDetail.inv_Barcode.Name @:کد @(item.ac_Account.inv_ItemDetail.inv_Barcode.ItemCode)(@(item.Description))
+                                                                                                                                                                                                                }
+                        </td>
+                        <td style="padding: 10px;">
+                            <span name="colors">
+                                @(item.ac_Account.inv_ItemDetail.inv_Color.Count > 0 ? @item.ac_Account.inv_ItemDetail.inv_Color.FirstOrDefault().Color : "-")</span>
+                        </td>
+                        <td style="padding: 10px;" width="70px">
+                            <span name="sizes">
+                                @(item.ac_Account.inv_ItemDetail.inv_Size.Count > 0 ? @item.ac_Account.inv_ItemDetail.inv_Size.FirstOrDefault().Size : "-")</span>
+                        </td>
+                        <td style="padding: 10px;" align="center">
+                            @if (item.ac_OrderDetail1.Count == 0)
+                            {
+                                @Convert.ToInt32(item.ac_OrderDetail.ac_AccountDetail.Amount / item.ac_OrderDetail.Quantity)
+                            }
+                            else
+                            {
+                                @Convert.ToInt32(item.ac_OrderDetail1.Sum(sdIt => sdIt.Quantity * (sdIt.ac_AccountDetail.Amount / item.ac_OrderDetail.Quantity)) + (item.ac_OrderDetail.ac_AccountDetail.Amount / item.ac_OrderDetail.Quantity))
+                            }
+                            <span>تومان</span>
+                        </td>
+                        <td style="padding: 10px;">
+                            <span>@Convert.ToInt32(item.ac_OrderDetail.Quantity)</span> <span>@item.ac_Account.inv_ItemDetail.inv_Barcode.inv_MeasureUnit.UnitType</span>
+                        </td>
+                        <td style="padding: 10px;" align="center">
+                            <span name="totalPrice">
+                                @if (item.ac_OrderDetail1.Count == 0)
+                                {
+                                    @Convert.ToInt32(item.ac_OrderDetail.ac_AccountDetail.Amount)
+                                }
+                                else
+                                {
+                                    @Convert.ToInt32((item.ac_OrderDetail1.Sum(sdIt => sdIt.Quantity * (sdIt.ac_AccountDetail.Amount / item.ac_OrderDetail.Quantity)) + (item.ac_OrderDetail.ac_AccountDetail.Amount / item.ac_OrderDetail.Quantity)) * Convert.ToInt32(item.ac_OrderDetail.Quantity))
+                                }
+                            </span><span>تومان</span>
+                        </td>
+                    </tr>
+                    }
+                }
+            </table>
+        </div>
+        <div class="clearer">
+            &nbsp;
+        </div>
+    
+        <div class="cleaner" style="margin-top: 20px; margin-right: 10px; border-bottom-width: thin;
+            border-bottom-color: #cccccc; border-bottom-style: dashed;">
+            اطلاعات دریافت کننده و سفارش
+            <br />
+            <br />
+        </div>
+        <table id="newRecieverInfo" dir="rtl" style="padding: 5px; float: right; margin: 10px 10px;
+            width: 630px;">
+            <tbody>
+                @{
+                if (@Model.ac_ReceiverDetails.PaymentType == 1)
+                {
+                    <tr>
+                        <td>
+                        </td>
+                        <td width="170px">
+                            شماره پیگیری :
+                        </td>
+                        <td>
+                            @Model.ac_ReceiverDetails.SaleReferenceId
+                        </td>
+                    </tr>
+                }
+                }
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        شماره فاکتور :
+                    </td>
+                    <td>
+                        @Model.InvoiceNO
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        مبلغ کل :
+                    </td>
+                    <td>
+                        @Convert.ToInt32(Model.Amount - Model.ac_ReceiverDetails.DeliveryExpense + Model.ac_ReceiverDetails.DiscountAmount)
+                        تومان
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        هزینه پیک :
+                    </td>
+                    <td>
+                        @Convert.ToInt32(Model.ac_ReceiverDetails.DeliveryExpense) تومان
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        تخفیف :
+                    </td>
+                    <td>
+                        @Convert.ToInt32(Model.ac_ReceiverDetails.DiscountAmount) تومان
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        مبلغ نهایی :
+                    </td>
+                    <td>
+                        @Convert.ToInt32(Model.Amount) تومان
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        روش دریافت سفارش :
+                    </td>
+                    <td>
+                        <span>
+                            @{
+                   string sendtype = "";
+                   switch (Model.ac_ReceiverDetails.SendType)
+                   {
+                       case 1:
+                           sendtype = "ارسال با پیک";
+                           break;
+                       case 2:
+                           sendtype = "ارسال از طریق پست پیشتاز";
+                           break;
+                       case 3:
+                           sendtype = "ارسال از طریق پست تیپاکس";
+                           break;
+                   }
+                            }
+                            @sendtype
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        روش پرداخت :
+                    </td>
+                    <td>
+                        <span>
+                            @{
+                       string paymenttype = "";
+                       switch (Model.ac_ReceiverDetails.PaymentType)
+                       {
+                           case 1:
+                               paymenttype = "پرداخت آنلاین - " + (Model.ac_ReceiverDetails.SaleReferenceId != null ? ("شماره پرداخت :" + Model.ac_ReceiverDetails.SaleReferenceId) : "");
+                               break;
+                           case 2:
+                               paymenttype = "پرداخت به شماره کارت";
+                               break;
+                           case 3:
+                               paymenttype = "پرداخت به پیک همزمان با تحویل کالا";
+                               break;
+                       }
+                            }
+                            @paymenttype
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="170px">
+                        نام :
+                    </td>
+                    <td>
+                        @Model.ac_ReceiverDetails.Name
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        نام خانوادگی :
+                    </td>
+                    <td>
+                        @Model.ac_ReceiverDetails.Family
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        تلفن ثابت:
+                    </td>
+                    <td>
+                        @Model.ac_ReceiverDetails.Phone
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        شماره موبایل:
+                    </td>
+                    <td>
+                        @Model.ac_ReceiverDetails.CellPhone
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                    </td>
+                    <td valign="top">
+                        آدرس :
+                    </td>
+                    <td>
+                        @Model.ac_ReceiverDetails.Address
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        کد پستی :
+                    </td>
+                    <td>
+                        @Model.ac_ReceiverDetails.PostalCode
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        ساعت و تاریخ ارسال :&nbsp;
+                    </td>
+                    <td valign="middle">
+                        ساعت &nbsp;@Model.ac_ReceiverDetails.SendTime
+                        &nbsp;&nbsp;&nbsp; تاریخ&nbsp;@(Model.ac_ReceiverDetails.SendDate != null ? utility.GetstrDateCultureSimple(Model.ac_ReceiverDetails.SendDate.Value) : "")
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                    </td>
+                    <td valign="top">
+                    </td>
+                    <td>
+                        <div style="float: right">
+                            @if (Model.ac_ReceiverDetails.IsGift == true)
+                            {
+                                <label for="isGift">
+                                    هدیه است.</label>
+                            }
+                            else
+                            {
+                                <label for="isGift">
+                                    هدیه نیست.</label>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.ac_ReceiverDetails.GiftNote))
+                            {
+                                <label>
+                                    متن کارت هدیه :
+                                </label>
+                                <span>@Model.ac_ReceiverDetails.GiftNote</span>
+                            }
+                            &nbsp;&nbsp;
+                            @if (Model.ac_ReceiverDetails.NeedWrap == true)
+                            {
+                                <label>
+                                    کادو شود.</label>
+                            }
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td style="font-family: tahoma; font-size: 10px; color: #808080">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td valign="top" width="170px">
+                        توضیحات تکمیلی سفارش :
+                    </td>
+                    <td>
+                        @Model.Description
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+                
+    }
+    <br class="cleaner">
+</div>

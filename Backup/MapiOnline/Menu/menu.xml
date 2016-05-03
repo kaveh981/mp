@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<root>
+	<siteMapNodeRoot subMenu="tab" active="true"   roles="Customer" id="a_Dashboard" url="Employee/EmployeeList.htm" title="dashboard"   description="">
+		<siteMapNode  roles="Customer" id="a_DashCharts" url="Dashboard/Dashboard.htm" title="dashboard"   description="">
+		</siteMapNode>
+		<siteMapNode roles="canSeeSellChart" id="a_SellChart" url="Customer/CustomerChart.htm"  title="sellChart"  description=""></siteMapNode>
+		<siteMapNode roles="canSeeSellChart" id="a_BuyChart" url="Customer/CustomerChart.htm"  title="buyChart"  description=""></siteMapNode>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot active="true" subMenu="tab"  roles="Customer" id="a_CustomerSection" url="~/Currency/CurrencyRate.htm"  title="accounting"  description="">
+		
+		<siteMapNode roles="Customer" id="a_BalanceSheet" url="Accounting/BalanceSheet.htm" title="BalanceSheet"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_ProfitAndLossReport" url="Accounting/ProfitAndLoss.htm" title="ProfitAndLoss"  description=""></siteMapNode>
+		<siteMapNode isSubTab="true" roles="Setting" id="a_OrderType" url="Accounting/RegisterAccount.htm" title="registerAccount"   description=""/>
+		<siteMapNode roles="Customer" id="a_AddAccounting" url="Accounting/Accounting.htm" title="accountSave"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_AddBank" url="Accounting/Bank.htm" title="banks"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_RecievedDocument" url="Accounting/RecievedDocument.htm" title="recievedDocument"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_PaidDocument" url="Accounting/PaidDocument.htm" title="paidDocument"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_OpeningAccount" url="Accounting/openingAccount.htm" title="openingAccount"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_FiscalPeriod" url="Accounting/FiscalPeriod.htm" title="FiscalPeriod"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" active="true" isSubTab="true" id="a_DisplayAccounts" url="Accounting/AccountList.htm" title="accountList"  description="">
+			<rightMenu roles="Customer" id="a_AccountingEdit" url="Accounting/AccountEdit.htm" title="features"   description=""/>
+		</siteMapNode>
+	</siteMapNodeRoot>
+	<siteMapNodeRoot subMenu="toolbar" roles="canIssueVoucher" id="a_FullAcountReport" url="OrderPayment/Accounting.htm"  title="fullAccountReport"  description="">
+		<siteMapNode  roles="canSale" id="a_CustomerFastOrder" url="OrderPayment/FastOrder.htm" title="expressOrder" size="95%"   description=""></siteMapNode>
+		<siteMapNode  roles="canGiveCredit" id="a_Payment" url="OrderPayment/Payment.htm" title="paymentCustomer" size="90%"   description=""></siteMapNode>
+		<siteMapNode  roles="canIssueVoucher" id="a_SellVoucher" url="OrderPayment/AddOrder.htm_#SellVoucherDiv"  title="sellVoucher" size="80%"  description=""></siteMapNode>
+		<siteMapNode roles="canAddCustomer" id="a_CustomerAddToolbar" url="Customer/CustomerAdd.htm" title="newCustomer" size="55%"  description=""></siteMapNode>
+	</siteMapNodeRoot>
+	<siteMapNodeRoot active="true" subMenu="tab"  roles="Customer" id="a_CustomerSection" url="~/Currency/CurrencyRate.htm"  title="customers"  description="">
+		<siteMapNode roles="Customer" id="a_CustomerHelp" url="Customer/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="canSale" id="a_CustomerFastOrder" url="OrderPayment/FastOrder.htm" title="expressOrder"   description=""></siteMapNode>
+		<siteMapNode active="true" isSubTab="true" roles="Customer" id="a_CustomerList" url="Customer/CustomerList.htm" title="customers"   description="">
+			<rightMenu roles="Customer" id="a_SubCustomerHelp" url="Customer/customerHelp.htm" title="features"   description=""/>
+			<rightMenu roles="canSale" id="a_CustomerOrder" url="OrderPayment/Order.htm" title="order"  description=""/>
+			<rightMenu roles="canSale" id="a_CustomerWholesaleOrder" url="OrderPayment/Order.htm" title="wholesaleOrder"   description=""/>
+			<rightMenu roles="canGiveCredit" id="a_CustomerPayment" url="OrderPayment/Payment.htm" title="paymentCustomer"   description=""/>
+			<rightMenu roles="Customer" id="a_AccountDetails" url="OrderPayment/AccountDetails.htm" title="accountSummery"   description=""/>
+			<rightMenu roles="Customer" id="a_CustomerInvoiceList" url="OrderPayment/Accounting.htm" title="orderHistory"   description=""/>
+			<!--<rightMenu roles="Customer" id="a_CustomerAcountReport" url="OrderPayment/AcountReport.htm" title="customerAcountReport"  description=""/>-->
+			<rightMenu roles="canEditCustomer" id="a_CustomerEdit" url="Customer/CustomerEdit.htm"  title="edit"  description=""/>
+			<rightMenu roles="canEditCustomerAddress" id="a_CustomerAddressEdit" url="Customer/CustomerAddressEdit.htm" title="editAddress"   description=""/>
+			<rightMenu roles="canAddPhoneCustomer" id="a_CustomerPhoneEdit" url="Customer/CustomerPhoneEdit.htm" title="editPhone"  description=""/>
+			<rightMenu roles="canSendSMS" id="a_ListSMS" url="Customer/ListSMS.htm"  title="messages"  description=""/>
+			<rightMenu roles="canIssueVoucher" id="a_CustomerVoucherList" url="Customer/VoucherList.htm" title="voucherList"   description=""/>
+			<rightMenu roles="canEditCustomerRoles" id="a_OnlineProfile" url="Customer/OnlineProfile.htm" title="onlineProfile"   description=""/>
+			<rightMenu roles="canSeeSellChart" id="a_CustomerChart" url="Customer/CustomerChart.htm"  title="sellChart"  description=""/>
+		</siteMapNode>
+		<siteMapNode roles="canAddCustomer" id="a_CustomerAdd" url="Customer/CustomerAdd.htm" title="newCustomer"  description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_AccountDetailsShopSale" url="OrderPayment/AccountDetailsShop.htm" title="accountSummery"   description=""></siteMapNode>
+		<siteMapNode roles="Customer" id="a_CustomerAccounting" url="OrderPayment/Accounting.htm" title="orderHistory"   description=""></siteMapNode>
+		<siteMapNode roles="canSeeItemReport" id="a_CustomerOrderProfit" url="OrderPayment/Accounting.htm" title="orderProfit"   description=""></siteMapNode>
+		<!--<siteMapNode roles="canSendSMS" id="a_SendSMS" url="Customer/SendSMS.htm"  title="sendMessages"  description=""></siteMapNode>-->
+		<!--<siteMapNode roles="canSeeSellChart" id="a_CustomerChart" url="Customer/CustomerChart.htm"  title="sellChart"  description=""></siteMapNode>-->
+		<!--<siteMapNode roles="Customer" id="a_AcountReport" url="OrderPayment/AcountReport.htm"  title="acountReport"  description=""></siteMapNode>-->
+		<!--<siteMapNode roles="Customer" id="a_FullAcountReport" url="OrderPayment/FullAccountReport.htm"  title="fullAccountReport"  description=""></siteMapNode>-->
+		<siteMapNode roles="canIssueVoucher" id="a_VoucherList" url="Customer/VoucherList.htm" title="voucherList"   description=""></siteMapNode>
+		<!--<siteMapNode isSubTab="true" active="true" roles="canEditSale" id="a_EditOrder" url="OrderPayment/FastOrder.htm" title="editOrder"   description="">
+			<rightMenu roles="canEditSale" id="a_EditFastOrder" url="OrderPayment/FastOrder.htm" title="editOrder"   description=""/>
+		</siteMapNode>-->
+	</siteMapNodeRoot>
+	<siteMapNodeRoot notShow="true" active="true" subMenu="tab"  roles="Customer" id="a_SubTabSection" url="~/Currency/CurrencyRate.htm"  title="customers"  description="">
+		<siteMapNode isSubTab="true" active="true" roles="canEditSale" id="a_EditOrder" url="OrderPayment/FastOrder.htm" title="editOrder"   description="">
+			<rightMenu roles="canEditSale" id="a_EditFastOrder" url="OrderPayment/FastOrder.htm" title="editOrder"   description=""/>
+		</siteMapNode>
+	</siteMapNodeRoot>
+
+
+	<siteMapNodeRoot active="true" subMenu="tab"  roles="Supplier" id="a_SupplierSection" url="~/Currency/CurrencyRate.htm" title="buy"   description="">
+		<siteMapNode roles="Supplier" id="a_SupplierHelp" url="Supplier/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="Supplier" id="a_SupplierAdd" url="Supplier/SupplierAdd.htm" title="addSupplier"   description=""></siteMapNode>
+		<siteMapNode roles="canEditQuantity" id="a_EditQuantityOrder" url="OrderPayment/FastOrder.htm" title="quantityCorrection"   description=""></siteMapNode>
+		<siteMapNode active="true" isSubTab="true" roles="Supplier" id="a_SupplierList" url="Supplier/SupplierList.htm"  title="suppliers"  description="">
+			<rightMenu roles="Supplier" id="a_SubSupplierHelp" url="Supplier/supplierHelp.htm" title="features"   description=""/>
+			<rightMenu roles="Supplier" id="a_SupplierOrder" url="OrderPayment/Order.htm"  title="order"  description=""/>
+			<rightMenu roles="Supplier" id="a_SupplierWholesaleOrder" url="OrderPayment/Order.htm"  title="wholesaleOrder"  description=""/>
+			<rightMenu roles="Supplier" id="a_SupplierPayment" url="OrderPayment/Payment.htm"  title="paymentSupplier" description=""/>
+			<rightMenu roles="Supplier" id="a_AccountDetailsSupplier" url="OrderPayment/AccountDetails.htm"  title="accountSummery"  description=""/>
+			<rightMenu roles="Supplier" id="a_SupplierInvoiceList" url="OrderPayment/Accounting.htm"  title="orderHistory" description=""/>
+			<rightMenu roles="Supplier" id="a_SupplierEdit" url="Supplier/SupplierEdit.htm"  title="edit"  description=""/>
+			<rightMenu roles="Supplier" id="a_CustomerPhoneEdit" url="Customer/CustomerPhoneEdit.htm"  title="editPhone"  description=""/>
+		</siteMapNode>
+		<siteMapNode roles="Supplier" id="a_AccountDetailsShopBuy" url="OrderPayment/AccountDetailsShop.htm" title="accountSummery"   description=""></siteMapNode>
+		<siteMapNode roles="Supplier" id="a_SupplierAccounting" url="OrderPayment/Accounting.htm" title="orderHistory"   description=""></siteMapNode>
+		<!--<siteMapNode roles="canSeeSellChart" id="a_SupplierChart" url="Customer/CustomerChart.htm"  title="buyChart"  description=""></siteMapNode>-->
+	</siteMapNodeRoot>
+
+	<!--<siteMapNodeRoot subMenu="toolbar" roles="canAddExpense" id="a_Accounting" url="OrderPayment/FullAccountReport.htm"  title="accounting"  description="">
+		<siteMapNode  roles="canDeposit" id="a_CounterPayment" url="OrderPayment/Payment.htm" title="counterPayment" size="90%"  description=""></siteMapNode>
+		<siteMapNode  roles="canTransferMoney" id="a_TransferMoney" url="OrderPayment/Payment.htm" title="moneyTransfer" size="90%"  description=""></siteMapNode>
+		<siteMapNode  roles="canAddSalary" id="a_NewSalary" url="Expenses/EmployeeSalary.htm_#dialogAddSalary"   title="salary" size="50%"  description=""></siteMapNode>
+		<siteMapNode  roles="canAddSocialSecurity" id="a_NewSocialSecurity" url="Expenses/SocialSecurity.htm_#dialogAddSocial"   title="socialSecurity" size="50%" description=""></siteMapNode>
+		<siteMapNode  roles="canAddExpense" id="a_NewExpense" url="Expenses/Expense.htm_#dialogAddExpense"  title="otherExpenses" size="50%" description=""></siteMapNode>
+	</siteMapNodeRoot>-->
+
+	<!--<siteMapNodeRoot subMenu="tab" active="true"   roles="Customer" id="a_Dashboard" url="Employee/EmployeeList.htm" title="accounting"   description="">
+		<siteMapNode  roles="Customer" id="a_AddAccounting" url="Accounting/fastOrder.htm" title="addAccount"   description=""></siteMapNode>
+	</siteMapNodeRoot>-->
+
+	<siteMapNodeRoot active="true"  subMenu="tab"  roles="Inventory" id="InventoryAdd" url="Inventory/InventoryAdd.htm" title="inventory"   description="">
+		<siteMapNode roles="Inventory" id="a_InventoryHelp" url="Inventory/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="canAddProduct" id="a_InventoryAdd" url="Inventory/InventoryAdd.htm" title="newItem"  description="">
+		</siteMapNode>
+		<siteMapNode roles="canTransferProduct" id="a_TransferProducts" url="Inventory/TransferProducts.htm" title="itemTransfer"   description="">
+		</siteMapNode>
+		<siteMapNode roles="canConfirmTransferProduct" id="a_TransferProductList" url="Inventory/TransferProductList.htm" title="itemTransferHistory"   description="">
+		</siteMapNode>
+		<siteMapNode roles="Application" id="a_EditQuantity" url="Inventory/EditQuantity.htm" title="itemStock"   description="">
+		</siteMapNode>
+		<siteMapNode active="true" isSubTab="true" roles="Inventory" id="a_InventoryList" url="Inventory/InventoryList.htm" title="itemManagement"   description="">
+			<rightMenu roles="Inventory" id="a_ItemHelp" url="Inventory/itemHelp.htm" title="features"   description=""/>
+			<rightMenu roles="Inventory" id="a_InventoryEdit" url="Inventory/InventoryEdit.htm" title="edit"   description=""/>
+			<rightMenu roles="Inventory" id="a_ColorSize" url="Inventory/Color_Size.htm" title="newColorSize"   description=""/>
+			<rightMenu roles="Inventory" id="a_ListColorSize" url="Inventory/ListColor_Size.htm" title="colorSizeList"   description=""/>
+			<rightMenu roles="canAddPrice" id="a_InventoryPrice" url="Inventory/InventoryPrice.htm" title="periodicPrice"   description=""/>
+			<rightMenu roles="canAddImage" id="a_InventoryPhoto" url="Inventory/InventoryPhoto.htm"  title="itemImages"  description=""/>
+			<rightMenu roles="canAddProductCategory" id="a_InventoryCategory" url="Inventory/InventoryCategory.htm" title="itemCategory"   description=""/>
+			<rightMenu roles="Inventory" id="a_InventoryUnit" url="Inventory/InventoryUnit.htm" title="measureUnit"  description=""/>
+			<rightMenu roles="canEditItemProperty" id="a_ItemProperty" url="Inventory/ItemProperty.htm" title="itemProperty"  description=""/>
+			<rightMenu roles="canEditProperty" id="a_ItemDefinition" url="Inventory/Definition.htm" title="itemDefinition"  description=""/>
+			<rightMenu roles="Online" id="a_ItemMatchingBarcode" url="Inventory/MatchingBarcode.htm" title="itemMatchingBarcode"  description=""/>
+			<rightMenu roles="canAddPrice" id="a_ItemAccountingDetails" url="Inventory/AccountingDetails.htm" title="accountingDetails"  description=""/>
+			<rightMenu roles="Inventory" id="a_InventoryRestriction" url="Inventory/InventoryRestriction.htm"  title="itemRestriction"  description=""/>
+		</siteMapNode>
+		<siteMapNode roles="canAddProductSetting" id="a_InventorySetting" url="Inventory/InventorySetting.htm" title="setting"   description="">
+		</siteMapNode>
+		<siteMapNode active="true" isSubTab="true" roles="canSeeItemReport" id="a_InventoryReportList" url="Inventory/InventoryReportList.htm" title="kardex"   description="">
+			<rightMenu roles="canSeeItemReport" id="a_InventoryReport" url="Inventory/barcodeStatement.htm" title="statement"   description=""/>
+		</siteMapNode>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot subMenu="tab" active="true"  roles="Employee" id="a_EmployeeSection" url="Employee/EmployeeList.htm" title="employees"   description="">
+		<siteMapNode roles="Employee" id="a_EmployeeHelp" url="Employee/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="canAddEmployee" id="a_EmployeeAdd" url="Employee/EmployeeAdd.htm" title="newEmployee"   description="">
+		</siteMapNode>
+		<siteMapNode isSubTab="true" active="true" roles="canEditEmployee" id="a_EmployeeList" url="Employee/EmployeeList.htm" title="employeeManagement"   description="">
+			<rightMenu roles="Employee" id="a_SubEmployeeHelp" url="Employee/employeeHelp.htm" title="features"   description=""/>
+			<rightMenu roles="canEditEmployee" id="a_EmployeeEdit" url="Employee/EmployeeEdit.htm" title="edit"   description=""/>
+			<rightMenu roles="canEditEmployee" id="a_EmployeeAccessDetails" url="Employee/AccessDetails.htm" title="accessSetting"   description=""/>
+			<rightMenu roles="canEditEmployee" id="a_EmployeeRole" url="Employee/EmployeeRoles.htm" title="roles"   description=""/>
+			<rightMenu roles="canEditEmployee" id="a_EmployeeShop" url="Employee/EmployeeShop.htm" title="branches"   description=""/>
+			<rightMenu roles="canEditEmployee" id="a_EmployeeCounter" url="Employee/EmployeeCounter.htm" title="cashiers"   description=""/>
+		</siteMapNode>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot subMenu="tab" active="true"  roles="Shop" id="a_ShopSection" url="~/Currency/CurrencyRate.htm" title="branches"   description="">
+		<siteMapNode roles="Shop" id="a_ShopHelp" url="ShopManagment/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="Shop" id="a_ShopAdd" url="ShopManagment/ShopAdd.htm" title="newBranch"   description="">
+		</siteMapNode>
+		<siteMapNode isSubTab="true" roles="Shop" id="a_ShopList" url="ShopManagment/ShopList.htm" title="branchManagement"   description="">
+			<rightMenu roles="Shop" id="a_ShopEdit" url="ShopManagment/ShopAdd.htm" title="edit"   description=""/>
+		</siteMapNode>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot active="true" subMenu="tab"  roles="Counter" id="a_CounterSection" url="" title="cashiers"   description="">
+		<siteMapNode  roles="Counter" id="a_CounterHelp" url="Counter/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="canAddCounter" id="a_CounterAdd" url="Counter/CounterAdd.htm" title="newCashier"  description="">
+		</siteMapNode>
+		<siteMapNode isSubTab="true" roles="Counter" id="a_CounterList" url="Counter/CounterList.htm" title="cashierManagement"   description="">
+
+			<rightMenu roles="Counter" id="a_CounterAmount" url="Counter/CounterAmount.htm" title="cashierBalance"   description=""/>
+			<rightMenu roles="canAddCounter" id="a_CounterEdit" url="Counter/CounterAdd.htm" title="edit"  description=""/>
+		</siteMapNode>
+		<siteMapNode roles="canAddCounter" id="a_Bank" url="Counter/Bank.htm" title="banks"   description=""/>
+		<!--<siteMapNode roles="canTransferMoney" id="a_TransferAmount" url="Counter/TransferAmount.htm" title="moneyTransfer"   description="">
+    </siteMapNode>-->
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot active="true" subMenu="tab"  roles="Currency" id="a_ApplicationSection" url="Application/CurrencyRate.htm" title="currencies"   description="">
+		<siteMapNode roles="Currency" id="a_CurrencyHelp" url="Currency/help.htm" title="features"  description=""></siteMapNode>
+		<siteMapNode roles="Currency" id="a_CurrencyNameList" url="Currency/Currency.htm" title="currencyNames"   description=""/>
+		<siteMapNode roles="Currency" id="a_CurrencyList" url="Currency/CurrencyRate.htm" title="currencyRate"   description=""/>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot subMenu="tab"   roles="Sms" id="a_SMSSection" url="Customer/SendSMS.htm"  title="crm"  description="">
+		<siteMapNode roles="Sms" id="a_SendSMS" url="Customer/SendSMS.htm"  title="sendMessages"  description=""></siteMapNode>
+		<siteMapNode roles="Sms" id="a_SendEmail" url="Customer/SendEmail.htm"  title="sendEmail"  description=""></siteMapNode>
+		<siteMapNode roles="Sms" id="a_AllListSMS" url="Customer/ListSMS.htm"  title="messages"  description=""></siteMapNode>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot subMenu="tab"  roles="Setting" id="a_SettingSection" url="ApplicationDetails/AddApplication.htm" title="setting"  description="">
+		<siteMapNode roles="Setting" id="a_Setting" url="Setting/Setting.htm" title="setting"   description=""/>
+		<siteMapNode isSubTab="true" roles="Setting" id="a_OrderType" url="ApplicationDetails/OrderType.htm" title="orderType"   description=""/>
+	</siteMapNodeRoot>
+
+
+
+	<siteMapNodeRoot subMenu="tab"  roles="Application" id="a_SupportSection" url="ApplicationDetails/AddApplication.htm" title="applications"  description="">
+		<!--<siteMapNode roles="Application" id="a_AddApplication" url="ApplicationDetails/AddApplication.htm" title="addapplication"   description=""/>-->
+		<siteMapNode roles="Application" id="a_BuyApplication" url="ApplicationDetails/BuyApplication.htm" title="buyapplication"   description=""/>
+		<siteMapNode isSubTab="true" roles="Application" id="a_ApplicationList" url="ApplicationDetails/ApplicationList.htm" title="applicationlist"   description="">
+			<rightMenu roles="Application" id="a_EditApplication" url="ApplicationDetails/EditApplication.htm" title="editapplication"   description=""/>
+			<rightMenu roles="Application" id="a_EditApplicationRoles" url="ApplicationDetails/EditApplicationRoles.htm" title="editapplicationroles"   description=""/>
+		</siteMapNode>
+		<siteMapNode isSubTab="true" roles="Application" id="a_VisitorStatisticManagement" url="VStatistic/VisitorStatistic.htm" title="statistic"   description=""/>
+		<siteMapNode isSubTab="true" roles="Application" id="a_OrderType" url="ApplicationDetails/OrderType.htm" title="orderType"   description=""/>
+	</siteMapNodeRoot>
+
+
+
+	<siteMapNodeRoot  subMenu="tab"  roles="Online" id="InventoryAdd" url="Inventory/InventoryAdd.htm" title="statistic"   description="">
+		<siteMapNode isSubTab="true" roles="Online" id="a_VisitorStatistic" url="VStatistic/VisitorStatistic.htm" title="statistic"   description=""/>
+	</siteMapNodeRoot>
+
+	<siteMapNodeRoot subMenu="tab"   roles="Online" id="a_OnlineStoreSection" url="OnlineStore/OnlineStore.htm" title="onlineStore"  description="">
+		<siteMapNode isSubTab="true" roles="canEditOnlineMenu" id="a_OnlineMenu" url="OnlineStore/OnlineMenuInfo.htm" title="onlineMenu"   description="">
+			<rightMenu roles="canEditOnlineMenu" id="a_MenuPhotos" url="OnlineStore/MenuPhotos.htm" title="menuPhotos"   description=""/>
+		</siteMapNode>
+		<siteMapNode isSubTab="true" roles="canEditOnlineMenu" id="a_OnlineLogo" url="OnlineStore/Logo.htm" title="onlineLogo"   description=""/>
+		<siteMapNode isSubTab="true" roles="canEditOnlineMenu" id="a_OnlineSliderShow" url="OnlineStore/SliderShow.htm" title="onlineSliderShow" description=""/>
+		<siteMapNode isSubTab="true" roles="canEditOnlineMenu" id="a_PhotoStamp" url="OnlineStore/PhotoStamp.htm" title="photoStamp" description=""/>
+		<siteMapNode isSubTab="true" roles="canEditOnlineMenu" id="a_OnlineCategories" url="OnlineStore/CategoriesInfo.htm" title="onlineCategoriesManagement" description=""/>
+		<siteMapNode isSubTab="true" roles="canEditOnlineMenu" id="a_ProductProperties" url="OnlineStore/PropertyInfo.htm" title="onlinePropertiesManagement" description=""/>
+	</siteMapNodeRoot>
+	<siteMapNodeRoot subMenu="tab"  roles="Online" id="a_OnlineOrderSection" url="OnlineOrders/Orders.htm" title="onlineOrders"  description="">
+		<siteMapNode isSubTab="true" active="true" roles="Online" id="a_InvoiceList" url="OnlineOrders/InvoiceList.htm" title="invoiceList"   description="">
+			<rightMenu roles="Online" id="a_ConfirmSell" url="OnlineOrders/ConfirmSell.htm" title="confirmSell"   description=""/>
+		</siteMapNode>
+	</siteMapNodeRoot>
+	<!--<siteMapNodeRoot  subMenu="tab"  roles="Customer" id="a_ApplicationSection" url="Support/faq.htm" title="faq"  description="">
+		<siteMapNode roles="Customer" id="a_Faq" url="Support/faq.htm" title="faq"   description=""/>
+		<siteMapNode roles="Application" id="a_AddFaq" url="Support/faqAdd.htm" title="faqAdd"   description=""/>
+	</siteMapNodeRoot>-->
+</root>

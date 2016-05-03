@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Category>
+@{
+    int c = 0;
+   @* @Html.ActionLink("محصولات", "Category", new
+{
+
+    name = "محصولات"
+})*@
+    <li><a href="@Url.Action("Index","Home")">خانه</a> </li>
+    <li><a href="@Url.Action("Category", "Home")">گروه ها</a> </li>
+    foreach (var ch in Model)
+    {
+        c++;
+        if (c < Model.Count())
+        {
+    <li><a href="@Url.Action("Category", "Home", new
+            {
+
+                categoryId = ch.CategoryId,
+                name = ch.Category
+            })" >@ch.Category</a></li>
+        }
+        else
+        {
+                
+                
+                
+    <li class="active"><span id="lastcat@(ch.CategoryId)" >@(ch.Category + " " + ch.Description)</span></li>
+        }
+    }
+               
+}

@@ -1,0 +1,37 @@
+﻿<div id="content" class="main-content">
+    <form id="imageForm" action="Uploadify/Index" method="post">
+    <ul class="formControls">
+        <li class="formControl ">
+            <input id="fileInput" name="fileInput" class="required validate" maxlength="300"
+                type="file" />
+        </li>
+        <li class="formControl">
+            <label class="labelLeft" for="username">
+                hasStamp
+            </label>
+            <input type="checkbox" name="hasStamp" id="cbhasStamp">
+        </li>
+        <li class="formControl ">
+            <select name="colorId" class=" selectMedium " id="ddl_m_Color">
+            </select>
+            <button id="btn_Submit" style="width: 100px;">
+                save</button>
+        </li>
+        <li class="formControl size1of1">
+            <div id="div_d_PhotoList" class="formControls">
+            </div>
+        </li>
+    </ul>
+    <input id="hdBarcode" type="hidden" value="True" name="barcode" />
+    </form>
+     <br class="clearer" />
+    <div class="progress">
+        <div class="bar">
+        </div>
+        <div class="percent">
+            0%</div>
+    </div>
+    <div id="status">
+    </div>
+     <br class="clearer" />
+</div>

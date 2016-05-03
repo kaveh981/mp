@@ -1,0 +1,159 @@
+﻿<link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+<div id="content" class="main-content">
+    <div id="CustomerAdvanceSearch">
+        <div class="report-filter">
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            subject
+                        </label>
+                        <div class="form-field">
+                            <select id="ddl_s_Title">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            text</label>
+                        <div class="form-field">
+                            <input type="text" id="txt_s_Body" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of3">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            sendingDateFrom
+                        </label>
+                        <div class="form-field">
+                            <input type="text" id="txt_s_SendDateFrom" />
+                        </div>
+                    </div>
+                </div>
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            to</label>
+                        <div class="form-field">
+                            <input type="text" id="txt_s_SendDateTo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div id="div_customerSms" class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            customer
+                        </label>
+                        <div class="form-field">
+                            <input type="text" id="txt_customerSms" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            mobile
+                        </label>
+                        <div class="form-field">
+                            <input type="text" id="txt_mobileSms" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            status
+                        </label>
+                        <div class="form-field">
+                            <input type="text" id="txt_smsStatus" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit unitleft">
+                <button mll="search" class="unitleft" style="display: inline-block; width: 100px;"
+                    id="btn_Search">
+                    search</button>
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <br class="clearer">
+    <div class="frog" style="clear: both;">
+        <div class="left">
+            <button class="unit" style="display: inline-block; width: 110px; margin-left: 7px;"
+                id="btn_checkStatus">
+                viewStatus</button>
+            <button class="left" style="display: inline-block; width: 100px; margin-left: 7px;"
+                id="btn_resendSms">
+                resend</button>
+        </div>
+    </div>
+    <br class="clearer">
+    <br class="clearer">
+    <table class="table">
+        <thead>
+            <tr style="height: 50px">
+                <td width="10%">
+                    <a href='javascript:void(0);' id="Date" rel="sort">date</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="Title" rel="sort">subject</a>
+                </td>
+                <td width="25%">
+                    <a href='javascript:void(0);' id="Body" rel="sort">message</a>
+                </td>
+                <td width="5%">
+                    <a href='javascript:void(0);' id="Length" rel="sort">numberOfPages</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="Number" rel="sort">number</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="p_Person.Family" rel="sort">sender</a>
+                </td>
+                <td width="10%">
+                    <a href='javascript:void(0);' id="p_Person1.Family" rel="sort">customer</a>
+                </td>
+                <td width="15%">
+                    <a href='javascript:void(0);' id="Status" rel="sort">status</a>
+                </td>
+                <td width="5%">
+                    select
+                </td>
+            </tr>
+        </thead>
+        <tbody id="SMSList">
+        </tbody>
+    </table>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+</div>

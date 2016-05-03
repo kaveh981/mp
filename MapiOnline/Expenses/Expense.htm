@@ -1,0 +1,200 @@
+﻿<head>
+    <link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<div id="content" class="main-content">
+    <div id="divExpensesearch" class="report-filter">
+        <div id="divBasic">
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            searchBy</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_m_searchBy">
+                                <option value="">searchBy</option>
+                                <option value="confirmer">confirmer</option>
+                                <option value="registerer">registerer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            value</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" id="ExpensetxtSearch" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <div id="moreFilter">
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            expenseGrp</label>
+                        <div class="form-field">
+                            <div id="divExpenseCategory">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            fromDate</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" maxlength="10" id="txt_m_fromDate" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                             toDate</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" maxlength="10" id="txt_m_toDate" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            status</label>
+                        <div class="form-field">
+                            <select name="Combo" id="ddl_m_status">
+                                <option value="">select</option>
+                                <option value="true">confirmed</option>
+                                <option value="false">notConfirmed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            confirmer</label>
+                        <div class="form-field">
+                            <input type="text" name="Date" id="txt_m_confirmer" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of7">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            amountFrom</label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" maxlength="8" id="txt_m_AmountFrom" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            to </label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" maxlength="8" id="txt_m_AmountTo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                            registerer</label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" id="txt_m_registerer" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="unit size1of6">
+                <div class="blocker">
+                    <div class="form-row">
+                        <label>
+                           description </label>
+                        <div class="form-field">
+                            <input type="text" name="Digit" maxlength="8" id="txt_m_description" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearer">
+        <br class="clearer">
+        <button class="left" id="ExpenseAdvanceSearchbt" mll="search" style="width: 100px;">
+            search</button>
+        <br />
+        <br />
+        <a class="toggle-more-filters" mll="moreFilter" href="#">description</a>
+    </div>
+    <br />
+    <br />
+    <div class="blue">
+        <button id="btn_new">
+            new</button>
+    </div>
+    <div id="expenseTable">
+    </div>
+    <div>
+        <ul class="paging unit size1of2">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">numberPerPage5</option>
+                    <option value="10">numberPerPage10</option>
+                    <option value="20">numberPerPage20</option>
+                    <option value="40">numberPerPage40</option>
+                </select></li></ul>
+    </div>
+    <input id="sumAmount" type="hidden" />
+    <div class="invisible" id="dialogAddExpense" dir="rtl">
+        <ul class="formControls">
+            <li class="formControl ">
+                <label class="labelLeft">
+                    expenseGrp  <em class="required">*</em></label>
+                <div id="divExpenseCategoryAdd" class="select">
+                </div>
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    amount  <em class="required">*</em></label>
+                <input type="text" class=" inputText inputW136 required validate" name="Digit" id="txt_m_amount_add" />
+            </li>
+            <li class="formControl">
+                <label class="labelLeft">
+                    description</label>
+                <input type="text" class=" inputText inputW136 " name="LongString" maxlength="50"
+                    id="txt_m_description_add" />
+            </li>
+            <li class="formControl unit size1of2 frog">
+                <label class="labelLeft ">
+                    &nbsp;</label>
+                <button id="btn_save">
+                    save</button>
+            </li>
+        </ul>
+    </div>
+</div>

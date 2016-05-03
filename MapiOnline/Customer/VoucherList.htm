@@ -1,0 +1,221 @@
+﻿<link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+<link href="../App_Themes/Default/vend.css" rel="stylesheet" type="text/css" />
+<div id="content" class="main-content">
+    <div id="voucherContent">
+        <div class="report-filter">
+            <input type="hidden" id="hd_d_IsClient" value="true" />
+            <input type="hidden" id="hd_d_PersonId" />
+            <div id="simpleSearch">
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               searchBy</label>
+                            <div class="form-field">
+                                <select id="SearchBy">
+                                    <option value="">searchBY </option>
+                                    <option value="registerer">issuedEmployee</option>
+                                    <option value="customer">recieverCustomer</option>
+                                    <option value="number">cardNo</option>
+                                    <option value="payer">spenderCustomer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                value</label>
+                            <div class="form-field">
+                                <input name="searchTerm" id="voucherTxtSearch" placeholder="searchph" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                expieryDate : </label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherFromValidationDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherToValidationDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                status</label>
+                            <div class="form-field">
+                                <select id="voucherStatus">
+                                    <option value="">searchBy</option>
+                                    <option value="True">valid</option>
+                                    <option value="False">invalid</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <div id="moreFilter">
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                issueDateFrom
+                            </label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherRegDateFrom" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherRegDateTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               spendingDateOf
+                            </label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherPayDateFrom" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherPayDateTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                buyAmountOf</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherBuyAmountFrom" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherBuyAmountTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of7">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                cardValueOf</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherAmountFrom" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="VoucherAmountTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <button class="left" mll="search" style="display: inline-block" id="btnSearchVoucher">
+                search</button>
+            <br />
+            <br />
+            <a class="toggle-more-filters" mll="moreFilter" href="#">moreFilter</a>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div id="VoucherList">
+    </div>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+ 
+    <div id="voucherDetailsDialog" class="orange blueHeader invisible" dir="rtl">
+        <table class="table">
+            <thead style="height: 18px">
+                <tr>
+                    <td width="20%">
+                        employeeRcv
+                    </td>
+                    <td width="20%">
+                        customerSpender
+                    </td>
+                    <td width="20%">
+                        spendingDate
+                    </td>
+                    <td width="20%">
+                        counter
+                    </td>
+                    <td width="20%">
+                        fullAccountReport
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="VoucherDetailList">
+            </tbody>
+        </table>
+    </div>
+</div>

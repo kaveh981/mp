@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MapiOnline.Models.inv_Property>
+@{
+    var prop = Model.Where(p => p.ParentId == null).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value);
+    int pc = Convert.ToInt32(12 / prop.Count());
+    foreach (var item in prop.OrderBy(o => o.Priority))
+    {       
+    <li id="@("menu"+item.inv_Property1.FirstOrDefault().PropertyId)" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle"
+        href="#">@item.inv_Property1.FirstOrDefault().Property <b class="caret"></b></a>
+        <ul class="dropdown-menu" style="left:auto;">
+            @if (item.inv_Property1.FirstOrDefault().TranslatedProperty != null && item.inv_Property1.FirstOrDefault().TranslatedProperty.ToLower() == "flower")
+            {
+                foreach (var sitem in item.inv_Property1.Where(s => s.ShowInMenu.Value).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value).OrderBy(o => o.Priority))
+                {        
+                <li><a href="@Url.Action("Category", "Home", new { property = @sitem.PropertyId, name = @sitem.Property })">
+                    <img class="flowerIcon" alt="@sitem.Property" src="@("../../Data/m_zhoobin51Images/FlowerIcons/" + sitem.TranslatedProperty + ".jpg")"/>@sitem.Property</a></li>
+                }
+            }
+            else
+                if (item.inv_Property1.FirstOrDefault().TranslatedProperty != null && item.inv_Property1.FirstOrDefault().TranslatedProperty.ToLower() == "color")
+                {
+                    foreach (var sitem in item.inv_Property1.Where(s => s.ShowInMenu.Value).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu.Value).OrderBy(o => o.Priority))
+                    {        
+                <li class="color-filter"><a href="@Url.Action("Category", "Home", new { property = @sitem.PropertyId, name = @sitem.Property })">
+                    <small  style="background-color: @sitem.TranslatedProperty.ToLower()"></small>@sitem.Property</a>
+                </li>
+                    }
+                }
+                else
+                {
+                    foreach (var sitem in item.inv_Property1.Where(s => s.ShowInMenu.Value).FirstOrDefault().inv_Property1.Where(s => s.ShowInMenu!=null && s.ShowInMenu.Value).OrderBy(o => o.Priority))
+                    {        
+                <li><a href="@Url.Action("Category", "Home", new { property = @sitem.PropertyId, name = @sitem.Property })">@sitem.Property</a></li>
+                    }
+                }
+        </ul>
+    </li>
+    }
+}

@@ -1,0 +1,9 @@
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\bin\Release\MyResources.dll
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\bin\Release\MyResources.pdb
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\bin\Release\fa-IR\MyResources.resources.dll
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\obj\Release\MyResources.Resources.resources
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\obj\Release\MyResources.Resources.fa-IR.resources
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\obj\Release\MyResources.csproj.GenerateResource.Cache
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\obj\Release\fa-IR\MyResources.resources.dll
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\obj\Release\MyResources.dll
+C:\Users\kaveh\Desktop\Mapi\2014-04-28\MyResources\obj\Release\MyResources.pdb

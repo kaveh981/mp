@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root>
+  <Title Id="1" Title="contraAccount"></Title>
+  <Title Id="2" Title="Income"></Title>
+  <Title Id="3" Title="Sales"></Title>
+  <Title Id="4" Title="Charge"></Title>
+  <Title Id="5" Title="ActualCost"></Title>
+  <Title Id="6" Title="BalanceSheet"></Title>
+</root>

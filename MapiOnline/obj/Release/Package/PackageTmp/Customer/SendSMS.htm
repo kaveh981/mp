@@ -1,0 +1,549 @@
+﻿<link href="../App_Themes/Default/Style.css" rel="stylesheet" type="text/css" />
+<div id="content" class="main-content">
+    <div id="CustomerForSMSContent">
+        <div id="CustomerForSMSSearch" class="report-filter">
+            <br class="clearer">
+            <div id="divBasic">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                searchBy
+                            </label>
+                            <div class="form-field">
+                                <select id="SearchBy">
+                                    <option value="">searchBy</option>
+                                    <option value="Code">usernameCode</option>
+                                    <option value="Email">email</option>
+                                    <option value="Name">nameAndFamily</option>
+                                    <!--<option value="RegName">ثبت نـام کننده </option>-->
+                                    <option value="IntroducerName">introducer</option>
+                                    <option value="Mobile">mobile</option>
+                                    <option value="Phone">phone</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               value
+                            </label>
+                            <div class="form-field">
+                                <input name="searchTerm" id="CustomerForSMStxtSearch" placeholder="searchph" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                dateOfRegistrationFrom</label>
+                            <div class="form-field">
+                                <input type="text" id="CustomerForSMSSearchRegDateStart" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               to</label>
+                            <div class="form-field">
+                                <input type="text" id="CustomerForSMSSearchRegDateEnd" />
+                                <button id="btn_regDate">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               gender</label>
+                            <div class="form-field">
+                                <select style="width:146px !important;" id="ddl_s_Gender">
+                                    <option value="">selectGender</option>
+                                    <option value="false">female</option>
+                                    <option value="true">male</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               fullAccountReport</label>
+                            <div class="form-field">
+                                <select style="width:146px !important;" id="ddl_s_Shop">
+                                </select>
+                                <button id="btn_shop">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                searchBy
+                            </label>
+                            <div class="form-field">
+                                <select id="ddl_d_SearchByProduct">
+                                    <option value="">searchBy</option>
+                                    <option value="Barcode">barcode</option>
+                                    <option value="Name">itemName </option>
+                                    <option value="Code">itemCode </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                value
+                            </label>
+                            <div class="form-field">
+                                <input name="searchTerm" id="txt_s_Product" placeholder="searchph" type="text" />
+                                <button id="btn_product">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label for="date">
+                                ageFrom</label>
+                            <div class="form-field">
+                                <input type="text" id="CustomerForSMSSearchAgeStart" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label for="date">
+                              to</label>
+                            <div class="form-field">
+                                <input type="text" id="CustomerForSMSSearchAgeEnd" />
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                subject</label>
+                            <div class="form-field">
+                                <select style="width:146px !important;" id="ddl_TitleSMS">
+                                </select>
+                                <button id="btn_subject">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of6">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                registrator</label>
+                            <div class="form-field">
+                                <select style="width:146px !important;" id="ddl_registerer">
+                                </select>
+                                <button id="btn_registerer">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <br class="clearer">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                address</label>
+                            <div class="form-field">
+                                <div class="select" id="divCustomerForSMSAddress">
+                                </div>
+                                <button id="btn_address">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                category &nbsp;</label>
+                            <div class="form-field">
+                                <div class="select" id="div_Category">
+                                </div>
+                                <button id="btn_category">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                sort
+                            </label>
+                            <div class="form-field">
+                                <select id="ddl_s_Sort">
+                                    <option value="AccountId">customerCode</option>
+                                    <option value="p_Person.DateOfBirth">age</option>
+                                    <option value="NetBuy">buy</option>
+                                    <option value="NetPayment">payed</option>
+                                    <option value="NetBuy - it.NetPayment">debt</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               ordering
+                            </label>
+                            <div class="form-field">
+                                <select id="ddl_s_Sorting">
+                                    <option value="Desc">upDown</option>
+                                    <option value="Asc">downUp</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <br class="clearer">
+            </div>
+            <br class="clearer">
+            <div id="moreFilter">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                lastMessageDateFrom</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_LastDateSMSFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_LastDateSMSTo" />
+                                <button id="btn_lastSentDate">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                lastPaymentDateFrom</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_PaymenytLastFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                              to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_PaymenytLastTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                lastPurchaseOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_BuytLastFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_BuytLastTo" />
+                                <button id="lastBuyDate">
+                                    include</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               netPaymentOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_PaymentAmountFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_PaymentAmountTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                netPurchaseOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_BuyAmountFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_BuyAmountTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                 debtOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_DebtFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_DebtTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                 introducedBuyingOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_BuyIntroducerFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_BuyIntroducerTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               cardValueOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_VocherBuyFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_VocherBuyTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class="clearer">
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               notpassedChequeOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_ChequeNotFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_ChequeNotTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit size1of3">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                passedChequeOf</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_ChequePassFrom" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                to</label>
+                            <div class="form-field">
+                                <input type="text" id="txt_s_ChequePassTo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clearer">
+            <button   id="CustomerForSMSAdvanceSearchbt" style="width: 100px;"
+                class="unitleft" >search</button>
+            <br />
+            <br />
+            <a class="toggle-more-filters" mll="moreFilter" href="#">moreFilter</a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="formControls report-filter">
+        <div style="margin: 1px 10px; width: 40%;" class="unit">
+            <div>
+                <ul id="ulSmsItems" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix  ui-corner-all">
+                    <li char="11" id="li_title" name="title" class="ui-state-default ui-corner-top"><a
+                        class="ui-tabs-anchor">sirMadam</a> </li>
+                    <li char="11" id="li_name" name="name" class="ui-state-default ui-corner-top"><a
+                        href="#" class="ui-tabs-anchor">name</a> </li>
+                    <li char="17" id="li_family" name="family" class="ui-state-default ui-corner-top"><a
+                        href="#" class="ui-tabs-anchor">family</a> </li>
+                    <li char="8" id="li_amount" name="amount" class="ui-state-default ui-corner-top"><a
+                        href="#" class="ui-tabs-anchor"> debtPrice</a></li>
+                    <li char="7" id="li_voucherAmount" name="voucherAmount" class="ui-state-default ui-corner-top">
+                        <a href="#" class="ui-tabs-anchor">voucherFee</a></li>
+                    <li char="7" id="li_text" name="text" class="ui-state-default ui-corner-top">
+                        <p class="unit">
+                            text</p>
+                        <textarea cols="3" style="width: 350px;" id="txt_content" />
+                        <button id="btn_editContent" class="invisible">
+                            edit</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin: 1px 10px;" class="unit">
+            <div>
+                <ul id="txt_m_Body" class="ui-tabs-nav  ui-corner-all" style="width: 400px; height: 100px;
+                    overflow: scroll; border: thin groove #FF00FF">
+                </ul>
+            </div>
+            <div>
+                <div class="unit">
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                                page
+                            </label>
+                            <div class="form-field">
+                                <input type="text" id="txt_m_Page" style="width: 30px" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blocker">
+                        <div class="form-row">
+                            <label>
+                               character
+                            </label>
+                            <div class="form-field">
+                                <input type="text" id="txt_m_Count" style="width: 30px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="divSmsSubject" style="margin: 1px 10px;" class="unit">
+            <div style="margin-bottom: 40px;" class="select" id="ddl_s_Title">
+            </div>
+        </div>
+        <div style="clear: both;">
+            <div class="left frog">
+                <button id="SendAll" style="width: 120px; margin-left: 7px;" >sendToAll</button>
+                <button id="SendSelected"  style="width: 120px;
+                    margin-left: 7px;" >sendToSelection</button><span class="blue">
+                <button mll="amountOfCredit" id="btn_showCredit"  style="width: 100px;
+                    margin-left: 7px;"  >amountOfCredit</button></span>
+            </div>
+        </div>
+        <br class="clearer">
+        <div>
+        </div>
+        <div>
+        </div>
+        <br class="clearer">
+        <div class="unit frog unitleft">
+        </div>
+        <br class="clearer">
+    </div>
+    <br class="clearer">
+    <table class="table">
+        <thead>
+        </thead>
+        <tbody id="CustomerForSMSList">
+        </tbody>
+    </table>
+    <div>
+        <ul class="paging">
+            <li>
+                <div id="paging" class="pagination">
+                </div>
+            </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>
+                <select class="PagingSelect" id="PageSize">
+                    <option value="5">itemsPerPage5</option>
+                    <option value="10">itemsPerPage10</option>
+                    <option value="20">itemsPerPage20</option>
+                    <option value="40">itemsPerPage40</option>
+                </select></li></ul>
+    </div>
+</div>
