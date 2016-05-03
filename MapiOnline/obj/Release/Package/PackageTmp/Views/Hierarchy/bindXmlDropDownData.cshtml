@@ -1,8 +1,0 @@
-﻿@model MapiOnline.Models.XmlDropDownData
-<script type="text/javascript">
-               $(document).ready(function ($) {
-                   bindXmlDropDownData({ id: @Html.Raw(Json.Encode(Model.id)),container: @Html.Raw(Json.Encode(Model.container)), 
-                   path: @Html.Raw(Json.Encode(Model.path)), canmodify: @Html.Raw(Json.Encode(Model.canmodify)),
-                   istext: @Html.Raw(Json.Encode(Model.istext)), headertext: @Html.Raw(Json.Encode(Model.headertext)) });
-               });
-</script>

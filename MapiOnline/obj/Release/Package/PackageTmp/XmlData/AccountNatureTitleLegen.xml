@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<root>
-
-  <Title Id="7" Title="creditorEndPer"></Title>
-  <Title Id="8" Title="debtorEndPer"></Title>
-  <Title Id="9" Title="creditorDuringPer"></Title>
-  <Title Id="10" Title="debtorDuringPer"></Title>
-
-</root>
