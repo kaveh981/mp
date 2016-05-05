@@ -951,8 +951,8 @@ namespace MapiOnline.Controllers
                         "سفارش",
                        "http://shirazrose.com/Shopping/Payment",
                         0);
-                    // make this ==0;
-                    if (Convert.ToInt32(result.Split(',')[0]) != 0)
+                    //******** make this ==0;
+                    if (Convert.ToInt32(result.Split(',')[0]) == 0)
                         throw new FileNotFoundException(result.Split(',')[0] + "_" + orderId.ToString());
                     //return RedirectToAction("ShoppingCart", "Shopping");
                     //return RedirectToAction("Home", "Index", new { d = result.Split(',')[0] });
@@ -1283,8 +1283,8 @@ namespace MapiOnline.Controllers
 
                 String[] resultArray = result.Split(',');
                 //ViewBag.Script = "<script language='javascript' type='text/javascript'>  alert('" + resultArray[0] + "');</script> ";
-                //change to !=
-                if (resultArray[0] == "0")
+                //********change to !=
+                if (resultArray[0] != "0")
                 {
 
                     db.SaveChanges();
@@ -1292,13 +1292,13 @@ namespace MapiOnline.Controllers
 
                     //bool isgift = isGift == null ? false : true;
                     //bool Gift = gift == null ? false : true;
-                    //change to 0
-                    ViewBag.Script = "<script language='javascript' type='text/javascript'>  postRefId('" + resultArray[1] + "');</script> ";
+                    //********change to 0
+                    ViewBag.Script = "<script language='javascript' type='text/javascript'>  postRefId('" + resultArray[0] + "');</script> ";
                     XDocument xmlDoc = XDocument.Load(Server.MapPath("~/Data/ReceiverInfo.xml"));
                     xmlDoc.Element("root").Elements("User").Where(t => t.Attribute("personId").Value == per.AccountId.ToString()).Remove();
                     xmlDoc.Element("root").Add(new XElement("User",
-                        // set second index to 0
-                        new XAttribute("refid", resultArray[0] + "--" + resultArray[1]),
+                        //********* set second index to 0
+                        new XAttribute("refid", resultArray[0] + "--" + resultArray[0]),
                         new XAttribute("personId", per.AccountId),
                         new XAttribute("UserName", userName),
                         new XAttribute("Amount", amount),
@@ -1319,9 +1319,9 @@ namespace MapiOnline.Controllers
                         new XAttribute("shoppingCartId", shoppingCartId)
                     ));
                     xmlDoc.Save(Server.MapPath("~/Data/ReceiverInfo.xml"));
-                    //uncomment payment and comment return
-                    //return  Payment("www", "www", 4444, 4444);
-                    return View("PayAmount");
+                    //*******uncomment payment and comment return
+                    return  Payment("www", "www", 4444, 4444);
+                    //return View("PayAmount");
                     //  return RedirectToAction("OrderInfo", "Shopping");
                 }
                 else
@@ -1408,8 +1408,8 @@ namespace MapiOnline.Controllers
                     saleOrderId.Value,
                     SaleReferenceId.Value
             );
-                //make it ==
-                if (result.Split(',')[0] != "0")
+                //*********make it ==
+                if (result.Split(',')[0] == "0")
                 {
                     utility.BypassCertificateError();
                     result = bpService.bpInquiryRequest(appDetails.TerminalId.Value,
@@ -1419,8 +1419,8 @@ namespace MapiOnline.Controllers
                     saleOrderId.Value,
                     SaleReferenceId.Value);
                 }
-                // make it !=
-                if (result.Split(',')[0] == "0")
+                //********* make it !=
+                if (result.Split(',')[0] != "0")
                 {
                     //ViewBag.Script = "<script language='javascript' type='text/javascript'> alert('" + result.Split(',')[0] + "--" + SaleReferenceId + "');</script> ";
                     ac_OrderHeader payment = new ac_OrderHeader();
