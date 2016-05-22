@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* =============================================================== */
 /* 	TABLE CONTENT
 
@@ -304,7 +304,7 @@ h3 code {
 	margin-top: 60px;
 }
 .globalPadding {
-	padding: 50px 0;
+	padding: 0px 0;
 }
 .globalPaddingTop {
 	/*padding: 50px 0 0;*/
@@ -785,7 +785,7 @@ margin-left: -10px;
 	float: right;
 	font-size: 12px;
 	line-height: 30px;
-	padding: 0 20px 0 0;
+	padding: 0 30px 0 0;
 	text-decoration: none;
 	transition: opacity 0.2s ease-out 0s;
 	-webkit-transition: opacity 0.21s ease-out 0s;
@@ -1554,7 +1554,7 @@ margin-left: -10px;
 	font-size: 25px;
 	font-weight: normal;
 	line-height: 25px;
-	margin: 10px 0 20px;
+	margin: 0px 0 20px;
 	padding: 0;
 	position: relative;
 	border: none;
@@ -1612,7 +1612,7 @@ margin-left: -10px;
 	-o-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;
 	margin-bottom: 15px;
-	height: 400px;
+	height: 360px;
 }
 #SimilarProductSlider .item {
 	height: auto !important;
@@ -1771,7 +1771,7 @@ margin-left: -10px;
 	overflow: hidden;
 	display: block;
 	line-height: 20px;
-	margin: 25px 0 0;
+	margin: 8px 0 0;
 	padding: 0;
 }
 .item h4 a {
@@ -2147,7 +2147,7 @@ h5.parallaxSubtitle {
 	background: none;
 }
 .main-container {
-	min-height: 580px;
+	min-height: 440px;
 }
 .headerOffset {
 	padding-top: 120px;

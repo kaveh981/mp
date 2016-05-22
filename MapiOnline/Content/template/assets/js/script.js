@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     // NEW ARRIVALS Carousel
     $("#productslider").owlCarousel({
-        navigation: true,
+        navigation: false,
         items: 4,
         itemsTablet: [768, 2],
         navigationText: ["بعدی", "قبلی"]
